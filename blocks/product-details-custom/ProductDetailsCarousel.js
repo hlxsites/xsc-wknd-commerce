@@ -3,7 +3,6 @@ import {
 } from '../../scripts/preact.js';
 import htm from '../../scripts/htm.js';
 import Icon from './Icon.js';
-import { getSkuFromUrl } from '../../scripts/commerce.js';
 
 const html = htm.bind(h);
 
@@ -111,11 +110,6 @@ export default class Carousel extends Component {
 
   render() {
     this.getImages();
-
-    if (!this.images || !this.thumbnailImages) {
-      this.images = [`${window.origin}/${this.props.productImageFolder}/${getSkuFromUrl().toLowerCase()}.jpg`];
-      this.thumbnailImages = [];
-    }
 
     return html`
         <div class="product-detail-carousel">

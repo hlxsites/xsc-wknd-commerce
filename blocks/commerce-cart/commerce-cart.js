@@ -1,13 +1,26 @@
-import { readBlockConfig } from '../../scripts/aem.js';
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
 
-export default function decorate(block) {
-  const config = readBlockConfig(block);
+// Drop-in Providers
+import { render as provider } from '@dropins/storefront-cart/render.js';
 
-  const content = document.createRange().createContextualFragment(`<div>
-    Commerce Cart drop-in
-    <pre>${JSON.stringify(config, null, 2)}</pre>
-  </div>`);
+// Drop-in Containers
+import Cart from '@dropins/storefront-cart/containers/Cart.js';
 
-  block.textContent = '';
-  block.append(content);
+export default async function decorate(block) {
+  // Initialize Drop-ins – already initialized in scripts/dropins.js
+
+  // Temporary link to Checkout
+  const goToCheckoutLink = document.createElement('a');
+  goToCheckoutLink.href = '/checkout';
+  goToCheckoutLink.innerText = 'Checkout';
+  goToCheckoutLink.style = 'background: black; color: white; display: block; margin-top: 1rem; float: right; padding: 1rem; text-decoration: none;';
+
+  block.appendChild(goToCheckoutLink);
+
+  // Render Containers
+  return provider.render(Cart, {
+    routeEmptyCartCTA: () => '/',
+    routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
+  })(block);
 }

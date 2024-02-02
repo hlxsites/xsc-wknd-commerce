@@ -1,4 +1,6 @@
-import { cartApi } from '../../scripts/minicart/api.js';
+/* eslint-disable import/no-unresolved */
+
+import { events } from '@dropins/elsie/event-bus.js';
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
@@ -133,16 +135,25 @@ export default async function decorate(block) {
 
   // Minicart
   const minicartButton = document.createRange().createContextualFragment(`<div class="minicart-wrapper">
-    <button type="button" class="nav-cart-button">0</button>
-    <div></div>
+    <button type="button" class="nav-cart-button">&nbsp;&nbsp;</button>
+    <div class="minicart-panel"></div>
   </div>`);
+
   navTools.append(minicartButton);
-  navTools.querySelector('.nav-cart-button').addEventListener('click', () => {
-    cartApi.toggleCart();
+
+  // TODO: Toggle Mini Cart; Mini Cart Drop-in is not yet available, go to Cart page instead.
+  // const minicartPanel = navTools.querySelector('.minicart-panel');
+  // let cartVisible = false;
+  navTools.querySelector('.nav-cart-button').addEventListener('click', async () => {
+  //   cartVisible = !cartVisible;
+  //   minicartPanel.classList.toggle('minicart-panel-visible', cartVisible);
+    window.location.href = '/cart';
   });
-  cartApi.cartItemsQuantity.watch((quantity) => {
-    navTools.querySelector('.nav-cart-button').textContent = quantity;
-  });
+
+  // Cart Item Counter
+  events.on('cart/data', (data) => {
+    navTools.querySelector('.nav-cart-button').textContent = data?.totalQuantity || '0';
+  }, { eager: true });
 
   // Search
   const searchInput = document.createRange().createContextualFragment('<div class="nav-search-input hidden"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>');

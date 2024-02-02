@@ -412,6 +412,7 @@ export async function loadCategory(state) {
       facets: response.productSearch.facets.filter((facet) => facet.attribute !== 'categories'),
     };
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error('Error loading products', e);
     return {
       pages: 1,
