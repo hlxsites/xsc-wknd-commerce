@@ -48,7 +48,14 @@ export default async function decorate(block) {
           variant: 'primary',
           onClick: async () => {
             try {
-              await addProductsToCart([{ ...ctx.values }]);
+              await addProductsToCart([{
+                ...ctx.values,
+
+                // TODO: PDP to rename values.optionUIDs to values.optionsUIDs
+                // for consistency. i.e. addProductsToCart([{ ...ctx.values }])
+                optionsUIDs: ctx.values.optionUIDs,
+              }]);
+
               window.location.href = '/cart';
             } catch (error) {
               console.warn('Error adding product to cart', error);
