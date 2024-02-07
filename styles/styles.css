@@ -12,7 +12,7 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* Elsie base design */
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
@@ -89,7 +89,7 @@
   --spacing-huge: 120px;
   --spacing-xhuge: 144px;
   --spacing-xxhuge: 192px;
-  --type-base-font-family: roboto, roboto-fallback;
+  --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
   --type-display-1-font: normal normal 300 6rem/7.2rem
     var(--type-base-font-family);
   --type-display-1-letter-spacing: 0.04em;
@@ -143,17 +143,33 @@
   --type-details-overline-letter-spacing: 0.16em;
 
   /* Additional tokens */
-  --type-fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
-    monospace;
+  --type-fixed-font-family: var(--type-base-font-family);
   --background-color: var(--color-neutral-50);
   --nav-height: 6.4rem;
-}
+  --med-grid-layout: 792px;
+  --large-grid-layout: 1200px;
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
+  /* Additional brand tokens - WKND Adventure Theme */
+  --color-brand-black-1: #000; /* Type 1: Black */
+  --color-brand-black-2: #202020; /* Type 2: Black */
+  --color-brand-theme-1: #FFEA00; /* Yellow */
+  --color-brand-theme-2: #F5F5F5; /* Background grey */
+  --heading-font-family: 'Source Serif Pro', sans-serif;
+
+  /* body sizes */
+  --body-font-size-xs: 10px;
+  --body-font-size-s: 12px;
+  --body-font-size-m: 16px;
+  --body-font-size-lg: 20px;
+  --body-font-size-xl: 24px;
+
+  /* heading sizes */
+  --heading-font-size-xs: 18px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-xxl: 40px;
 }
 
 html {
@@ -175,6 +191,17 @@ body.appear {
 
 header {
   height: var(--nav-height);
+}
+
+/* Need to adjust main because of positioning of the fixed header */
+main {
+  margin-top: 106px;
+} 
+
+@media (width < 900px) {
+  main {
+    margin-top: 42px;
+  } 
 }
 
 h1 {
@@ -205,6 +232,31 @@ h5 {
 h6 {
   font: var(--type-headline-2-default-font);
   letter-spacing: var(--type-headline-2-default-letter-spacing);
+}
+
+.section .default-content-wrapper > h1,
+.section .default-content-wrapper > h2,
+.section .default-content-wrapper > h3,
+.section .default-content-wrapper > h4,
+.section .default-content-wrapper > h5,
+.section .default-content-wrapper > h6 {
+  width: fit-content;
+  margin: 0;
+}
+
+.section .default-content-wrapper h1::after,
+.section .default-content-wrapper h2::after,
+.section .default-content-wrapper h3::after,
+.section .default-content-wrapper h4::after,
+.section .default-content-wrapper h5::after,
+.section .default-content-wrapper h6::after {
+  border-bottom: 2px solid var(--color-brand-theme-1);
+  content: "";
+  display: block;
+  padding-top: 10px;
+  min-width: 84px;
+  max-width: 30%;
+  width: 100%;
 }
 
 p,
@@ -278,7 +330,7 @@ button > u {
   text-decoration: none;
 }
 
-/* buttons */
+/* WKND Adventure Themed buttons */
 a.button:any-link,
 button:not([class^='elsie-']) {
   font: var(--type-button-2-font);
@@ -296,14 +348,49 @@ button:not([class^='elsie-']) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+}
+
+button.button-primary,
+a.button-primary {
+  display: block;
+  background-color: var(--color-brand-theme-1);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  color: var(--color-brand-black-2);
+  padding: 8px 24px;
+  width: fit-content;
+  height: auto;
+  letter-spacing: 0.08em;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+
+button.button-secondary,
+a.button-secondary {
+  display: block;
+  background-color: var(--color-brand-black-1);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  color: var(--color-neutral-50);
+  padding: 8px 24px;
+  width: fit-content;
+  height: auto;
+  letter-spacing: 0.08em;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: uppercase;
 }
 
 a.button:hover,
 a.button:focus,
 button:not([class^='elsie-']):hover,
 button:not([class^='elsie-']):focus {
-  background-color: var(--color-brand-600);
+  background-color: var(--color-neutral-200);
   cursor: pointer;
 }
 
@@ -366,16 +453,16 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: 2rem 15px
 }
 
-@media (width >=600px) {
+@media (width <= 768px) {
   main .section {
-    padding: 64px 32px;
+    padding: 1.5rem 15px
   }
 }
 
-@media (width >=900px) {
+@media (width >=1024px) {
   .section > div {
     max-width: 1200px;
     margin: auto;
@@ -386,6 +473,28 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--color-neutral-500);
+}
+
+main .section.default-width {
+  max-width: var(--med-grid-layout);
+  margin: 0 auto;
+}
+
+main .section.max-width {
+  max-width: var(--large-grid-layout);
+  margin: 0 auto;
+}
+
+main .section.bottom-divider {
+  padding: 2rem 2rem 4rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-neutral-300);
+}
+
+main .section.top-divider {
+  padding: 4rem 2rem 2rem;
+  margin-top: 2rem;
+  border-top:  1px solid var(--color-neutral-300);
 }
 
 /* Base Design System Tokens */

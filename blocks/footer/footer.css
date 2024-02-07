@@ -1,15 +1,116 @@
 footer {
   padding: 2rem;
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-brand-black-1);
   font: var(--type-body-2-default-font);
   letter-spacing: var(--type-body-2-default-letter-spacing);
+  color: var(--color-neutral-50);
 }
 
 footer .footer {
-  max-width: 1200px;
+  max-width: var(--large-grid-layout);
   margin: auto;
+  height: 19vh;
+  padding: 4rem 0;
 }
+
+@media (width <= 900px) {
+  footer .footer {
+    padding: 1rem 0;
+  }
+}
+
 
 footer .footer p {
   margin: 0;
+}
+
+footer a {
+  color: var(--color-neutral-50) !important;
+}
+
+footer .wrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media (width <= 900px) {
+  footer .wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+  }
+}
+
+footer .wrapper .section.brand-logo img {
+  width: 150px;
+  height: auto;
+}
+
+footer .wrapper .section.brand-logo {
+  flex: 2;
+}
+
+@media (width <= 900px) {
+  footer .wrapper .section.brand-logo {
+    flex: unset;
+  }
+}
+
+footer .wrapper .section.site-links {
+  display: flex;
+  flex: 8;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  footer .wrapper .section.site-links {
+    flex: unset;
+  }
+}
+
+footer .wrapper .section.site-links .default-content-wrapper {
+  margin: 0 0 0 auto;
+}
+
+@media (width <= 900px) {
+  footer .wrapper .section.site-links .default-content-wrapper {
+    margin: 0;
+  }
+}
+
+footer .wrapper .section.site-links .default-content-wrapper ul, .footer .wrapper .section.social-media .default-content-wrapper ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer .wrapper .section.site-links .default-content-wrapper ul li a {
+  text-transform: uppercase;
+  font-size: var(--body-font-size-xs);
+  letter-spacing: 0.16em;
+  margin: 0 1.5em;
+  padding: 1em 1.3em;
+}
+
+.footer .wrapper .section.social-media {
+  margin-left: 2em;
+}
+
+.footer .wrapper .section.social-media .default-content-wrapper ul {
+  background:var(--color-neutral-50);
+}
+
+.footer .wrapper .section.social-media img {
+  padding: 0.85em 1em 0.6em;
+  width: 24px;
+  height: 24px;
+}
+
+@media (width <= 900px) {
+  .footer .wrapper .section.social-media img {
+    padding: 0.5em 0.5em 0.2em;
+  }
 }
