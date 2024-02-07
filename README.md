@@ -4,8 +4,8 @@ This project boilerplate is for Edge Delivery Services projects that integrate w
 
 ## Environments
 
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--wknd-commerce-xsc--timwlee.hlx.page/
+- Live: https://main--wknd-commerce-xsc--timwlee.hlx.live/
 
 ## Pre-requisites
 
