@@ -1,5 +1,5 @@
 main .hero-container > div {
-  max-width: 1480px;
+  max-width: 100%;
 }
   
 main .hero-container {
