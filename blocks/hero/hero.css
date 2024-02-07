@@ -1,22 +1,16 @@
 main .hero-container > div {
-  max-width: unset;
+  max-width: 1480px;
 }
   
 main .hero-container {
   padding: 0;
+  margin-bottom: 2rem;
 }
 
 .hero {
   position: relative;
   padding: 32px;
   min-height: 300px;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
 }
 
 .hero picture {
@@ -31,4 +25,52 @@ main .hero-container {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.hero h2 {
+  margin: 0.75em 0 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  letter-spacing: 0.04em;
+  line-height: normal;
+}
+
+.hero p {
+  margin: 0;
+}
+
+.hero .hero-desc-wrapper {
+  background-color: var(--color-neutral-50);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1.25em 2em;
+  box-sizing: border-box;
+  max-width: var(--med-grid-layout);
+  width: 100%;
+  border-bottom: 1px solid var(--color-neutral-300);
+}
+
+@media (width <= 768px) {
+  .hero .hero-desc-wrapper {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: unset;
+  }
+}
+
+.hero .hero-desc-wrapper p:first-of-type {
+  margin: 0.75em 0 1.5em;
+}
+
+@media (width <= 768px) {
+  .hero .hero-desc-wrapper p:first-of-type {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+.hero .hero-desc-wrapper .button-container {
+  display: inline-block;
 }

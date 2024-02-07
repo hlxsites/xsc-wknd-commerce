@@ -89,6 +89,24 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function addAnimation() {
+  window.addEventListener('scroll', () => {
+    const header = document.getElementsByClassName('header-nav-wrapper')[0];
+    const scrollPosition = window.scrollY;
+    const viewportWidth = window.innerWidth;
+
+    if (viewportWidth > 900) {
+      if (scrollPosition > 168) {
+        header.classList.add('minimized');
+      } else {
+        header.classList.remove('minimized');
+      }
+    } else {
+      header.classList.remove('minimized');
+    }
+  });
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -133,12 +151,21 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
+  // Search
+  const searchInput = document.createRange().createContextualFragment('<div class="nav-search-input hidden"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>');
+  document.body.querySelector('header').append(searchInput);
+
+  const searchButton = document.createRange().createContextualFragment('<button type="button" class="nav-search-button">Search</button>');
+  navTools.append(searchButton);
+  navTools.querySelector('.nav-search-button').addEventListener('click', () => {
+    document.querySelector('header .nav-search-input').classList.toggle('hidden');
+  });
+
   // Minicart
   const minicartButton = document.createRange().createContextualFragment(`<div class="minicart-wrapper">
     <button type="button" class="nav-cart-button">&nbsp;&nbsp;</button>
     <div class="minicart-panel"></div>
   </div>`);
-
   navTools.append(minicartButton);
 
   // TODO: Toggle Mini Cart; Mini Cart Drop-in is not yet available, go to Cart page instead.
@@ -155,16 +182,6 @@ export default async function decorate(block) {
     navTools.querySelector('.nav-cart-button').textContent = data?.totalQuantity || '0';
   }, { eager: true });
 
-  // Search
-  const searchInput = document.createRange().createContextualFragment('<div class="nav-search-input hidden"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>');
-  document.body.querySelector('header').append(searchInput);
-
-  const searchButton = document.createRange().createContextualFragment('<button type="button" class="nav-search-button">Search</button>');
-  navTools.append(searchButton);
-  navTools.querySelector('.nav-search-button').addEventListener('click', () => {
-    document.querySelector('header .nav-search-input').classList.toggle('hidden');
-  });
-
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -179,7 +196,9 @@ export default async function decorate(block) {
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
-  navWrapper.className = 'nav-wrapper';
+  navWrapper.className = 'header-nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  addAnimation();
 }
