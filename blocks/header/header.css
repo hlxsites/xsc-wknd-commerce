@@ -223,6 +223,7 @@ header nav .nav-sections ul > li > a {
   padding: 1em 1.2em;
 }
 
+header nav .nav-sections ul > li > a.active,
 header nav .nav-sections ul > li > a:hover {
   text-decoration: none;
   background-color: var( --color-brand-theme-2);

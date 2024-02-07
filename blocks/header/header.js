@@ -107,6 +107,21 @@ function addAnimation() {
   });
 }
 
+function setActiveTab() {
+  const currentPath = window.location.pathname;
+  const path = currentPath.replace(/\//g, '');
+  const navTabLinks = document.querySelector('.nav-sections ul');
+
+  [...navTabLinks.children].forEach((tab) => {
+    const link = tab.querySelector('a');
+    const linkTitle = link.title.toLowerCase();
+
+    if (linkTitle === path) {
+      link.classList.add('active');
+    }
+  });
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -201,4 +216,5 @@ export default async function decorate(block) {
   block.append(navWrapper);
 
   addAnimation();
+  setActiveTab();
 }
