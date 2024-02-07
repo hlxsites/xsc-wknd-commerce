@@ -1,0 +1,15 @@
+footer {
+  padding: 2rem;
+  background-color: var(--color-neutral-100);
+  font: var(--type-body-2-default-font);
+  letter-spacing: var(--type-body-2-default-letter-spacing);
+}
+
+footer .footer {
+  max-width: 1200px;
+  margin: auto;
+}
+
+footer .footer p {
+  margin: 0;
+}
