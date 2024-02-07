@@ -1,0 +1,10 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable no-empty-source */
+.product-details .elsie-incrementer__decrease-button, .product-details .elsie-incrementer__increase-button {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--shape-border-radius-3);
+    color: var(--color-brand-700);
+}
