@@ -107,6 +107,50 @@ function addAnimation() {
   });
 }
 
+function setActiveTab() {
+  const currentPath = window.location.pathname;
+  const matchResult = currentPath.match(/^\/([^/]+)/);
+  const path = matchResult ? matchResult[1] : null;
+  const navTabLinks = document.querySelector('.nav-sections ul');
+
+  [...navTabLinks.children].forEach((tab) => {
+    const link = tab.querySelector('a');
+    const linkTitle = link.title.toLowerCase();
+
+    if (linkTitle === path) {
+      link.classList.add('active');
+    }
+  });
+
+  /* temp - only for the demo since the adventures landing page is the "home page"
+  */
+  if (!path) {
+    const adventureTab = navTabLinks.querySelector('a[title="Adventures"],a[title="adventures"]');
+    adventureTab.classList.add('active');
+  }
+}
+
+function buildCustomBreadcrumbs() {
+  const path = window.location.pathname.split('/').slice(1).map((word) => word.charAt(0).toUpperCase() + word.slice(1).replace(/-/g, ' '));
+
+  const breadcrumbContainer = document.createElement('div');
+  breadcrumbContainer.className = 'breadcrumb-container';
+
+  path.forEach((text, index) => {
+    const element = document.createElement(index === 0 ? 'a' : 'span');
+    if (index === 0) {
+      element.href = `/${text.toLowerCase().replace(/ /g, '-')}`;
+    }
+    element.textContent = text;
+    breadcrumbContainer.appendChild(element);
+    if (index < path.length - 1) {
+      breadcrumbContainer.appendChild(document.createTextNode(' • '));
+    }
+  });
+
+  document.querySelector('main').prepend(breadcrumbContainer);
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -201,4 +245,10 @@ export default async function decorate(block) {
   block.append(navWrapper);
 
   addAnimation();
+  setActiveTab();
+
+  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+    // navWrapper.append(await buildBreadcrumbs());
+    buildCustomBreadcrumbs();
+  }
 }

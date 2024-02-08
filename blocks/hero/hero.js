@@ -2,18 +2,23 @@
  * loads and decorates the hero
  * @param {Element} block The hero block element
  */
+
 export default async function decorate(block) {
-  const firstChildDiv = block.querySelector('div > div[data-align="right"]');
-  const secondChildDiv = block.querySelector('div > div:nth-child(2)');
-  const imageEl = firstChildDiv?.querySelector('img');
+  const imageEl = block.querySelector('img');
+  imageEl.removeAttribute('loading'); // Lighthouse recommendation: remove lazy-loading
 
-  firstChildDiv?.classList.add('hero-image');
-  imageEl.removeAttribute('loading');
+  // Target the second child div
+  const secondChildDiv = block.children[0];
+  [...secondChildDiv.children].forEach((child) => {
+    const pictureElement = child.querySelector('picture');
 
-  if (secondChildDiv) {
-    secondChildDiv.classList.add('hero-desc-wrapper');
-    const buttonLink = secondChildDiv.querySelector('.button-container a');
-    buttonLink?.classList.remove('button', 'button-primary');
-    buttonLink?.classList.add('button-primary');
-  }
+    if (pictureElement) {
+      child.className = 'hero-image';
+    } else {
+      child.className = 'hero-desc-wrapper';
+      const buttonLink = child.querySelector('.button-container a');
+      buttonLink?.classList.remove('button', 'button-primary');
+      buttonLink?.classList.add('button-primary');
+    }
+  });
 }

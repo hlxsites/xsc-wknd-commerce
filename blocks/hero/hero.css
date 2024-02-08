@@ -1,5 +1,5 @@
 main .hero-container > div {
-  max-width: 1480px;
+  max-width: 100%;
 }
   
 main .hero-container {
@@ -27,10 +27,14 @@ main .hero-container {
   height: 100%;
 }
 
-.hero h2 {
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
   margin: 0.75em 0 0;
   font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-m);
   letter-spacing: 0.04em;
   line-height: normal;
 }
@@ -73,4 +77,26 @@ main .hero-container {
 
 .hero .hero-desc-wrapper .button-container {
   display: inline-block;
+}
+
+.hero-container .default-content-wrapper h1,
+.hero-container .default-content-wrapper h2,
+.hero-container .default-content-wrapper h3,
+.hero-container .default-content-wrapper h4,
+.hero-container .default-content-wrapper h5,
+.hero-container .default-content-wrapper h6 {
+  margin: 1rem 0 3rem;
+}
+
+
+@media (width <= 768px) {
+  .hero-container .default-content-wrapper h1,
+  .hero-container .default-content-wrapper h2,
+  .hero-container .default-content-wrapper h3,
+  .hero-container .default-content-wrapper h4,
+  .hero-container .default-content-wrapper h5,
+  .hero-container .default-content-wrapper h6 {
+    padding: 0 1rem;
+    margin: 1rem 0 2rem;
+  }
 }

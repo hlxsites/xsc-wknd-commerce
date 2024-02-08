@@ -6,6 +6,7 @@ import {
   decorateIcons,
   decorateSections,
   decorateTemplateAndTheme,
+  getMetadata,
   loadBlocks,
   loadCSS,
   loadFooter,
@@ -50,6 +51,35 @@ export function decorateMain(main) {
 }
 
 /**
+ * to add/remove a template, just add/remove it in the list below
+ */
+const TEMPLATE_LIST = [
+  'adventures',
+];
+
+/**
+ * Run template specific decoration code.
+ * @param {Element} main The container element
+ */
+async function decorateTemplates(main) {
+  try {
+    const template = getMetadata('template');
+    const templates = TEMPLATE_LIST;
+    if (templates.includes(template)) {
+      const mod = await import(`../templates/${template}/${template}.js`);
+      loadCSS(`${window.hlx.codeBasePath}/templates/${template}/${template}.css`);
+      if (mod.default) {
+        await mod.default(main);
+      }
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('Auto Blocking failed', error);
+  }
+}
+
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
@@ -84,6 +114,7 @@ async function loadEager(doc) {
 
   const main = doc.querySelector('main');
   if (main) {
+    decorateTemplates(main);
     decorateMain(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);
