@@ -200,7 +200,7 @@ main {
 
 @media (width < 900px) {
   main {
-    margin-top: 42px;
+    margin-top: 40px;
   } 
 }
 
@@ -253,7 +253,7 @@ h6 {
   border-bottom: 2px solid var(--color-brand-theme-1);
   content: "";
   display: block;
-  padding-top: 10px;
+  padding-top: 8px;
   min-width: 84px;
   max-width: 30%;
   width: 100%;
