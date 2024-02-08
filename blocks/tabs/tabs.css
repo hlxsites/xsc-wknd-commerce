@@ -1,0 +1,152 @@
+.tabs {
+  overflow-x: hidden;
+
+  /* so we could easily hide the radio inputs */
+  margin: 32px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc
+}
+
+.tabs [type="radio"] {
+  /* hiding the inputs */
+  display: none;
+}
+
+.tabs-control {
+  display: flex;
+  list-style: none;
+  flex-flow: row wrap;
+  row-gap: 48px;
+  margin: 0 0 24px;
+}
+
+@media (min-width: 1024px) {
+  .tabs-control {
+    /* border-bottom: 1px solid #000; */
+  }
+}
+
+
+.tab {
+  margin: 0;
+  position: relative;
+  list-style: none;
+  white-space: nowrap;
+  display: list-item;
+  top: 0;
+  float: none;
+}
+
+
+.tab>label,
+.tab>label>h2,
+.tab>label>h2>a {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.tab>label>h2 {
+  margin-bottom: 0;
+}
+
+.tab>label>h2>a {
+  display: block;
+  width: 100%;
+  font-weight: 300;
+  line-height: 135%;
+  padding: 16px;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+  text-shadow: -0.4px -0.4px 0 transparent, 0.4px 0.3px transparent;
+  font-size: 24px;
+}
+
+.tab>label>h2>a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+  .tab>label>h2>a {
+    padding: 24px;
+    border-bottom: 3px solid transparent;
+  }
+}
+
+.tab:hover label {
+  color: #333;
+}
+
+.contents-wrapper .contents {
+  display: none;
+  color: #777;
+}
+
+.tabs-control .tab:hover>label>h2>a {
+  color: var(--link-hover-color);
+}
+
+/* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
+.tabs-control .tab:hover>label>h2>a,
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(1)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(2)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(3)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(4)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(5)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(6)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(7)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(8)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(9)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(10)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(11)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(12)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(13)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(14)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(15)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(16)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(17)>label>h2>a,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(18)>label>h2>a {
+  color: var(--link-hover-color);
+  border-color: var(--link-color);
+}
+
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(1)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(2)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(3)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(4)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(5)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(6)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(7)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(8)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(9)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(10)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(5):checked~.tabs-control .tab:nth-of-type(11)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(12)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(13)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(14)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(15)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(16)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(17)>label>h2>a:hover,
+.tabs [type="radio"]:nth-of-type(4):checked~.tabs-control .tab:nth-of-type(18)>label>h2>a:hover {
+  color: var(--link-hover-color);
+}
+
+.tabs [type="radio"]:nth-of-type(1):checked~.contents-wrapper .contents:nth-of-type(1),
+.tabs [type="radio"]:nth-of-type(2):checked~.contents-wrapper .contents:nth-of-type(2),
+.tabs [type="radio"]:nth-of-type(3):checked~.contents-wrapper .contents:nth-of-type(3),
+.tabs [type="radio"]:nth-of-type(4):checked~.contents-wrapper .contents:nth-of-type(4),
+.tabs [type="radio"]:nth-of-type(5):checked~.contents-wrapper .contents:nth-of-type(5),
+.tabs [type="radio"]:nth-of-type(6):checked~.contents-wrapper .contents:nth-of-type(6),
+.tabs [type="radio"]:nth-of-type(7):checked~.contents-wrapper .contents:nth-of-type(7),
+.tabs [type="radio"]:nth-of-type(8):checked~.contents-wrapper .contents:nth-of-type(8),
+.tabs [type="radio"]:nth-of-type(9):checked~.contents-wrapper .contents:nth-of-type(9),
+.tabs [type="radio"]:nth-of-type(10):checked~.contents-wrapper .contents:nth-of-type(10),
+.tabs [type="radio"]:nth-of-type(11):checked~.contents-wrapper .contents:nth-of-type(11),
+.tabs [type="radio"]:nth-of-type(12):checked~.contents-wrapper .contents:nth-of-type(12),
+.tabs [type="radio"]:nth-of-type(13):checked~.contents-wrapper .contents:nth-of-type(13),
+.tabs [type="radio"]:nth-of-type(14):checked~.contents-wrapper .contents:nth-of-type(14),
+.tabs [type="radio"]:nth-of-type(15):checked~.contents-wrapper .contents:nth-of-type(15),
+.tabs [type="radio"]:nth-of-type(16):checked~.contents-wrapper .contents:nth-of-type(16),
+.tabs [type="radio"]:nth-of-type(17):checked~.contents-wrapper .contents:nth-of-type(17),
+.tabs [type="radio"]:nth-of-type(18):checked~.contents-wrapper .contents:nth-of-type(18) {
+  display: block;
+}
