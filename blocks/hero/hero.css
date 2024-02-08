@@ -27,10 +27,14 @@ main .hero-container {
   height: 100%;
 }
 
-.hero h2 {
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
   margin: 0.75em 0 0;
   font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-m);
   letter-spacing: 0.04em;
   line-height: normal;
 }
