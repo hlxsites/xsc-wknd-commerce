@@ -2,8 +2,8 @@
 
 ## Environments
 
-- Preview: https://main--wknd-commerce-xsc--timwlee.hlx.page/
-- Live: https://main--wknd-commerce-xsc--timwlee.hlx.live/
+- Preview: https://main--xsc-wknd-commerce--timwlee.hlx.page/
+- Live: https://main--xsc-wknd-commerce--timwlee.hlx.live/
 
 ## Pre-requisites
 
