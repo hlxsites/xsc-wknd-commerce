@@ -173,7 +173,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: var(--body-font-size-xs);
 }
 
 body {
@@ -198,7 +198,7 @@ main {
   margin-top: 105px;
 } 
 
-@media (width < 900px) {
+@media (width < 768px) {
   main {
     margin-top: 40px;
   } 
