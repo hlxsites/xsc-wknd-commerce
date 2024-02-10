@@ -1,11 +1,9 @@
-# Edge Delivery Services + Adobe Commerce Boilerplate (Experimental)
-
-This project boilerplate is for Edge Delivery Services projects that integrate with Adobe Commerce.
+# Edge Delivery Services + Adobe Commerce (Experimental)
 
 ## Environments
 
-- Preview: https://main--wknd-commerce-xsc--timwlee.hlx.page/
-- Live: https://main--wknd-commerce-xsc--timwlee.hlx.live/
+- Preview: https://main--xsc-wknd-commerce--hlxsites.hlx.page/
+- Live: https://main--xsc-wknd-commerce--hlxsites.hlx.live/
 
 ## Pre-requisites
 

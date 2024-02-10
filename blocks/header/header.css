@@ -81,7 +81,8 @@ header nav p {
 .breadcrumb-container {
   max-width: var(--large-grid-layout);
   margin: 0 auto;
-  padding: 4rem 15px 1rem;
+  padding: 4rem 0 1rem;
+  box-sizing: border-box;
 }
 
 .breadcrumb-container,
