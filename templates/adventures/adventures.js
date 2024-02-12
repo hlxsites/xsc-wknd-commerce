@@ -1,10 +1,9 @@
 import { getAEMHeadlessClient } from '../../scripts/scripts.js';
+import { getMetadata } from '../../scripts/aem.js';
 
 /* Hardcoded endpoint */
 const AEM_HOST = 'https://publish-p24020-e1129912.adobeaemcloud.com';
 const client = await getAEMHeadlessClient(AEM_HOST);
-const queryURL = 'aem-demo-assets/adventure-by-slug-v2;slug=bali-surf-camp';
-const dataObj = await client.runPersistedQuery(queryURL);
 
 const ADVENTURE_DETAILS = {
   activity: 'Activity',
@@ -22,10 +21,11 @@ const categories = {
 };
 
 export default async function decorate(block) {
-  const metaTag = document.querySelector('meta[name="slug"]');
-  const slug = metaTag.getAttribute('content');
+  const slug = getMetadata('slug');
   if (!slug) return;
 
+  const queryURL = `aem-demo-assets/adventure-by-slug-v2;slug=${slug}`;
+  const dataObj = await client.runPersistedQuery(queryURL);
   const adventure = dataObj.data.adventureList.items[0];
 
   // Add data to tabs

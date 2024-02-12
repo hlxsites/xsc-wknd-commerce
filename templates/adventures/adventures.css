@@ -78,6 +78,17 @@
   max-height: 400px;
 }
 
+.adventures main .tabs-container .adventure-details h1,
+.adventures main .tabs-container .adventure-details h2,
+.adventures main .tabs-container .adventure-details h3,
+.adventures main .tabs-container .adventure-details h4,
+.adventures main .tabs-container .adventure-details h5,
+.adventures main .tabs-container .adventure-details h6 {
+  font-size: var(  --heading-font-size-s);
+  width: fit-content;
+  line-height: normal;
+}
+
 .adventures main .tabs-container .share-adventure {
   margin: 15px 0;
   font-size: var(--body-font-size-s);
