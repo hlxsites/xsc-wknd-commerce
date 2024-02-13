@@ -1,7 +1,17 @@
+.adventures main {
+  max-width: var(--large-grid-layout);
+  margin: 105px auto 0;
+}
+
+@media (width < 768px) {
+  .adventures main {
+    margin-top: 40px;
+  } 
+}
+
 .adventures main .tabs-container {
   display: flex;
   flex-direction: row;
-  max-width: var(--large-grid-layout);
   margin: 2em auto;
   padding: 0 15px;
 }

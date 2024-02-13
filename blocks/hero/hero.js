@@ -6,6 +6,7 @@
 export default async function decorate(block) {
   const imageEl = block.querySelector('img');
   imageEl.removeAttribute('loading'); // Lighthouse recommendation: remove lazy-loading
+  imageEl.setAttribute('loading', 'eager');
 
   // Target the second child div
   const secondChildDiv = block.children[0];
