@@ -39,6 +39,9 @@ const createImg = () => {
 };
 
 export default async function decorate(block) {
+  console.log("adventures block!: ", block);
+  block.style.display = 'none';
+
   const slug = getMetadata('slug');
   if (!slug) return;
 
@@ -121,4 +124,6 @@ export default async function decorate(block) {
     defaultContentWrapper.classList.replace('default-content-wrapper', 'redirect-btn-container');
     tabsBlock.append(defaultContentWrapper);
   }
+
+  block.style.display = 'block';
 }
