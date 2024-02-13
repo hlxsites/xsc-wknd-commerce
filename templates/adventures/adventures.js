@@ -20,6 +20,24 @@ const categories = {
   gearList: 'What to Bring',
 };
 
+const adventureText = 'Share this adventure';
+const imgPath = '/icons/share.png';
+
+const createElement = (tagName, className) => {
+  const el = document.createElement(tagName);
+  el.className = className;
+  return el;
+};
+
+const createImg = () => {
+  const img = document.createElement('img');
+  img.src = imgPath;
+  img.alt = 'Share Icon';
+  img.width = 24;
+  img.height = 24;
+  return img;
+};
+
 export default async function decorate(block) {
   const slug = getMetadata('slug');
   if (!slug) return;
@@ -80,25 +98,13 @@ export default async function decorate(block) {
   });
 
   // Append 'Share this adventure'
-  const text = 'Share this adventure';
-  const imgPath = '/icons/share.png';
-  const shareElDesktop = document.createElement('p');
-  shareElDesktop.className = 'share-adventure desktop';
+  const shareElDesktop = createElement('p', 'share-adventure desktop');
+  shareElDesktop.appendChild(createImg());
+  shareElDesktop.insertAdjacentText('beforeend', adventureText);
 
-  const shareElMobile = document.createElement('p');
-  shareElMobile.className = 'share-adventure mobile';
-
-  const imgElDesktop = document.createElement('img');
-  imgElDesktop.src = imgPath;
-
-  const imgElMobile = document.createElement('img');
-  imgElMobile.src = imgPath;
-
-  shareElDesktop.appendChild(imgElDesktop);
-  shareElMobile.appendChild(imgElMobile);
-
-  shareElDesktop.insertAdjacentText('beforeend', text);
-  shareElMobile.insertAdjacentText('beforeend', text);
+  const shareElMobile = createElement('p', 'share-adventure mobile');
+  shareElMobile.appendChild(createImg());
+  shareElMobile.insertAdjacentText('beforeend', adventureText);
 
   const tabsBlock = document.querySelector('.section.tabs-container');
   sideBar.append(shareElDesktop);
@@ -107,7 +113,7 @@ export default async function decorate(block) {
   // Append side bar and PDP redirect link button
   tabsBlock.prepend(sideBar);
 
-  const pdpLinkButton = block.querySelector('.adventure-details .button-container a');
+  const pdpLinkButton = block.querySelector('.tabs-container .button-container a');
   pdpLinkButton.classList.replace('button', 'button-primary');
 
   const defaultContentWrapper = pdpLinkButton.closest('.default-content-wrapper');

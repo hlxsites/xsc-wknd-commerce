@@ -1,7 +1,17 @@
+.adventures main {
+  max-width: var(--large-grid-layout);
+  margin: 105px auto 0;
+}
+
+@media (width < 768px) {
+  .adventures main {
+    margin-top: 40px;
+  } 
+}
+
 .adventures main .tabs-container {
   display: flex;
   flex-direction: row;
-  max-width: var(--large-grid-layout);
   margin: 2em auto;
   padding: 0 15px;
 }
@@ -84,9 +94,22 @@
 .adventures main .tabs-container .adventure-details h4,
 .adventures main .tabs-container .adventure-details h5,
 .adventures main .tabs-container .adventure-details h6 {
-  font-size: var(  --heading-font-size-s);
+  font-size: var(--heading-font-size-s);
   width: fit-content;
   line-height: normal;
+}
+
+.adventures main .tabs-container .adventure-details h1::after,
+.adventures main .tabs-container .adventure-details h2::after,
+.adventures main .tabs-container .adventure-details h3::after,
+.adventures main .tabs-container .adventure-details h4::after,
+.adventures main .tabs-container .adventure-details h5::after,
+.adventures main .tabs-container .adventure-details h6::after {
+  border-bottom: none;
+  content: none;
+  padding-top: 0;
+  min-width: none;
+  max-width: none;
 }
 
 .adventures main .tabs-container .share-adventure {

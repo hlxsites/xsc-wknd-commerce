@@ -240,6 +240,12 @@ header nav .nav-sections ul > li {
   font-weight: 700;
 }
 
+@media (width < 768px) {
+  header nav .nav-sections ul > li {
+    margin: 15px 0;
+  } 
+}
+
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
