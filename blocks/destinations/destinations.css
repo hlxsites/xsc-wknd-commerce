@@ -40,6 +40,8 @@
   background-color: var(--color-brand-theme-2);
   box-sizing: border-box;
   padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (width <= 768px) {
@@ -77,7 +79,8 @@
 }
 
 .destinations .card-info p.button-container {
-  margin-top: 4rem;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .destinations .card-info .custom-link {
