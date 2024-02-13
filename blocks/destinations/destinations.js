@@ -1,7 +1,18 @@
 export default function decorate(block) {
   const link = block.querySelector('a.button');
-  const country = block.parentNode.parentNode.getAttribute('data-country');
+  const divElements = block.querySelectorAll('div');
+  let country = '';
   let data = [];
+
+  divElements.forEach((divElement, index) => {
+    if (divElement.textContent.trim().toLowerCase() === 'country') {
+      if (divElements[index + 1]) {
+        country = divElements[index + 1].textContent.trim();
+      } else {
+        console.log("No country value found.");
+      }
+    }
+  });
 
   function modifyHTML() {
     block.innerHTML = '';
