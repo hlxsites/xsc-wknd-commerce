@@ -185,7 +185,7 @@
   margin: 0;
 }
 
-.adventures .tabs-container ul.tabs-control a {
+.adventures .tabs-container ul.tabs-control div {
   font-size: 14px;
   padding: 0.5rem 1rem;
 }
@@ -196,27 +196,4 @@
 
 .adventures .tabs-container ul.tabs-control li:first-of-type {
   margin: 0 3px 0 0;
-}
-
-/* Override default tabs css */
-/* As we cannot replace the numbers with variables or calls to element properties, the number of this selector parts is our tab count limit */
-.adventures .tabs-container .tabs-control .tab:hover>label>h2>a,
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(1)>label>h2>a,
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(2)>label>h2>a,
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(3)>label>h2>a {
-  color: var(--link-hover-color);
-  border-color: var(--link-color);
-  font-weight: 900;
-}
-
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(1):checked~.tabs-control .tab:nth-of-type(1)>label>h2>a:hover,
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(2):checked~.tabs-control .tab:nth-of-type(2)>label>h2>a:hover,
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(3):checked~.tabs-control .tab:nth-of-type(3)>label>h2>a:hover {
-  color: var(--link-hover-color);
-}
-
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(1):checked~.contents-wrapper .contents:nth-of-type(1),
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(2):checked~.contents-wrapper .contents:nth-of-type(2),
-.adventures .tabs-container .tabs [type="radio"]:nth-of-type(3):checked~.contents-wrapper .contents:nth-of-type(3){
-  display: block;
 }
