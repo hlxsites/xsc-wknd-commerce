@@ -105,7 +105,15 @@ function modifyHTML(block) {
     }
   });
 
-  container.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  container.querySelectorAll('img').forEach((img) => {
+    img.closest('picture').replaceWith(
+      createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
+    );
+  });
+
+  const imageEl = container.querySelector('img');
+  imageEl.height = '200';
+  imageEl.width = '200';
 }
 
 export default async function decorate(block) {
