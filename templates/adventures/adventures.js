@@ -39,7 +39,6 @@ const createImg = () => {
 };
 
 export default async function decorate(block) {
-  console.log("adventures block!: ", block);
   block.style.display = 'none';
 
   const slug = getMetadata('slug');
