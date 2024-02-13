@@ -62,7 +62,7 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
 
     const h2 = document.createElement('h2');
 
-    const a = document.createElement('a');
+    const a = document.createElement('div');
     a.innerHTML = tabTitle;
     h2.append(a);
     label.append(h2);
@@ -79,6 +79,7 @@ function generateTabNav(tabSectionIndex, presentTabContents) {
 }
 
 export default async function decorate(block) {
+  console.log("tabs block")
   const presentTabContents = [...block.querySelectorAll(':scope > div.contents-wrapper > div.contents')];
 
   if (presentTabContents && presentTabContents.length > 0) {
