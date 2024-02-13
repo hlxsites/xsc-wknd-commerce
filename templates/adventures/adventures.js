@@ -90,9 +90,15 @@ export default async function decorate(block) {
 
   const imgElDesktop = document.createElement('img');
   imgElDesktop.src = imgPath;
+  imgElDesktop.alt = 'Share Icon';
+  imgElDesktop.width = 24;
+  imgElDesktop.height = 24;
 
   const imgElMobile = document.createElement('img');
   imgElMobile.src = imgPath;
+  imgElMobile.alt = 'Share Icon';
+  imgElMobile.width = 24;
+  imgElMobile.height = 24;
 
   shareElDesktop.appendChild(imgElDesktop);
   shareElMobile.appendChild(imgElMobile);
