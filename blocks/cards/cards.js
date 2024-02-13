@@ -33,8 +33,10 @@ export default function decorate(block) {
       createdCard.href = `/adventures/${card.slug}`;
       createdCard.innerHTML = `
         <div class="card-image">
-          <img loading="lazy" alt="${card.activity}" src="${card.primaryImage._publishUrl}" width="" height="">
-        </div>
+          <picture>
+            <img loading="lazy" alt="${card.activity}" srcset="${card.primaryImage._publishUrl}" width="200" height="150">
+          </picture>
+          </div>
         <div class="card-info">
           <p>${card.title}</p>
           <span>${card.tripLength}</span>
