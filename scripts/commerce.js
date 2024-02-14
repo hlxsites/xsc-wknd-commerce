@@ -315,6 +315,8 @@ export function getSkuFromUrl() {
   return result?.[1];
 }
 
+// Create new functionality for adventures
+
 const productsCache = {};
 export async function getProduct(sku) {
   // eslint-disable-next-line no-param-reassign

@@ -9,7 +9,7 @@ export default function decorate(block) {
       if (divElements[index + 1]) {
         country = divElements[index + 1].textContent.trim();
       } else {
-        console.log("No country value found.");
+        console.log('No country value found.');
       }
     }
   });

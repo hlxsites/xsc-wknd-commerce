@@ -68,11 +68,11 @@ export default async function decorate(block) {
         });
 
         // Share this itinerary
-        // ctx.appendButton({
-        //   text: 'Share this itinerary',
-        //   variant: 'primary',
-        //   onClick: () => console.debug('Share this itinerary', ctx.data),
-        // });
+        ctx.appendButton({
+          text: 'Share this itinerary',
+          variant: 'primary',
+          onClick: () => console.debug('Share this itinerary', ctx.data),
+        });
       },
       Breadcrumbs: (ctx) => {
         // Override default separator
