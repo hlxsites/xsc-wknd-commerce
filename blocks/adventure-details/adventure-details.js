@@ -16,7 +16,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
-import { getSkuFromUrl } from '../../scripts/commerce.js';
+import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -38,7 +38,7 @@ export default async function decorate(block) {
 
   // Render Containers
   return productRenderer.render(ProductDetails, {
-    sku: getSkuFromUrl(),
+    sku: getAdventureSkuFromUrl(),
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
