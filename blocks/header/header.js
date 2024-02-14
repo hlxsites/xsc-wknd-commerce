@@ -201,9 +201,9 @@ export default async function decorate(block) {
 
   const searchButton = document.createRange().createContextualFragment('<button type="button" class="nav-search-button">Search</button>');
   navTools.append(searchButton);
-  navTools.querySelector('.nav-search-button').addEventListener('click', () => {
-    document.querySelector('header .nav-search-input').classList.toggle('hidden');
-  });
+  // navTools.querySelector('.nav-search-button').addEventListener('click', () => {
+  //   document.querySelector('header .nav-search-input').classList.toggle('hidden');
+  // });
 
   // Minicart
   const minicartButton = document.createRange().createContextualFragment(`<div class="minicart-wrapper">

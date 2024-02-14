@@ -60,12 +60,36 @@ export default async function decorate(block) {
         });
 
         // Add to Wishlist Button
-        // ctx.appendButton({
-        //   icon: 'Heart',
-        //   variant: 'primary',
-        //   onClick: () => console.debug('Add to Wishlist', ctx.data),
-        // });
+        ctx.appendButton({
+          text: 'Add to wishlist',
+          icon: 'Heart',
+          variant: 'primary',
+          onClick: () => console.debug('Add to Wishlist', ctx.data),
+        });
+
+        // Share this itinerary
+        ctx.appendButton({
+          text: 'Share this itinerary',
+          variant: 'primary',
+          onClick: () => console.debug('Share this itinerary', ctx.data),
+        });
       },
+      Breadcrumbs: (ctx) => {
+        // Override default separator
+        ctx.setSeparator('ChevronLeft');
+        ctx.appendLink({
+          text: 'Breadcrumb #1',
+          href: '#one',
+        });
+        ctx.appendLink({
+          text: 'Breadcrumb #2',
+          href: '#two',
+        });
+      },
+    },
+    carousel: {
+      controls: 'thumbnailsColumn', /* ThumbnailsColumn, ThumbnailsRow, dots (default) */
+      mobile: true,
     },
   })(block);
 }
