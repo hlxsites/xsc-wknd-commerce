@@ -3,3 +3,4 @@ mountpoints:
 
 folders:
   /products/: /products/default
+  /adventures/details/: /adventures/details/default
