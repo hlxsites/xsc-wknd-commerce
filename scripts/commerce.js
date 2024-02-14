@@ -315,7 +315,12 @@ export function getSkuFromUrl() {
   return result?.[1];
 }
 
-// Create new functionality for adventures
+// Adventures custom pdp specific
+export function getAdventureSkuFromUrl() {
+  const path = window.location.pathname;
+  const result = path.match(/\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
+  return result?.[2];
+}
 
 const productsCache = {};
 export async function getProduct(sku) {
