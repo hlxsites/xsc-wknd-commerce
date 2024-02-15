@@ -52,7 +52,7 @@ export default async function decorate(block) {
                 ...ctx.values,
               }]);
 
-              window.location.href = '/cart';
+              // window.location.href = '/cart';
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
