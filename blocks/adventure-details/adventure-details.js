@@ -74,18 +74,6 @@ export default async function decorate(block) {
           onClick: () => console.debug('Share this itinerary', ctx.data),
         });
       },
-      Breadcrumbs: (ctx) => {
-        // Override default separator
-        ctx.setSeparator('ChevronLeft');
-        ctx.appendLink({
-          text: 'Breadcrumb #1',
-          href: '#one',
-        });
-        ctx.appendLink({
-          text: 'Breadcrumb #2',
-          href: '#two',
-        });
-      },
     },
     carousel: {
       controls: 'thumbnailsColumn', /* ThumbnailsColumn, ThumbnailsRow, dots (default) */

@@ -116,22 +116,22 @@
   --spacing-xhuge: 144px;
   --spacing-xxhuge: 192px;
   --type-display-1-font: normal normal 300 6rem/7.2rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-display-1-letter-spacing: 0.04em;
   --type-display-2-font: normal normal 300 4.8rem/5.6rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-display-2-letter-spacing: 0.04em;
   --type-display-3-font: normal normal 300 3.4rem/4rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-display-3-letter-spacing: 0.04em;
   --type-headline-1-font: normal normal 400 2.4rem/3.2rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-headline-1-letter-spacing: 0.04em;
   --type-headline-2-default-font: normal normal 300 2rem/2.4rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-headline-2-default-letter-spacing: 0.04em;
   --type-headline-2-strong-font: normal normal 400 2rem/2.4rem
-    var(--type-base-font-family);
+    var(--heading-font-family);
   --type-headline-2-strong-letter-spacing: 0.04em;
   --type-body-1-default-font: normal normal 300 1.6rem/2.4rem
     var(--type-base-font-family);
@@ -237,18 +237,7 @@ h6 {
   letter-spacing: var(--type-headline-2-default-letter-spacing);
 }
 
-.section .default-content-wrapper > h1,
-.section .default-content-wrapper > h2,
-.section .default-content-wrapper > h3,
-.section .default-content-wrapper > h4,
-.section .default-content-wrapper > h5,
-.section .default-content-wrapper > h6,
-.section .elsie-base-design h1,
-.section .elsie-base-design h2,
-.section .elsie-base-design h3,
-.section .elsie-base-design h4,
-.section .elsie-base-design h5,
-.section .elsie-base-design h6 {
+h1,h2,h3,h4,h5,h6 {
   width: fit-content;
   margin: 0;
 }
@@ -258,13 +247,7 @@ h6 {
 .section .default-content-wrapper h3::after,
 .section .default-content-wrapper h4::after,
 .section .default-content-wrapper h5::after,
-.section .default-content-wrapper h6::after,
-.section .elsie-base-design h1::after,
-.section .elsie-base-design h2::after,
-.section .elsie-base-design h3::after,
-.section .elsie-base-design h4::after,
-.section .elsie-base-design h5::after,
-.section .elsie-base-design h6::after {
+.section .default-content-wrapper h6::after {
   border-bottom: 2px solid var(--color-brand-theme-1);
   content: "";
   display: block;
@@ -514,4 +497,50 @@ main .section.top-divider {
 /* Base Design System Tokens */
 .elsie-base-design.elsie-base-design {
   --background-none: none 0 0% no-repeat padding-box;
+}
+
+/* Global PDP columns overrides */ 
+@media (width >= 1024px) {
+  .elsie-base-design .pdp-product .pdp-product__gallery-column {
+    grid-column: 1 / span 7;
+  }
+  
+  .elsie-base-design .pdp-product .pdp-product__content-column {
+    grid-column: 8 / span 5;
+  }
+
+  .elsie-base-design .pdp-product .pdp-product__breadcrumbs {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Additional global styling */
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-iconButton--primary,
+.elsie-base-design .elsie-button--secondary,
+.elsie-base-design .elsie-iconButton--secondary {
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-iconButton--primary,
+.elsie-base-design .elsie-button--primary:hover,
+.elsie-base-design .elsie-iconButton--primary:hover,
+.elsie-base-design .elsie-button--primary:hover:active,
+.elsie-base-design .elsie-iconButton--primary:focus {
+  background: var(--color-brand-theme-1);
+  color: var(--color-brand-black-1);
+}
+
+.elsie-base-design .elsie-button--secondary,
+.elsie-base-design .elsie-iconButton--secondary,
+.elsie-base-design .elsie-button--secondary:hover,
+.elsie-base-design .elsie-iconButton--secondary:hover,
+.elsie-base-design .elsie-button--secondary:hover:active,
+.elsie-base-design .elsie-iconButton--secondary:focus{
+  background: var(--color-brand-black-1);
+  color: var(--color-neutral-50);
 }

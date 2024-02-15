@@ -1,5 +1,39 @@
 /* stylelint-disable no-empty-source */
+.elsie-base-design .pdp-product__prices {
+  margin-top: 2rem;
+}
 
-/* .elsie-base-design .some-class {
+.elsie-base-design .pdp-product__quantity {
+  grid-column: 1 / span 1;
+}
 
-} */
+.elsie-base-design .pdp-product__buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-button--secondary {
+  width: 100%;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn {
+  background: var(--color-brand-black-1);
+  border-radius: 0;
+  padding: 0.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn svg path {
+  stroke: var(--color-neutral-50);
+  stroke-width: 1;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Previous"] {
+  top: 1.75rem;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Next"] {
+  bottom: 1.75rem;
+}
