@@ -16,7 +16,7 @@ export default async function decorate(block) {
         alt: 'Account User Icon',
       },
       {
-        iconSrc: '/icons/american-flag-2.png',
+        iconSrc: '/icons/american-flag.png',
         text: 'usa - en',
         wrapperClass: 'language-wrapper',
         iconClass: 'flag-icon',
