@@ -17,13 +17,6 @@
   width: 100%;
 }
 
-.elsie-base-design .elsie-button--primary:focus,
-.elsie-base-design .elsie-button--primary:focus:hover,
-.elsie-base-design .elsie-button--secondary:focus,
-.elsie-base-design .elsie-button--secondary:focus:hover {
-  background-color: var(--color-brand-theme-1);
-}
-
 .elsie-base-design .pdp-carousel__button--thumbnailsColumn {
   background: var(--color-brand-black-1);
   border-radius: 0;

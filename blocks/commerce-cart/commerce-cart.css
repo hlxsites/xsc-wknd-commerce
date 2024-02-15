@@ -16,13 +16,6 @@
   width: fit-content;
 }
 
-.elsie-base-design .elsie-button--primary:focus,
-.elsie-base-design .elsie-button--primary:focus:hover,
-.elsie-base-design .elsie-button--secondary:focus,
-.elsie-base-design .elsie-button--secondary:focus:hover {
-  background-color: var(--color-brand-theme-1);
-}
-
 .elsie-base-design .elsie-price-summary hr[role="separator"],
 .elsie-base-design .cart-cart__wrapper hr {
   display: none;

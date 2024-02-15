@@ -514,34 +514,36 @@ main .section.top-divider {
   }
 }
 
-/* Additional global styling */
-.elsie-base-design .elsie-button--primary,
-.elsie-base-design .elsie-iconButton--primary,
-.elsie-base-design .elsie-button--secondary,
-.elsie-base-design .elsie-iconButton--secondary,
-.elsie-base-design .elsie-button--tertiary {
-  border: none;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-
+/* Primary Buttons */
 .elsie-base-design .elsie-button--primary,
 .elsie-base-design .elsie-iconButton--primary,
 .elsie-base-design .elsie-button--primary:hover,
 .elsie-base-design .elsie-iconButton--primary:hover,
 .elsie-base-design .elsie-button--primary:hover:active,
-.elsie-base-design .elsie-iconButton--primary:focus {
+.elsie-base-design .elsie-iconButton--primary:focus,
+.elsie-base-design .elsie-button--primary:focus,
+.elsie-base-design .elsie-button--primary:focus:hover {
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 900;
   background: var(--color-brand-theme-1);
   color: var(--color-brand-black-1);
 }
 
+/* Secondary Buttons */
 .elsie-base-design .elsie-button--secondary,
 .elsie-base-design .elsie-iconButton--secondary,
 .elsie-base-design .elsie-button--secondary:hover,
 .elsie-base-design .elsie-iconButton--secondary:hover,
 .elsie-base-design .elsie-button--secondary:hover:active,
-.elsie-base-design .elsie-iconButton--secondary:focus{
+.elsie-base-design .elsie-iconButton--secondary:focus,
+.elsie-base-design .elsie-button--secondary:focus,
+.elsie-base-design .elsie-button--secondary:focus:hover {
+  border: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 900;
   background: var(--color-brand-black-1);
   color: var(--color-neutral-50);
 }
