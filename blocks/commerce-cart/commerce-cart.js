@@ -10,19 +10,10 @@ import Cart from '@dropins/storefront-cart/containers/Cart.js';
 export default async function decorate(block) {
   // Initialize Drop-ins – already initialized in scripts/dropins.js
 
-  // // Temporary link to Checkout
-  // const goToCheckoutLink = document.createElement('a');
-  // goToCheckoutLink.href = '/checkout';
-  // goToCheckoutLink.innerText = 'Check Out';
-  // goToCheckoutLink.className = 'elsie-button elsie-button--medium elsie-button--primary';
-
   // Render Containers
   return provider.render(Cart, {
     routeEmptyCartCTA: () => '/',
     routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
-    routeCheckout: (ctx) => {
-      const { cartId } = ctx;
-      return `#checkout?cart=${cartId}`;
-    },
+    routeCheckout: () => '/checkout',
   })(block);
 }
