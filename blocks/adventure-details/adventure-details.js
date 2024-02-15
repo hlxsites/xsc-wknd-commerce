@@ -63,14 +63,15 @@ export default async function decorate(block) {
         ctx.appendButton({
           text: 'Add to wishlist',
           icon: 'Heart',
-          variant: 'primary',
+          variant: 'tertiary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
         });
 
         // Share this itinerary
         ctx.appendButton({
           text: 'Share this itinerary',
-          variant: 'primary',
+          icon: 'Share',
+          variant: 'tertiary',
           onClick: () => console.debug('Share this itinerary', ctx.data),
         });
       },

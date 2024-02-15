@@ -518,7 +518,8 @@ main .section.top-divider {
 .elsie-base-design .elsie-button--primary,
 .elsie-base-design .elsie-iconButton--primary,
 .elsie-base-design .elsie-button--secondary,
-.elsie-base-design .elsie-iconButton--secondary {
+.elsie-base-design .elsie-iconButton--secondary,
+.elsie-base-design .elsie-button--tertiary {
   border: none;
   border-radius: 0;
   text-transform: uppercase;

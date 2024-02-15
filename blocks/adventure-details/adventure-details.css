@@ -14,3 +14,50 @@
   min-width: 84px;
   width: fit-content;
 }
+
+.elsie-base-design .pdp-product__prices,
+.elsie-base-design .pdp-product__sku {
+  margin-top: 2rem;
+}
+
+.elsie-base-design .pdp-product__quantity {
+  grid-column: 1 / span 1;
+}
+
+.elsie-base-design .pdp-product__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1.5rem 0;
+}
+
+.elsie-base-design .pdp-product__buttons button:nth-of-type(2),
+.elsie-base-design .pdp-product__buttons button:nth-of-type(3) {
+  flex-basis: 50%;
+  flex-grow: 0;
+}
+
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-button--secondary {
+  width: 100%;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn {
+  background: var(--color-brand-black-1);
+  border-radius: 0;
+  padding: 0.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn svg path {
+  stroke: var(--color-neutral-50);
+  stroke-width: 1;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Previous"] {
+  top: 1.75rem;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Next"] {
+  bottom: 1.75rem;
+}
