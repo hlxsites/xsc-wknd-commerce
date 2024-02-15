@@ -1,6 +1,63 @@
 
-/* stylelint-disable no-empty-source */
+/* stylelint-disable */
 
-/* .elsie-base-design .some-class {
+.elsie-base-design .pdp-product h1::after,
+.elsie-base-design .pdp-product h2::after,
+.elsie-base-design .pdp-product h3::after,
+.elsie-base-design .pdp-product h4::after,
+.elsie-base-design .pdp-product h5::after,
+.elsie-base-design .pdp-product h6::after {
+  border-bottom: 2px solid var(--color-brand-theme-1);
+  content: "";
+  display: block;
+  padding-top: 8px;
+  min-width: 84px;
+  width: fit-content;
+}
 
-} */
+.elsie-base-design .pdp-product__prices,
+.elsie-base-design .pdp-product__sku {
+  margin-top: 2rem;
+}
+
+.elsie-base-design .pdp-product__quantity {
+  grid-column: 1 / span 1;
+}
+
+.elsie-base-design .pdp-product__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1.5rem 0;
+}
+
+.elsie-base-design .pdp-product__buttons button:nth-of-type(2),
+.elsie-base-design .pdp-product__buttons button:nth-of-type(3) {
+  flex-basis: 50%;
+  flex-grow: 0;
+}
+
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-button--secondary {
+  width: 100%;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn {
+  background: var(--color-brand-black-1);
+  border-radius: 0;
+  padding: 0.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn svg path {
+  stroke: var(--color-neutral-50);
+  stroke-width: 1;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Previous"] {
+  top: 1.75rem;
+}
+
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Next"] {
+  bottom: 1.75rem;
+}

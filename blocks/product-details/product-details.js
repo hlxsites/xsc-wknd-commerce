@@ -52,7 +52,7 @@ export default async function decorate(block) {
                 ...ctx.values,
               }]);
 
-              window.location.href = '/cart';
+              // window.location.href = '/cart';
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
@@ -61,34 +61,16 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton({
-          text: 'Add to wishlist',
+          'aria-label': 'Add to wishlist',
+          text: '',
           icon: 'Heart',
-          variant: 'primary',
+          variant: 'secondary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
-        });
-
-        // Share this itinerary
-        // ctx.appendButton({
-        //   text: 'Share this itinerary',
-        //   variant: 'primary',
-        //   onClick: () => console.debug('Share this itinerary', ctx.data),
-        // });
-      },
-      Breadcrumbs: (ctx) => {
-        // Override default separator
-        ctx.setSeparator('ChevronLeft');
-        ctx.appendLink({
-          text: 'Breadcrumb #1',
-          href: '#one',
-        });
-        ctx.appendLink({
-          text: 'Breadcrumb #2',
-          href: '#two',
         });
       },
     },
     carousel: {
-      controls: 'thumbnailsColumn', /* ThumbnailsColumn, ThumbnailsRow, dots (default) */
+      controls: 'thumbnailsColumn', /* thumbnailsColumn, thumbnailsRow, dots (default) */
       mobile: true,
     },
   })(block);
