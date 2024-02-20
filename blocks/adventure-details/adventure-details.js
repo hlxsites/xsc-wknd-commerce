@@ -17,6 +17,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
+import { createAccordion } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -40,6 +41,34 @@ export default async function decorate(block) {
   return productRenderer.render(ProductDetails, {
     sku: getAdventureSkuFromUrl(),
     slots: {
+      Title: (ctx) => {
+        const headerTitle = document.createElement('div');
+        headerTitle.className = 'custom-title';
+        headerTitle.textContent = "Let's get it in the books.";
+        ctx.prependSibling(headerTitle);
+      },
+      Quantity: (ctx) => {
+        const label = document.createElement('div');
+        label.className = 'quantity-label';
+        label.textContent = 'Label placeholder';
+        ctx.prependChild(label);
+      },
+      Options: (ctx) => {
+        const label = document.createElement('div');
+        const element = ctx.getSlotElement('product-swatch--color'); // Need to update
+        label.className = 'options-label';
+        label.textContent = 'Options label placeholder';
+        element.appendChild(label);
+
+        ctx.onChange((next) => {
+          const optionItems = next?.data?.options[1].items;
+          const findSelectedItem = optionItems.find((item) => item.selected);
+
+          if (findSelectedItem) {
+            label.textContent = `Options label placeholder - ${findSelectedItem.label}`; // Need to update
+          }
+        });
+      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next) => ({
@@ -60,7 +89,7 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
-          text: 'Add to Wishlist',
+          text: 'Add to List',
           icon: 'Heart',
           variant: 'tertiary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
@@ -74,6 +103,24 @@ export default async function decorate(block) {
           onClick: () => console.debug('Share this itinerary: ', ctx.data),
         }));
       },
+      Description: (ctx) => {
+        const descriptionHTML = ctx?.data?.description;
+        const descriptionSlotEl = document.querySelector('div[data-slot="Description"]');
+        descriptionSlotEl.innerHTML = '';
+        const html = createAccordion('Overview', descriptionHTML, false);
+        descriptionSlotEl.appendChild(html);
+      },
+      Attributes: () => {
+        // console.log("attributes ctx: ", ctx)
+        // const attributes = ctx?.data?.attributes;
+        // const attributesSlotEl = document.querySelector('div[data-slot="Attributes"]');
+        // attributesSlotEl.innerHTML = '';
+
+        // console.log("attributes: ", attributes);
+        // const list = generateListHTML(attributes);
+        // const html = createAccordion(list, false);
+        // attributesSlotEl.appendChild(html);
+      },
     },
     carousel: {
       controls: 'thumbnailsColumn', /* ThumbnailsColumn, ThumbnailsRow, dots (default) */
@@ -81,3 +128,6 @@ export default async function decorate(block) {
     },
   })(block);
 }
+
+// Other slot methods
+// getSlotElement, replaceWith, appendChild, prependChild, appendSibbling, prependSibbling, onChange

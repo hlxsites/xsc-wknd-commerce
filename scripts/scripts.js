@@ -352,6 +352,46 @@ export function jsx(html, ...args) {
   return html.slice(1).reduce((str, elem, i) => str + args[i] + elem, html[0]);
 }
 
+export function createAccordion(header, content, expanded = false) {
+  // Create a container for the accordion
+  const container = document.createElement('div');
+  container.classList.add('accordion');
+  const accordionContainer = document.createElement('details');
+  accordionContainer.classList.add('accordion-item');
+
+  // Create the accordion header
+  const accordionHeader = document.createElement('summary');
+  accordionHeader.classList.add('accordion-item-label');
+  accordionHeader.innerHTML = `<div>${header}</div>`;
+
+  // Create the accordion content
+  const accordionContent = document.createElement('div');
+  accordionContent.classList.add('accordion-item-body');
+  accordionContent.innerHTML = content;
+
+  accordionContainer.append(accordionHeader, accordionContent);
+  container.append(accordionContainer);
+
+  // Add click event listener to the header
+  accordionHeader.addEventListener('click', () => accordionContent.classList.toggle('active'));
+
+  // Expand accordion if specified
+  if (expanded) {
+    accordionContent.classList.toggle('active');
+  }
+
+  return container;
+}
+
+export function generateListHTML(data) {
+  let html = '<ul>';
+  data.forEach(item => {
+      html += `<li>${item.label}: <span>${item.value}</span></li>`;
+  });
+  html += '</ul>';
+  return html;
+}
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
