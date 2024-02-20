@@ -42,31 +42,29 @@ export default async function decorate(block) {
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
-        ctx.appendButton({
+        ctx.appendButton((next) => ({
           text: 'Add to Cart',
           icon: 'Cart',
           variant: 'primary',
+          disabled: !next.data?.inStock || !next.valid,
           onClick: async () => {
             try {
               await addProductsToCart([{
-                ...ctx.values,
+                ...next.values,
               }]);
-
-              // window.location.href = '/cart';
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
           },
-        });
+        }));
 
         // Add to Wishlist Button
-        ctx.appendButton({
-          'aria-label': 'Add to wishlist',
+        ctx.appendButton(() => ({
           text: '',
           icon: 'Heart',
           variant: 'secondary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
-        });
+        }));
       },
     },
     carousel: {

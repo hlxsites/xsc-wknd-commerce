@@ -42,38 +42,37 @@ export default async function decorate(block) {
     slots: {
       Actions: (ctx) => {
         // Add to Cart Button
-        ctx.appendButton({
+        ctx.appendButton((next) => ({
           text: 'Add to Cart',
           icon: 'Cart',
           variant: 'primary',
+          disabled: !next.data?.inStock || !next.valid,
           onClick: async () => {
             try {
               await addProductsToCart([{
-                ...ctx.values,
+                ...next.values,
               }]);
-
-              // window.location.href = '/cart';
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
           },
-        });
+        }));
 
         // Add to Wishlist Button
-        ctx.appendButton({
-          text: 'Add to wishlist',
+        ctx.appendButton(() => ({
+          text: 'Add to Wishlist',
           icon: 'Heart',
           variant: 'tertiary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
-        });
+        }));
 
-        // Share this itinerary
-        ctx.appendButton({
+        // Share this itinerary Button
+        ctx.appendButton(() => ({
           text: 'Share this itinerary',
           icon: 'Share',
           variant: 'tertiary',
-          onClick: () => console.debug('Share this itinerary', ctx.data),
-        });
+          onClick: () => console.debug('Share this itinerary: ', ctx.data),
+        }));
       },
     },
     carousel: {

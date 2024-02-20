@@ -65,6 +65,7 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
+
   --webkit-user-select: none;
 }
 
@@ -147,6 +148,7 @@
   justify-content: center;
   margin-top: 10px;
 }
+
 .recommended-products .slider-dot {
   width: 10px;
   height: 10px;
@@ -155,6 +157,7 @@
   margin: 0 5px;
   cursor: pointer;
 }
+
 .recommended-products .slider-dot.active {
   background-color: var(--color-brand-500);
 }
