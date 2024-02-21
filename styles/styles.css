@@ -511,24 +511,38 @@ main .section.top-divider {
 }
 
 .accordion details summary::after {
-  content: "";
+  content: "+"; /* Plus sign icon */
   position: absolute;
   top: 50%;
   right: 18px;
-  transform: translateY(-50%) rotate(135deg);
-  width: 9px;
-  height: 9px;
-  border: 2px solid;
-  border-width: 2px 2px 0 0;
+  transform: translateY(-50%);
   transition: transform 0.2s;
+  font-size: var(--body-font-size-lg);
 }
 
 .accordion details[open] summary::after {
-  transform: translateY(-50%) rotate(-45deg);
+  content: "-"; /* Minus sign icon */
+  transform: translateY(-50%);
+}
+
+.accordion details summary > div {
+  font-weight: bold;
 }
 
 .accordion details .accordion-item-body {
   padding: 0 0 2rem;
+}
+
+.accordion details .accordion-item-body ul {
+  margin: 0;
+}
+
+.accordion details .accordion-item-body p {
+  margin-bottom: 1.5rem;
+}
+
+.accordion details .accordion-item-label.open-default::after {
+  display: none;
 }
 
 /* Base Design System Tokens */

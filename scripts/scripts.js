@@ -372,11 +372,11 @@ export function createAccordion(header, content, expanded = false) {
   accordionContainer.append(accordionHeader, accordionContent);
   container.append(accordionContainer);
 
-  // Add click event listener to the header
-  accordionHeader.addEventListener('click', () => accordionContent.classList.toggle('active'));
 
   if (expanded) {
     accordionContent.classList.toggle('active');
+    accordionHeader.classList.add('open-default');
+    accordionContainer.setAttribute('open', true);
   }
 
   function updateContent(newContent) {

@@ -105,3 +105,22 @@
   font-weight: 400;
   color: var(--color-neutral-700);
 }
+
+.elsie-base-design .pdp-product__column-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.elsie-base-design .pdp-product__actions {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.elsie-base-design .pdp-product__column-body .pdp-product__description {
+  order: 6;
+}
+
+.elsie-base-design .pdp-product__column-body .pdp-product__attributes {
+  order: 5;
+  margin: 0;
+}

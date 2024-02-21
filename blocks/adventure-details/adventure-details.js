@@ -105,7 +105,7 @@ export default async function decorate(block) {
       },
       Description: (ctx) => {
         const defaultContent = ctx?.data?.description;
-        const [html, updateContent] = createAccordion('Overview', defaultContent, false);
+        const [html, updateContent] = createAccordion('Overview', defaultContent, true);
         ctx.replaceWith(html);
 
         ctx.onChange((next) => {

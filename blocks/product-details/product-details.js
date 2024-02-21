@@ -17,7 +17,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getSkuFromUrl } from '../../scripts/commerce.js';
-import { createAccordion } from '../../scripts/scripts.js';
+import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -72,11 +72,25 @@ export default async function decorate(block) {
         }));
       },
       Description: (ctx) => {
-        const descriptionHTML = ctx?.data?.description;
-        const descriptionSlotEl = document.querySelector('div[data-slot="Description"]');
-        descriptionSlotEl.innerHTML = '';
-        const html = createAccordion('Overview', descriptionHTML, false);
-        descriptionSlotEl.appendChild(html);
+        const defaultContent = ctx?.data?.description;
+        const [html, updateContent] = createAccordion('Overview', defaultContent, true);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          updateContent(next?.data?.description);
+        });
+      },
+      Attributes: (ctx) => {
+        const attributes = ctx?.data?.attributes;
+        let list;
+        list = generateListHTML(attributes);
+        const [html, updateContent] = createAccordion('Product specs', list, false);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          list = generateListHTML(next?.data?.attributes);
+          updateContent(list);
+        });
       },
     },
     carousel: {
