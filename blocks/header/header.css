@@ -468,6 +468,7 @@ header .nav-search-panel input {
 
 .cart-mini-cart .cart-mini-cart__footer__ctas a {
   font-size: var(--body-font-size-m);
+  width: auto;
 }
 
 /* If viewport height is below max, set max height to 90% of viewport */
