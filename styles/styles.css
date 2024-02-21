@@ -494,6 +494,57 @@ main .section.top-divider {
   border-top:  1px solid var(--color-neutral-300);
 }
 
+/* Accordion */
+.accordion details summary {
+  position: relative;
+  padding: 2rem 0;
+  padding-right: 48px;
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  transition: background-color 0.2s;
+  border-top: 1.5px solid var(--color-neutral-400);
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details summary::after {
+  content: "+"; /* Plus sign icon */
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+  font-size: var(--body-font-size-lg);
+}
+
+.accordion details[open] summary::after {
+  content: "-"; /* Minus sign icon */
+  transform: translateY(-50%);
+}
+
+.accordion details summary > div {
+  font-weight: bold;
+}
+
+.accordion details .accordion-item-body {
+  padding: 0 0 2rem;
+}
+
+.accordion details .accordion-item-body ul {
+  margin: 0;
+}
+
+.accordion details .accordion-item-body p {
+  margin-bottom: 1.5rem;
+}
+
+.accordion details .accordion-item-label.open-default::after {
+  display: none;
+}
+
 /* Base Design System Tokens */
 .elsie-base-design.elsie-base-design {
   --background-none: none 0 0% no-repeat padding-box;
@@ -545,5 +596,11 @@ main .section.top-divider {
   text-transform: uppercase;
   font-weight: 900;
   background: var(--color-brand-black-1);
+  color: var(--color-neutral-50);
+}
+
+/* Disabled Buttons */
+.elsie-base-design .elsie-button:disabled {
+  background: var(--color-brand-theme-2);
   color: var(--color-neutral-50);
 }

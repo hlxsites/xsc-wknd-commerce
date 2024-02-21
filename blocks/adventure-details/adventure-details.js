@@ -17,6 +17,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
+import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -40,6 +41,34 @@ export default async function decorate(block) {
   return productRenderer.render(ProductDetails, {
     sku: getAdventureSkuFromUrl(),
     slots: {
+      Title: (ctx) => {
+        const headerTitle = document.createElement('div');
+        headerTitle.className = 'custom-title';
+        headerTitle.textContent = "Let's get it in the books.";
+        ctx.prependSibling(headerTitle);
+      },
+      Quantity: (ctx) => {
+        const label = document.createElement('div');
+        label.className = 'quantity-label';
+        label.textContent = 'Label placeholder';
+        ctx.prependChild(label);
+      },
+      Options: (ctx) => {
+        const label = document.createElement('div');
+        const element = ctx.getSlotElement('product-swatch--color'); // Need to update
+        label.className = 'options-label';
+        label.textContent = 'Options label placeholder';
+        element.appendChild(label);
+
+        ctx.onChange((next) => {
+          const optionItems = next?.data?.options[1].items;
+          const findSelectedItem = optionItems.find((item) => item.selected);
+
+          if (findSelectedItem) {
+            label.textContent = `Options label placeholder - ${findSelectedItem.label}`; // Need to update
+          }
+        });
+      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next) => ({
@@ -60,7 +89,7 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
-          text: 'Add to Wishlist',
+          text: 'Add to List',
           icon: 'Heart',
           variant: 'tertiary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
@@ -73,6 +102,27 @@ export default async function decorate(block) {
           variant: 'tertiary',
           onClick: () => console.debug('Share this itinerary: ', ctx.data),
         }));
+      },
+      Description: (ctx) => {
+        const defaultContent = ctx?.data?.description;
+        const [html, updateContent] = createAccordion('Overview', defaultContent, true);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          updateContent(next?.data?.description);
+        });
+      },
+      Attributes: (ctx) => {
+        const attributes = ctx?.data?.attributes;
+        let list;
+        list = generateListHTML(attributes);
+        const [html, updateContent] = createAccordion('Product specs', list, false);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          list = generateListHTML(next?.data?.attributes);
+          updateContent(list);
+        });
       },
     },
     carousel: {

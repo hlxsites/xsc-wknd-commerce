@@ -352,6 +352,50 @@ export function jsx(html, ...args) {
   return html.slice(1).reduce((str, elem, i) => str + args[i] + elem, html[0]);
 }
 
+export function createAccordion(header, content, expanded = false) {
+  // Create a container for the accordion
+  const container = document.createElement('div');
+  container.classList.add('accordion');
+  const accordionContainer = document.createElement('details');
+  accordionContainer.classList.add('accordion-item');
+
+  // Create the accordion header
+  const accordionHeader = document.createElement('summary');
+  accordionHeader.classList.add('accordion-item-label');
+  accordionHeader.innerHTML = `<div>${header}</div>`;
+
+  // Create the accordion content
+  const accordionContent = document.createElement('div');
+  accordionContent.classList.add('accordion-item-body');
+  accordionContent.innerHTML = content;
+
+  accordionContainer.append(accordionHeader, accordionContent);
+  container.append(accordionContainer);
+
+
+  if (expanded) {
+    accordionContent.classList.toggle('active');
+    accordionHeader.classList.add('open-default');
+    accordionContainer.setAttribute('open', true);
+  }
+
+  function updateContent(newContent) {
+    accordionContent.innerHTML = newContent;
+    // accordionContent.innerHTML = '<p>Hello world</p>';
+  }
+
+  return [container, updateContent];
+}
+
+export function generateListHTML(data) {
+  let html = '<ul>';
+  data.forEach(item => {
+      html += `<li>${item.label}: <span>${item.value}</span></li>`;
+  });
+  html += '</ul>';
+  return html;
+}
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);

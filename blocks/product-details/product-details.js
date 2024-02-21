@@ -17,6 +17,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getSkuFromUrl } from '../../scripts/commerce.js';
+import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -49,9 +50,13 @@ export default async function decorate(block) {
           disabled: !next.data?.inStock || !next.valid,
           onClick: async () => {
             try {
-              await addProductsToCart([{
-                ...next.values,
-              }]);
+              if (!next.valid) {
+                // eslint-disable-next-line no-console
+                console.warn('Invalid product', next.values);
+                return;
+              }
+
+              await addProductsToCart([{ ...next.values }]);
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
@@ -60,11 +65,32 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
-          text: '',
+          'aria-label': 'Add to Wishlist',
           icon: 'Heart',
           variant: 'secondary',
           onClick: () => console.debug('Add to Wishlist', ctx.data),
         }));
+      },
+      Description: (ctx) => {
+        const defaultContent = ctx?.data?.description;
+        const [html, updateContent] = createAccordion('Overview', defaultContent, true);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          updateContent(next?.data?.description);
+        });
+      },
+      Attributes: (ctx) => {
+        const attributes = ctx?.data?.attributes;
+        let list;
+        list = generateListHTML(attributes);
+        const [html, updateContent] = createAccordion('Product specs', list, false);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          list = generateListHTML(next?.data?.attributes);
+          updateContent(list);
+        });
       },
     },
     carousel: {
