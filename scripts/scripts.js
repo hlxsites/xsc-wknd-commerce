@@ -375,12 +375,16 @@ export function createAccordion(header, content, expanded = false) {
   // Add click event listener to the header
   accordionHeader.addEventListener('click', () => accordionContent.classList.toggle('active'));
 
-  // Expand accordion if specified
   if (expanded) {
     accordionContent.classList.toggle('active');
   }
 
-  return container;
+  function updateContent(newContent) {
+    accordionContent.innerHTML = newContent;
+    // accordionContent.innerHTML = '<p>Hello world</p>';
+  }
+
+  return [container, updateContent];
 }
 
 export function generateListHTML(data) {

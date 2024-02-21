@@ -104,18 +104,25 @@ export default async function decorate(block) {
         }));
       },
       Description: (ctx) => {
-        const descriptionHTML = ctx?.data?.description;
-        const descriptionSlotEl = document.querySelector('div[data-slot="Description"]');
-        descriptionSlotEl.innerHTML = '';
-        const html = createAccordion('Overview', descriptionHTML, false);
-        descriptionSlotEl.replaceWith(html);
+        const defaultContent = ctx?.data?.description;
+        const [html, updateContent] = createAccordion('Overview', defaultContent, false);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          updateContent(next?.data?.description);
+        });
       },
       Attributes: (ctx) => {
+        let list;
         const attributes = ctx?.data?.attributes;
-        const attributesSlotEl = document.querySelector('div[data-slot="Attributes"]');
-        const list = generateListHTML(attributes);
-        const html = createAccordion('Product specs', list, false);
-        attributesSlotEl.replaceWith(html);
+        list = generateListHTML(attributes);
+        const [html, updateContent] = createAccordion('Product specs', list, false);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          list = generateListHTML(next?.data?.attributes);
+          updateContent(list);
+        });
       },
     },
     carousel: {
