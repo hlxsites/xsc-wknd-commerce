@@ -17,7 +17,7 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
-import { createAccordion } from '../../scripts/scripts.js';
+import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // Initialize Drop-ins
@@ -108,18 +108,14 @@ export default async function decorate(block) {
         const descriptionSlotEl = document.querySelector('div[data-slot="Description"]');
         descriptionSlotEl.innerHTML = '';
         const html = createAccordion('Overview', descriptionHTML, false);
-        descriptionSlotEl.appendChild(html);
+        descriptionSlotEl.replaceWith(html);
       },
-      Attributes: () => {
-        // console.log("attributes ctx: ", ctx)
-        // const attributes = ctx?.data?.attributes;
-        // const attributesSlotEl = document.querySelector('div[data-slot="Attributes"]');
-        // attributesSlotEl.innerHTML = '';
-
-        // console.log("attributes: ", attributes);
-        // const list = generateListHTML(attributes);
-        // const html = createAccordion(list, false);
-        // attributesSlotEl.appendChild(html);
+      Attributes: (ctx) => {
+        const attributes = ctx?.data?.attributes;
+        const attributesSlotEl = document.querySelector('div[data-slot="Attributes"]');
+        const list = generateListHTML(attributes);
+        const html = createAccordion('Product specs', list, false);
+        attributesSlotEl.replaceWith(html);
       },
     },
     carousel: {
@@ -128,6 +124,3 @@ export default async function decorate(block) {
     },
   })(block);
 }
-
-// Other slot methods
-// getSlotElement, replaceWith, appendChild, prependChild, appendSibbling, prependSibbling, onChange
