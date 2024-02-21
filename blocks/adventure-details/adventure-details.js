@@ -113,8 +113,8 @@ export default async function decorate(block) {
         });
       },
       Attributes: (ctx) => {
-        let list;
         const attributes = ctx?.data?.attributes;
+        let list;
         list = generateListHTML(attributes);
         const [html, updateContent] = createAccordion('Product specs', list, false);
         ctx.replaceWith(html);

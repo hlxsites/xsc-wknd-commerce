@@ -50,9 +50,13 @@ export default async function decorate(block) {
           disabled: !next.data?.inStock || !next.valid,
           onClick: async () => {
             try {
-              await addProductsToCart([{
-                ...next.values,
-              }]);
+              if (!next.valid) {
+                // eslint-disable-next-line no-console
+                console.warn('Invalid product', next.values);
+                return;
+              }
+
+              await addProductsToCart([{ ...next.values }]);
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }

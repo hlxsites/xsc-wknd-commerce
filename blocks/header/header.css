@@ -1,4 +1,4 @@
-/* header and nav layout */
+/* stylelint-disable */
 header .header-nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -353,10 +353,28 @@ header nav .nav-sections ul > li > a:hover {
 }
 
 /* tools */
+header nav .nav-panel {
+  z-index: 100;
+  position: absolute;
+  box-shadow: var(--shape-shadow-2);
+  background: var(--background-color);
+  left: 0;
+  top: 60px;
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+}
+
+header nav .nav-panel--show {
+  display: block;
+}
+
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
+  flex-direction: row-reverse;
   gap: 10px;
+  height: 100%;
 }
 
 header nav .nav-tools .minicart-wrapper {
@@ -365,11 +383,15 @@ header nav .nav-tools .minicart-wrapper {
   align-items: center;
 }
 
-header nav .nav-tools > button, header nav .nav-tools .minicart-wrapper > button {
+header nav .nav-tools > button,
+header nav .nav-tools .minicart-wrapper > button {
   color: var(--color-brand-700);
   background: transparent;
   padding: 5px 10px;
   margin-left: 1em;
+  height: 100%;
+  border: unset;
+  cursor: pointer;
 }
 
 header nav .nav-tools button.nav-cart-button {
@@ -382,6 +404,23 @@ header nav .nav-tools button.nav-cart-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+header nav .nav-tools button.nav-cart-button[data-count]::after {
+  content: attr(data-count);
+  position: absolute;
+  top: 0;
+  right: 9px;
+  background-color: var(--color-brand-700);
+  color: var(--color-neutral-100);
+  border-radius: 50%;
+  width: 1.6em;
+  height: 1.6em;
+  display: flex;
+  align-items: center;
+  font-size: 0.65em;
+  justify-content: center;
 }
 
 header nav .nav-tools button.nav-search-button {
@@ -389,36 +428,75 @@ header nav .nav-tools button.nav-search-button {
   background-image: url('/icons/search.svg');
   background-repeat: no-repeat;
   background-position: center;
+  background-color: transparent;
   padding: 5px 15px;
 }
 
-header .nav-search-input {
-  position: absolute;
-  z-index: 99;
-  top: var(--nav-height);
-  box-shadow: var(--shape-shadow-2);
-  background: var(--color-neutral-50);
-  left: 0;
-  right: 0;
-  padding: 20px;
+header .nav-search-panel {
+  padding: var(--spacing-small);
 }
 
-header .nav-search-input.hidden {
+header .nav-search-panel input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font: var(--type-headline-2-default-font);
+  font-size: var(--body-font-size-s);
+  letter-spacing: var(--type-headline-2-default-letter-spacing);
+  border: 1px solid currentcolor;
+  appearance: none;
+}
+
+/* Mini Cart  */
+.cart-mini-cart:not(:has(.cart-empty-cart)) {
+  max-height: 760px;
+  min-height: 360px;
+}
+
+.cart-mini-cart__heading-text::after {
+  border-bottom: 2px solid var(--color-brand-theme-1);
+  content: "";
+  display: block;
+  padding-top: 10px;
+  min-width: 84px;
+  width: fit-content;
+}
+
+.cart-mini-cart__heading .cart-mini-cart__heading-divider{
   display: none;
 }
 
-header .nav-search-input input {
-  width: 100%;
-  padding: 5px;
+.cart-mini-cart .cart-mini-cart__footer__ctas a {
+  font-size: var(--body-font-size-m);
+}
+
+/* If viewport height is below max, set max height to 90% of viewport */
+@media (height < 820px) {
+  .cart-mini-cart:not(:has(.cart-empty-cart)) {
+    max-height: calc(100vh - var(--nav-height));
+  }
 }
 
 @media (width >= 1024px) {
+  header nav .minicart-wrapper,
+  header nav .search-wrapper {
+    position: relative;
+  }
+
   header .nav-search-input {
     left: unset;
     right: 20px;
   }
 
-  header .nav-search-input input {
-    min-width: 400px;
+  header nav .minicart-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
+  }
+
+  header nav .nav-search-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
   }
 }
