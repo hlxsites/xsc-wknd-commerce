@@ -175,8 +175,9 @@
   --large-grid-layout: 1200px;
 }
 
-html {
+html, body {
   font-size: var(--body-font-size-xs);
+  height: 100%;
 }
 
 body {
@@ -185,11 +186,17 @@ body {
   margin: 0;
   color: var(--color-brand-700);
   background-color: var(--background-color);
-  display: none;
+  /* display: none; */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 body.appear {
   display: block;
+}
+
+body:not(.appear) {
+  visibility: hidden;
 }
 
 header {
