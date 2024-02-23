@@ -1,5 +1,6 @@
 /* eslint-disable */
-import { fetchJson, getAEMHeadlessClient } from '../../scripts/scripts.js';
+import { getAEMHeadlessClient } from '../../scripts/scripts.js';
+import { getConfigValue } from '../../scripts/configs.js';
 
 export default function decorate(block) {
   const container = block.parentNode.parentNode;
@@ -7,14 +8,12 @@ export default function decorate(block) {
   const maxCardsCount = parseInt(container.getAttribute('data-limit'));
   const activity = container.getAttribute('data-activity');
   const blockEl = container.querySelector('.cards.block');
-  let AEM_GRAPHQL_ENDPOINT;
   let AEM_HOST;
+  let AEM_GRAPHQL_ENDPOINT;
 
   async function getData() {
-    const configPath = `${window.location.origin}/demo-config.json`;
-    const { data } = await fetchJson(configPath);
-    AEM_GRAPHQL_ENDPOINT = data[0]['aem-graphql-endpoint'];
-    AEM_HOST = data[0]['aem-host'];
+    AEM_HOST = await getConfigValue('aem-host');
+    AEM_GRAPHQL_ENDPOINT = await getConfigValue('aem-graphql-endpoint');
     const client = await getAEMHeadlessClient(AEM_HOST);
 
     let dataObj = {};
