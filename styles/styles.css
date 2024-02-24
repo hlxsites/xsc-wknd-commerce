@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable selector-not-notation, selector-class-pattern, no-descending-specificity */
 
 /*
  * Copyright 2020 Adobe. All rights reserved.
@@ -175,8 +175,9 @@
   --large-grid-layout: 1200px;
 }
 
-html {
+html, body {
   font-size: var(--body-font-size-xs);
+  height: 100%;
 }
 
 body {
@@ -185,11 +186,16 @@ body {
   margin: 0;
   color: var(--color-brand-700);
   background-color: var(--background-color);
-  display: none;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 body.appear {
   display: block;
+}
+
+body:not(.appear) {
+  visibility: hidden;
 }
 
 header {
@@ -329,7 +335,7 @@ button > u {
 
 /* WKND Adventure Themed buttons */
 a.button:any-link,
-button:not([class^='elsie-']) {
+button:not([class^='elsie-']):not(.hlx-badge) {
   font: var(--type-button-2-font);
   letter-spacing: var(--type-button-2-letter-spacing);
   display: inline-block;
@@ -385,8 +391,8 @@ a.button-secondary {
 
 a.button:hover,
 a.button:focus,
-button:not([class^='elsie-']):hover,
-button:not([class^='elsie-']):focus {
+button:not([class^='elsie-']):not(.hlx-badge):hover,
+button:not([class^='elsie-']):not(.hlx-badge):focus{
   background-color: var(--color-neutral-200);
   cursor: pointer;
 }
