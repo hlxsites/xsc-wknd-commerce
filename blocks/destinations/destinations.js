@@ -35,7 +35,7 @@ export default function decorate(block) {
   }
 
   async function initialize() {
-    const response = await fetch(link.href);
+    const response = await fetch(link?.href);
 
     if (response.ok) {
       const jsonData = await response.json();
