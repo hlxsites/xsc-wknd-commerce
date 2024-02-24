@@ -186,7 +186,6 @@ body {
   margin: 0;
   color: var(--color-brand-700);
   background-color: var(--background-color);
-  /* display: none; */
   display: grid;
   grid-template-rows: auto 1fr auto;
 }

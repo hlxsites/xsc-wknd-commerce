@@ -4,3 +4,5 @@ scripts/htm.js
 scripts/dropins
 tools/picker
 scripts/__dropins__
+/plugins/
+/scripts/analytics/alloy*.js
