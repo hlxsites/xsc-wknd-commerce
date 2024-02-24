@@ -1,6 +1,5 @@
 export default function decorate(block) {
-
-  console.log)("block: ", block);
+  console.log('block: ', block);
   // const link = block.querySelector('a.button');
   // const divElements = block.querySelectorAll('div');
   // let country = '';
