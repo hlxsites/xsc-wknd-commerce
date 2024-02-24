@@ -38,15 +38,17 @@
   line-height: 1.5;
   text-transform: none;
   font-family: system-ui, sans-serif;
+  border: none;
 }
 
 .hlx-badge:focus,
 .hlx-badge:hover {
-  background-color: #888;
+  background-color: #280;
 }
 
 .hlx-badge > span {
   user-select: none;
+  font-size: var(--body-font-size-m);
 }
 
 .hlx-badge .hlx-open {
@@ -170,7 +172,8 @@
 }
 
 .hlx-badge.is-active,
-.hlx-badge[aria-pressed="true"] {
+.hlx-badge[aria-pressed="true"],
+.hlx-badge.is-active:hover {
   background-color: #280;
 }
 

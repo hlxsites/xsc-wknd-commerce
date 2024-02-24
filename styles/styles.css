@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable selector-not-notation, selector-class-pattern, no-descending-specificity */
 
 /*
  * Copyright 2020 Adobe. All rights reserved.
@@ -335,7 +335,7 @@ button > u {
 
 /* WKND Adventure Themed buttons */
 a.button:any-link,
-button:not([class^='elsie-']) {
+button:not([class^='elsie-']):not(.hlx-badge) {
   font: var(--type-button-2-font);
   letter-spacing: var(--type-button-2-letter-spacing);
   display: inline-block;
@@ -391,8 +391,8 @@ a.button-secondary {
 
 a.button:hover,
 a.button:focus,
-button:not([class^='elsie-']):hover,
-button:not([class^='elsie-']):focus {
+button:not([class^='elsie-']):not(.hlx-badge):hover,
+button:not([class^='elsie-']):not(.hlx-badge):focus{
   background-color: var(--color-neutral-200);
   cursor: pointer;
 }
