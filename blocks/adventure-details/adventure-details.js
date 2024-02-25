@@ -17,9 +17,13 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
-import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
+import { createAccordion, generateListHTML, getBlockPlaceholderInfo } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
+  const placeholderObject = getBlockPlaceholderInfo(block);
+  const carouselControl = placeholderObject['Carousel-Controls'];
+  block.innerHTML = '';
+
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
@@ -44,43 +48,47 @@ export default async function decorate(block) {
       Title: (ctx) => {
         const headerTitle = document.createElement('div');
         headerTitle.className = 'custom-title';
-        headerTitle.textContent = "Let's get it in the books.";
+        headerTitle.textContent = placeholderObject['Header-Title'];
         ctx.prependSibling(headerTitle);
       },
       Quantity: (ctx) => {
         const label = document.createElement('div');
         label.className = 'quantity-label';
-        label.textContent = 'Label placeholder';
+        label.textContent = placeholderObject['Quantity-Label'];
         ctx.prependChild(label);
       },
-      Options: (ctx) => {
-        const label = document.createElement('div');
-        const element = ctx.getSlotElement('product-swatch--color'); // Need to update
-        label.className = 'options-label';
-        label.textContent = 'Options label placeholder';
-        element.appendChild(label);
+      Options: () => {
+        // const label = document.createElement('div');
+        // const element = ctx.getSlotElement('product-swatch--color'); //update
+        // label.className = 'options-label';
+        // label.textContent = 'Options label placeholder';
+        // element.appendChild(label);
 
-        ctx.onChange((next) => {
-          const optionItems = next?.data?.options[1].items;
-          const findSelectedItem = optionItems.find((item) => item.selected);
+        // ctx.onChange((next) => {
+        //   const optionItems = next?.data?.options[1].items;
+        //   const findSelectedItem = optionItems.find((item) => item.selected);
 
-          if (findSelectedItem) {
-            label.textContent = `Options label placeholder - ${findSelectedItem.label}`; // Need to update
-          }
-        });
+        //   if (findSelectedItem) {
+        //     label.textContent = `Options label placeholder - ${findSelectedItem.label}`; //update
+        //   }
+        // });
       },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next) => ({
-          text: 'Add to Cart',
-          icon: 'Cart',
-          variant: 'primary',
+          text: placeholderObject['Add-To-Cart-Button'].text,
+          icon: placeholderObject['Add-To-Cart-Button'].icon,
+          variant: placeholderObject['Add-To-Cart-Button'].variant,
           disabled: !next.data?.inStock || !next.valid,
           onClick: async () => {
             try {
-              await addProductsToCart([{
-                ...next.values,
-              }]);
+              if (!next.valid) {
+                // eslint-disable-next-line no-console
+                console.warn('Invalid product', next.values);
+                return;
+              }
+
+              await addProductsToCart([{ ...next.values }]);
             } catch (error) {
               console.warn('Error adding product to cart', error);
             }
@@ -89,17 +97,17 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
-          text: 'Add to List',
-          icon: 'Heart',
-          variant: 'tertiary',
+          text: placeholderObject['Add-To-Wishlist-Button'].text,
+          icon: placeholderObject['Add-To-Wishlist-Button'].icon,
+          variant: placeholderObject['Add-To-Wishlist-Button'].variant,
           onClick: () => console.debug('Add to Wishlist', ctx.data),
         }));
 
         // Share this itinerary Button
         ctx.appendButton(() => ({
-          text: 'Share this itinerary',
-          icon: 'Share',
-          variant: 'tertiary',
+          text: placeholderObject['Share-This-Itinerary-Button'].text,
+          icon: placeholderObject['Share-This-Itinerary-Button'].icon,
+          variant: placeholderObject['Share-This-Itinerary-Button'].variant,
           onClick: () => console.debug('Share this itinerary: ', ctx.data),
         }));
       },
@@ -126,7 +134,8 @@ export default async function decorate(block) {
       },
     },
     carousel: {
-      controls: 'thumbnailsColumn', /* ThumbnailsColumn, ThumbnailsRow, dots (default) */
+      /* eslint-disable no-nested-ternary */
+      controls: carouselControl === 'column' ? 'thumbnailsColumn' : carouselControl === 'row' ? 'thumbnailsRow' : 'dots',
       mobile: true,
     },
   })(block);
