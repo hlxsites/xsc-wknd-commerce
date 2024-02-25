@@ -416,6 +416,36 @@ export function generateListHTML(data) {
   return html;
 }
 
+export function getBlockPlaceholderInfo(block) {
+  const placeholderObject = {};
+
+  const childDivsArray = Array.from(block.children);
+  childDivsArray.forEach((childDiv) => {
+    const property = childDiv.querySelector('div:first-child').textContent.trim();
+    const valueNodes = childDiv.querySelector('div:last-child').querySelectorAll('table');
+
+    if (valueNodes.length > 0) {
+      const valueObject = {};
+      valueNodes.forEach((valueNode) => {
+        const tbody = valueNode.querySelector('tbody');
+        if (!tbody) return;
+        const trs = tbody.querySelectorAll('tr');
+        trs.forEach((tr) => {
+          const tdProperty = tr.querySelector('td:first-child').textContent.trim();
+          const tdValue = tr.querySelector('td:last-child').textContent.trim();
+          valueObject[tdProperty] = tdValue;
+        });
+      });
+      placeholderObject[property] = valueObject;
+    } else {
+      const value = childDiv.querySelector('div:last-child').textContent.trim();
+      placeholderObject[property] = value;
+    }
+  });
+
+  return placeholderObject;
+}
+
 async function loadPage() {
   await window.hlx.plugins.load('eager');
   await loadEager(document);

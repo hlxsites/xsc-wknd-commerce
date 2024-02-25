@@ -41,7 +41,7 @@
 
   /* Elsie base design */
   --color-brand-300: #6d6d6d;
-  --color-brand-500: #454545; /* <-- used by the core Button component for background */
+  --color-brand-500: #454545;
   --color-brand-600: #383838;
   --color-brand-700: #2b2b2b;
   --color-neutral-50: #fff;
@@ -333,24 +333,9 @@ button > u {
   text-decoration: none;
 }
 
-/* WKND Adventure Themed buttons */
-a.button:any-link,
-button:not([class^='elsie-']):not(.hlx-badge) {
-  font: var(--type-button-2-font);
-  letter-spacing: var(--type-button-2-letter-spacing);
-  display: inline-block;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: var(--shape-border-width-3) solid transparent;
-  padding: 5px 3.0rem;
-  text-align: center;
-  cursor: pointer;
-  color: var(--color-neutral-50);
-  background-color: var(--color-brand-500);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+button {
+  border: none;
+  font: var(--type-base-font-family);
 }
 
 button.button-primary,

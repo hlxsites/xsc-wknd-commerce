@@ -161,6 +161,10 @@
   background-color: var(--color-brand-black-1);
 }
 
+.form-block-wrapper button[type="submit"] {
+  height: 100%;
+}
+
 .form-block-wrapper {
   display: flex;
   flex-direction: row;
