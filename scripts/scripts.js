@@ -8,7 +8,6 @@ import {
   decorateSections,
   decorateTemplateAndTheme,
   getMetadata,
-  getAllMetadata,
   loadBlock,
   loadBlocks,
   loadCSS,
@@ -19,15 +18,6 @@ import {
 } from './aem.js';
 import initializeDropins from './dropins.js';
 
-// import {
-//   analyticsTrack404,
-//   analyticsTrackConversion,
-//   analyticsTrackCWV,
-//   analyticsTrackError,
-//   initAnalyticsTrackingQueue,
-//   setupAnalyticsTrackingWithAlloy,
-// } from './analytics/lib-analytics.js';
-
 const LCP_BLOCKS = [
   'product-list-page',
   'product-details',
@@ -37,30 +27,6 @@ const LCP_BLOCKS = [
   'commerce-login',
 ]; // add your LCP blocks to the list
 
-
-window.hlx.RUM_GENERATION = 'experiment-001'; // add your RUM generation information here
-
-// Define the custom audiences mapping for experience decisioning
-const AUDIENCES = {
-  mobile: () => window.innerWidth < 600,
-  desktop: () => window.innerWidth >= 600,
-  'new-visitor': () => !localStorage.getItem('franklin-visitor-returning'),
-  'returning-visitor': () => !!localStorage.getItem('franklin-visitor-returning'),
-};
-
-window.hlx.plugins.add('rum-conversion', {
-  url: '/plugins/rum-conversion/src/index.js',
-  load: 'lazy',
-});
-
-window.hlx.plugins.add('experimentation', {
-  condition: () => getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length,
-  options: { audiences: AUDIENCES },
-  load: 'eager',
-  url: '/plugins/experimentation/src/index.js',
-});
 
 /**
  * load fonts.css and set a session storage flag
@@ -202,8 +168,6 @@ async function loadEager(doc) {
   initializeDropins();
   decorateTemplateAndTheme();
 
-  await window.hlx.plugins.run('loadEager');
-
   window.adobeDataLayer = window.adobeDataLayer || [];
 
   let pageType = 'CMS';
@@ -268,10 +232,6 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
-
-  // Mark customer as having viewed the page once
-  localStorage.setItem('franklin-visitor-returning', true);
-  window.hlx.plugins.run('loadLazy');
 }
 
 /**
@@ -280,11 +240,7 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => {
-    window.hlx.plugins.load('delayed');
-    window.hlx.plugins.run('loadDelayed');
-    return import('./delayed.js');
-  }, 3000);
+  window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
 
@@ -401,7 +357,6 @@ export function createAccordion(header, content, expanded = false) {
 
   function updateContent(newContent) {
     accordionContent.innerHTML = newContent;
-    // accordionContent.innerHTML = '<p>Hello world</p>';
   }
 
   return [container, updateContent];
@@ -447,62 +402,9 @@ export function getBlockPlaceholderInfo(block) {
 }
 
 async function loadPage() {
-  await window.hlx.plugins.load('eager');
   await loadEager(document);
-  await window.hlx.plugins.load('lazy');
   await loadLazy(document);
-  // const setupAnalytics = setupAnalyticsTrackingWithAlloy(document);
   loadDelayed();
-  // await setupAnalytics;
 }
-
-// Declare conversionEvent, bufferTimeoutId and tempConversionEvent,
-// outside the convert function to persist them for buffering between
-// subsequent convert calls
-const CONVERSION_EVENT_TIMEOUT_MS = 100;
-let bufferTimeoutId;
-let conversionEvent;
-let tempConversionEvent;
-sampleRUM.always.on('convert', (data) => {
-  const { element } = data;
-  // eslint-disable-next-line no-undef
-  if (!element || !alloy) {
-    return;
-  }
-
-  if (element.tagName === 'FORM') {
-    conversionEvent = {
-      ...data,
-      event: 'Form Complete',
-    };
-
-    if (conversionEvent.event === 'Form Complete'
-      // Check for undefined, since target can contain value 0 as well, which is falsy
-      && (data.target === undefined || data.source === undefined)
-    ) {
-      // If a buffer has already been set and tempConversionEvent exists,
-      // merge the two conversionEvent objects to send to alloy
-      if (bufferTimeoutId && tempConversionEvent) {
-        conversionEvent = { ...tempConversionEvent, ...conversionEvent };
-      } else {
-        // Temporarily hold the conversionEvent object until the timeout is complete
-        tempConversionEvent = { ...conversionEvent };
-
-        // If there is partial form conversion data,
-        // set the timeout buffer to wait for additional data
-        bufferTimeoutId = setTimeout(async () => {
-          analyticsTrackConversion({ ...conversionEvent });
-          tempConversionEvent = undefined;
-          conversionEvent = undefined;
-        }, CONVERSION_EVENT_TIMEOUT_MS);
-      }
-    }
-    return;
-  }
-
-  analyticsTrackConversion({ ...data });
-  tempConversionEvent = undefined;
-  conversionEvent = undefined;
-});
 
 loadPage();
