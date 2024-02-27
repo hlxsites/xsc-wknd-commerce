@@ -2,5 +2,6 @@ helix-importer-ui
 scripts/preact.js
 scripts/htm.js
 scripts/dropins
-tools/picker
 scripts/__dropins__
+scripts/widgets
+tools/picker

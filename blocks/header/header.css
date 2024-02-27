@@ -2,7 +2,7 @@
 header .header-nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
-  z-index: 3;
+  z-index: 20;
   position: fixed;
   top: 40px;
   padding: 2em 0;
@@ -212,7 +212,6 @@ header nav .nav-brand a {
 header nav .nav-brand img {
   width: 128px;
   height: auto;
-  margin-top: 7px;
 }
 
 /* sections */
@@ -430,6 +429,8 @@ header nav .nav-tools button.nav-search-button {
   background-position: center;
   background-color: transparent;
   padding: 5px 15px;
+  height: 30px;
+  width: 30px;
 }
 
 header nav .nav-tools button.nav-search-button:hover {
@@ -438,7 +439,7 @@ header nav .nav-tools button.nav-search-button:hover {
 }
 
 header .nav-search-panel {
-  padding: var(--spacing-small);
+  padding: 1rem;
 }
 
 header .search-wrapper {
@@ -491,6 +492,10 @@ header .nav-cart-button:focus {
   background-color: unset;
 }
 
+header .nav-search-input .search_autocomplete .popover-container {
+  width: 100%;
+}
+
 /* If viewport height is below max, set max height to 90% of viewport */
 @media (height < 768px) {
   .cart-mini-cart:not(:has(.cart-empty-cart)) {
@@ -501,7 +506,8 @@ header .nav-cart-button:focus {
 @media (width > 768px) {
   header nav .nav-search-panel,
   header nav .minicart-panel {
-    width: 398px;
+    min-width: 398px;
+    width: auto;
     left: unset;
     right: 0;
     top: 40px;
@@ -521,7 +527,6 @@ header .nav-cart-button:focus {
 
   header nav .minicart-panel,
   header nav .nav-search-panel {
-    width: 398px;
     left: unset;
     right: 0;
   }
