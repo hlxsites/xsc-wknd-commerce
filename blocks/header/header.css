@@ -2,7 +2,7 @@
 header .header-nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
-  z-index: 3;
+  z-index: 20;
   position: fixed;
   top: 40px;
   padding: 2em 0;
@@ -439,7 +439,7 @@ header nav .nav-tools button.nav-search-button:hover {
 }
 
 header .nav-search-panel {
-  padding: var(--spacing-small);
+  padding: 1rem;
 }
 
 header .search-wrapper {
@@ -506,7 +506,8 @@ header .nav-search-input .search_autocomplete .popover-container {
 @media (width > 768px) {
   header nav .nav-search-panel,
   header nav .minicart-panel {
-    width: 398px;
+    min-width: 398px;
+    width: auto;
     left: unset;
     right: 0;
     top: 40px;
@@ -526,7 +527,6 @@ header .nav-search-input .search_autocomplete .popover-container {
 
   header nav .minicart-panel,
   header nav .nav-search-panel {
-    width: 398px;
     left: unset;
     right: 0;
   }

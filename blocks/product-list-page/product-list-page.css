@@ -3,3 +3,12 @@
   aspect-ratio: 185 / 230;
   object-fit: contain;
 }
+
+.product-list-page .ds-widgets_actions_header > span:first-child {
+  font-size: var(--heading-font-size-m);
+}
+
+.product-list-page .ds-widgets_actions_header > span:last-child {
+  font-size: var(--body-font-size-s);
+  color: var(--color-brand-300);
+}
