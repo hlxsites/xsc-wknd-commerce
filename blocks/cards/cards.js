@@ -2,7 +2,7 @@
 import { getAEMHeadlessClient } from '../../scripts/scripts.js';
 import { getConfigValue } from '../../scripts/configs.js';
 
-export default function decorate(block) {
+export default async function decorate(block) {
   let AEM_HOST = '';
   let AEM_GRAPHQL_ENDPOINT = '';
   let query = '';
@@ -11,8 +11,6 @@ export default function decorate(block) {
   let matchedItems = [];
   let cards = [];
   const cardsContainer = block.parentNode.parentNode;
-
-  cardsContainer.style.display = 'none';
 
   // Extract information from div elements
   const divElements = block.querySelectorAll('div');
@@ -35,7 +33,7 @@ export default function decorate(block) {
   }
   block.innerHTML = '';
 
-  async function fetchData() {
+  try {
     AEM_HOST = await getConfigValue('aem-host');
     AEM_GRAPHQL_ENDPOINT = await getConfigValue('aem-graphql-endpoint');
     const client = await getAEMHeadlessClient(AEM_HOST);
@@ -47,17 +45,19 @@ export default function decorate(block) {
     } else {
       dataObj = await client.runPersistedQuery(AEM_GRAPHQL_ENDPOINT + query);
     }
-    const data = dataObj.data.adventureList.items;
+    const data = dataObj?.data?.adventureList?.items;
 
     // Filter data based on provided slugs or default to first 4 items
     if (slugs.length > 0) {
-      matchedItems = data.filter(item => slugs.includes(item.slug));
+      matchedItems = data.filter((item) => slugs.includes(item.slug));
       cards = matchedItems;
     } else {
-      cards = data.slice(0,4);
+      cards = data.slice(0, 4);
     }
 
-    // Create card elements and append to block
+    // Use document fragment to minimize DOM manipulation
+    const fragment = document.createDocumentFragment();
+
     cards.forEach((card) => {
       const createdCard = document.createElement('a');
       createdCard.classList.add('article-card');
@@ -67,21 +67,22 @@ export default function decorate(block) {
           <picture>
             <img loading="lazy" alt="${card.activity}" srcset="${AEM_HOST}${card.primaryImage._path}" width="200" height="150">
           </picture>
-          </div>
+        </div>
         <div class="card-info">
           <p>${card.title}</p>
           <span>${card.tripLength}</span>
         </div>
       `;
-      block.append(createdCard);
+      fragment.appendChild(createdCard);
     });
+
+    block.appendChild(fragment);
+
+    // Update button to use themed color button
+    const sectionLink = cardsContainer.querySelector('.button-container > a');
+    sectionLink.classList.remove('button');
+    sectionLink.classList.add('button-secondary');
+  } catch (error) {
+    console.error('Error fetching data:', error);
   }
-
-  fetchData();
-
-  //Update button to use themed color button
-  const sectionLink = cardsContainer.querySelector('.button-container > a');
-  sectionLink.classList.remove('button');
-  sectionLink.classList.add('button-secondary');
-  cardsContainer.style.display = 'block';
 }
