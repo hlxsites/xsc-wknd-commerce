@@ -245,11 +245,15 @@ export default async function decorate(block) {
   }, { eager: true });
 
   /** Search */
-
   const search = document.createRange().createContextualFragment(`
   <div class="search-wrapper">
     <button type="button" class="button nav-search-button">Search</button>
-    <div class="nav-search-input nav-search-panel nav-panel"><form action="/search" method="GET"><input type="search" name="q" placeholder="Search" /></form></div>
+    <div class="nav-search-input nav-search-panel nav-panel hidden">
+      <form id="search_mini_form" action="/search" method="GET">
+        <input id="search" type="search" name="q" placeholder="Search" />
+        <div id="search_autocomplete" class="search-autocomplete"></div>
+      </form>
+    </div>
   </div>
   `);
 
@@ -265,7 +269,11 @@ export default async function decorate(block) {
     if (show) searchInput.focus();
   }
 
-  navTools.querySelector('.nav-search-button').addEventListener('click', () => toggleSearch());
+  navTools.querySelector('.nav-search-button').addEventListener('click', async () => {
+    await import('./searchbar.js');
+    document.querySelector('header .nav-search-input').classList.toggle('hidden');
+    toggleSearch();
+  });
 
   // Close panels when clicking outside
   document.addEventListener('click', (e) => {

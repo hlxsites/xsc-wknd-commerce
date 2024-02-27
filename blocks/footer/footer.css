@@ -107,6 +107,7 @@ footer .wrapper .section.site-links .default-content-wrapper ul li a {
   padding: 0.85em 1em 0.6em;
   width: 24px;
   height: 24px;
+  box-sizing: content-box;
 }
 
 @media (width <= 900px) {

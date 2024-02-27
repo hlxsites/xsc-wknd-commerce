@@ -212,7 +212,6 @@ header nav .nav-brand a {
 header nav .nav-brand img {
   width: 128px;
   height: auto;
-  margin-top: 7px;
 }
 
 /* sections */
@@ -430,6 +429,8 @@ header nav .nav-tools button.nav-search-button {
   background-position: center;
   background-color: transparent;
   padding: 5px 15px;
+  height: 30px;
+  width: 30px;
 }
 
 header nav .nav-tools button.nav-search-button:hover {
@@ -489,6 +490,10 @@ header .nav-search-panel input {
 header .nav-search-button:focus,
 header .nav-cart-button:focus {
   background-color: unset;
+}
+
+header .nav-search-input .search_autocomplete .popover-container {
+  width: 100%;
 }
 
 /* If viewport height is below max, set max height to 90% of viewport */
