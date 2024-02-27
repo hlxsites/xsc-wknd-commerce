@@ -10,6 +10,9 @@ export default function decorate(block) {
   let slugs = [];
   let matchedItems = [];
   let cards = [];
+  const cardsContainer = block.parentNode.parentNode;
+
+  cardsContainer.style.display = 'none';
 
   // Extract information from div elements
   const divElements = block.querySelectorAll('div');
@@ -77,8 +80,8 @@ export default function decorate(block) {
   fetchData();
 
   //Update button to use themed color button
-  const container = block.parentNode.parentNode;
-  const sectionLink = container.querySelector('.button-container > a');
+  const sectionLink = cardsContainer.querySelector('.button-container > a');
   sectionLink.classList.remove('button');
   sectionLink.classList.add('button-secondary');
+  cardsContainer.style.display = 'block';
 }
