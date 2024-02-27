@@ -47,6 +47,7 @@
 
 .hlx-badge > span {
   user-select: none;
+  font-size: var(--body-font-size-m);
 }
 
 .hlx-badge .hlx-open {

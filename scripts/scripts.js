@@ -13,7 +13,10 @@ import {
   loadCSS,
   loadFooter,
   loadHeader,
+  loadScript,
   sampleRUM,
+  toCamelCase,
+  toClassName,
   waitForLCP,
 } from './aem.js';
 import initializeDropins from './dropins.js';
@@ -23,10 +26,10 @@ const pluginContext = {
   getAllMetadata,
   getMetadata,
   loadCSS,
-  // loadScript,
+  loadScript,
   sampleRUM,
-  // toCamelCase,
-  // toClassName,
+  toCamelCase,
+  toClassName,
 };
 
 const LCP_BLOCKS = [
@@ -210,15 +213,7 @@ async function loadEager(doc) {
   initializeDropins();
   decorateTemplateAndTheme();
 
-  await window.hlx.plugins.run('loadEager');
-
-  if (getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length) {
-    // eslint-disable-next-line import/no-relative-packages
-    const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
-    await runEager(document, { audiences: AUDIENCES }, pluginContext);
-  }
+  await window.hlx.plugins.run('loadEager', pluginContext);
 
   window.adobeDataLayer = window.adobeDataLayer || [];
 
@@ -281,8 +276,6 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 
-  window.hlx.plugins.run('loadLazy');
-
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
@@ -302,8 +295,8 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   window.setTimeout(() => {
-    window.hlx.plugins.load('delayed');
-    window.hlx.plugins.run('loadDelayed');
+    window.hlx.plugins.load('delayed', pluginContext);
+    window.hlx.plugins.run('loadDelayed', pluginContext);
     // eslint-disable-next-line import/no-cycle
     return import('./delayed.js');
   }, 3000);
@@ -468,9 +461,9 @@ export function getBlockPlaceholderInfo(block) {
 }
 
 async function loadPage() {
-  await window.hlx.plugins.load('eager');
+  await window.hlx.plugins.load('eager', pluginContext);
   await loadEager(document);
-  await window.hlx.plugins.load('lazy');
+  await window.hlx.plugins.load('lazy', pluginContext);
   await loadLazy(document);
   loadDelayed();
 }
