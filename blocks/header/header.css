@@ -432,8 +432,19 @@ header nav .nav-tools button.nav-search-button {
   padding: 5px 15px;
 }
 
+header nav .nav-tools button.nav-search-button:hover {
+  background-color: var(--color-neutral-200);
+  cursor: pointer;
+}
+
 header .nav-search-panel {
   padding: var(--spacing-small);
+}
+
+header .search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header .nav-search-panel input {
@@ -475,10 +486,25 @@ header .nav-search-panel input {
   width: auto;
 }
 
+header .nav-search-button:focus,
+header .nav-cart-button:focus {
+  background-color: unset;
+}
+
 /* If viewport height is below max, set max height to 90% of viewport */
-@media (height < 820px) {
+@media (height < 768px) {
   .cart-mini-cart:not(:has(.cart-empty-cart)) {
     max-height: calc(100vh - var(--nav-height));
+  }
+}
+
+@media (width > 768px) {
+  header nav .nav-search-panel,
+  header nav .minicart-panel {
+    width: 398px;
+    left: unset;
+    right: 0;
+    top: 40px;
   }
 }
 
@@ -493,12 +519,7 @@ header .nav-search-panel input {
     right: 20px;
   }
 
-  header nav .minicart-panel {
-    width: 398px;
-    left: unset;
-    right: 0;
-  }
-
+  header nav .minicart-panel,
   header nav .nav-search-panel {
     width: 398px;
     left: unset;

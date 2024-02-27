@@ -374,14 +374,6 @@ a.button-secondary {
   text-transform: uppercase;
 }
 
-a.button:hover,
-a.button:focus,
-button:not([class^='elsie-']):not(.hlx-badge):hover,
-button:not([class^='elsie-']):not(.hlx-badge):focus{
-  background-color: var(--color-neutral-200);
-  cursor: pointer;
-}
-
 a.button.disabled,
 button:not([class^='elsie-']):disabled,
 button:not([class^='elsie-']):disabled:hover {
