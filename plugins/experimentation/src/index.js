@@ -394,8 +394,6 @@ async function getConfig(experiment, instantExperiment, pluginOptions, context) 
 }
 
 export async function runExperiment(document, options, context) {
-  console.log("Run experiment happened");
-
   if (isBot()) {
     return false;
   }
@@ -433,6 +431,10 @@ export async function runExperiment(document, options, context) {
   console.debug(`running experiment (${window.hlx.experiment.id}) -> ${window.hlx.experiment.selectedVariant}`);
 
   if (experimentConfig.selectedVariant === experimentConfig.variantNames[0]) {
+    context.sampleRUM('experiment', {
+      source: experimentConfig.id,
+      target: experimentConfig.selectedVariant,
+    });
     return false;
   }
 
@@ -449,14 +451,14 @@ export async function runExperiment(document, options, context) {
   }
 
   // Fullpage content experiment
-  document.body.classList.add(`experiment-${experimentConfig.id}`);
+  document.body.classList.add(`experiment-${context.toClassName(experimentConfig.id)}`);
   const result = await replaceInner(pages[index], document.querySelector('main'));
   experimentConfig.servedExperience = result || currentPath;
   if (!result) {
     // eslint-disable-next-line no-console
     console.debug(`failed to serve variant ${window.hlx.experiment.selectedVariant}. Falling back to ${experimentConfig.variantNames[0]}.`);
   }
-  document.body.classList.add(`variant-${result ? experimentConfig.selectedVariant : experimentConfig.variantNames[0]}`);
+  document.body.classList.add(`variant-${context.toClassName(result ? experimentConfig.selectedVariant : experimentConfig.variantNames[0])}`);
   context.sampleRUM('experiment', {
     source: experimentConfig.id,
     target: result ? experimentConfig.selectedVariant : experimentConfig.variantNames[0],
@@ -575,7 +577,7 @@ export async function serveAudience(document, options, context) {
   }
 }
 
-window.hlx.patchBlockConfig.push((config) => {
+window.hlx.patchBlockConfig?.push((config) => {
   const { experiment } = window.hlx;
 
   // No experiment is running
@@ -676,11 +678,16 @@ export async function loadLazy(document, options, context) {
     ...DEFAULT_OPTIONS,
     ...(options || {}),
   };
-  if (window.location.hostname.endsWith('hlx.page')
-    || window.location.hostname === ('localhost')
-    || (typeof options.isProd === 'function' && !options.isProd())) {
-    // eslint-disable-next-line import/no-cycle
-    const preview = await import('./preview.js');
-    preview.default(document, pluginOptions, { ...context, getResolvedAudiences });
+  // do not show the experimentation pill on prod domains
+  if (window.location.hostname.endsWith('.live')
+    || (typeof options.isProd === 'function' && options.isProd())
+    || (options.prodHost
+        && (options.prodHost === window.location.host
+          || options.prodHost === window.location.hostname
+          || options.prodHost === window.location.origin))) {
+    return;
   }
+  // eslint-disable-next-line import/no-cycle
+  const preview = await import('./preview.js');
+  preview.default(document, pluginOptions, { ...context, getResolvedAudiences });
 }
