@@ -73,11 +73,24 @@ export default async function decorate(block) {
       },
       Description: (ctx) => {
         const defaultContent = ctx?.data?.description;
+        if (!defaultContent) return;
+
         const [html, updateContent] = createAccordion('Overview', defaultContent, true);
         ctx.replaceWith(html);
 
         ctx.onChange((next) => {
           updateContent(next?.data?.description);
+        });
+      },
+      ShortDescription: (ctx) => {
+        const shortDescContent = ctx?.data?.shortDescription;
+        if (!shortDescContent) return;
+
+        const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
+        ctx.replaceWith(html);
+
+        ctx.onChange((next) => {
+          updateContent(next?.data?.shortDescription);
         });
       },
       Attributes: (ctx) => {

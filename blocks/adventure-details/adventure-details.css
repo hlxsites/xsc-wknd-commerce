@@ -119,7 +119,16 @@
   order: 6;
 }
 
-.elsie-base-design .pdp-product__column-body .pdp-product__attributes {
+.elsie-base-design .pdp-product__column-body .pdp-product__short_description {
   order: 5;
+}
+
+.elsie-base-design .pdp-product__column-body .pdp-product__attributes {
+  order: 4;
   margin: 0;
+}
+
+
+.adventure-details-container .elsie-base-design .pdp-carousel__slide img {
+  height: auto;
 }

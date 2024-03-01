@@ -12,3 +12,7 @@
   font-size: var(--body-font-size-s);
   color: var(--color-brand-300);
 }
+
+.product-list-page .ds-sdk-product-item__image > div {
+  background-color: inherit;
+}
