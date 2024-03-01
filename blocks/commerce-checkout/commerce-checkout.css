@@ -1,8 +1,8 @@
 /* stylelint-disable */
 
-.elsie-base-design .checkout-header-title::after,
-.elsie-base-design .checkout-order-summary__title::after,
-.elsie-base-design .checkout-cart-summary__title::after {
+.dropin-design .checkout-header-title::after,
+.dropin-design .checkout-order-summary__title::after,
+.dropin-design .checkout-cart-summary__title::after {
   border-bottom: 2px solid var(--color-brand-theme-1);
   content: "";
   display: block;
@@ -11,49 +11,49 @@
   width: fit-content;
 }
 
-.elsie-base-design .checkout-header-title,
-.elsie-base-design .checkout-order-summary__title,
-.elsie-base-design .checkout-cart-summary__title {
+.dropin-design .checkout-header-title,
+.dropin-design .checkout-order-summary__title,
+.dropin-design .checkout-cart-summary__title {
   text-transform: capitalize;
 }
 
-.elsie-base-design .checkout-order-summary hr[role="separator"],
-.elsie-base-design .checkout-cart-summary hr[role="separator"] {
+.dropin-design .checkout-order-summary hr[role="separator"],
+.dropin-design .checkout-cart-summary hr[role="separator"] {
   display: none;
 }
 
-.elsie-base-design .checkout-header-title {
+.dropin-design .checkout-header-title {
   border-bottom: none;
 }
 
-.elsie-base-design .checkout-order-summary__title {
+.dropin-design .checkout-order-summary__title {
   margin-bottom: 0.5rem;
 }
 
-.elsie-base-design .checkout-order-summary__row--emphasized {
+.dropin-design .checkout-order-summary__row--emphasized {
   font-weight: 900;
   margin-top: 3rem;
 }
 
-.elsie-base-design .checkout-cart-summary__edit {
+.dropin-design .checkout-cart-summary__edit {
   align-self: flex-start;
 }
 
-.elsie-base-design .checkout-cart-summary__items {
+.dropin-design .checkout-cart-summary__items {
   margin-top: 1.5rem;
 }
 
-.elsie-base-design .checkout-login,
-.elsie-base-design .checkout-shippingMethods {
+.dropin-design .checkout-login,
+.dropin-design .checkout-shippingMethods {
   padding-bottom: var(--spacing-xbig);
   border-bottom: 1.5px solid var(--color-neutral-400);
 }
 
-.elsie-base-design .checkout-paymentMethods {
+.dropin-design .checkout-paymentMethods {
   padding-bottom: 1.5rem;
   border-bottom: 1.5px solid var(--color-neutral-400);
 }
 
-.elsie-base-design .elsie-accordion-section {
+.dropin-design .dropin-accordion-section {
   padding: var(--spacing-medium);
 }
