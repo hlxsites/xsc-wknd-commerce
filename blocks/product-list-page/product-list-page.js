@@ -43,7 +43,7 @@ export default async function decorate(block) {
   };
 
   if (type !== 'search') {
-    storeDetails.config.categoryName = document.querySelector('.default-content-wrapper > h1')?.innerText;
+    storeDetails.config.categoryName = urlpath;
     storeDetails.config.currentCategoryUrlPath = urlpath;
 
     // Enable enrichment
