@@ -1,23 +1,23 @@
 /* stylelint-disable */
-.dropin-design .pdp-product__prices {
+.elsie-base-design .pdp-product__prices {
   margin-top: 2rem;
 }
 
-.dropin-design .pdp-product__quantity {
+.elsie-base-design .pdp-product__quantity {
   grid-column: 1 / span 1;
 }
 
-.dropin-design .pdp-product__buttons {
+.elsie-base-design .pdp-product__buttons {
   display: flex;
   flex-direction: row;
 }
 
-.dropin-design .dropin-button--primary,
-.dropin-design .dropin-button--secondary {
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-button--secondary {
   width: 100%;
 }
 
-.dropin-design .pdp-carousel__button--thumbnailsColumn {
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn {
   background: var(--color-brand-black-1);
   border-radius: 0;
   padding: 0.25rem;
@@ -25,33 +25,33 @@
   z-index: 2;
 }
 
-.dropin-design .pdp-carousel__button--thumbnailsColumn svg path {
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn svg path {
   stroke: var(--color-neutral-50);
   stroke-width: 1;
 }
 
-.dropin-design .pdp-carousel__button--thumbnailsColumn[aria-label="Previous"] {
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Previous"] {
   top: 1.75rem;
 }
 
-.dropin-design .pdp-carousel__button--thumbnailsColumn[aria-label="Next"] {
+.elsie-base-design .pdp-carousel__button--thumbnailsColumn[aria-label="Next"] {
   bottom: 1.75rem;
 }
 
-.dropin-design .pdp-product__column-body {
+.elsie-base-design .pdp-product__column-body {
   display: flex;
   flex-direction: column;
 }
 
-.dropin-design .pdp-product__column-body .pdp-product__description {
+.elsie-base-design .pdp-product__column-body .pdp-product__description {
   order: 6;
 }
 
-.dropin-design .pdp-product__column-body .pdp-product__short_description {
+.elsie-base-design .pdp-product__column-body .pdp-product__short_description {
   order: 5;
 }
 
-.dropin-design .pdp-product__column-body .pdp-product__attributes {
+.elsie-base-design .pdp-product__column-body .pdp-product__attributes {
   order: 4;
   margin: 0;
 }

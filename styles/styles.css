@@ -13,7 +13,7 @@
  */
 
  :root,
- .dropin-design.dropin-design {
+ .elsie-base-design.elsie-base-design {
   /* WKND Adventure Theme */
   --color-brand-black-1: #000; /* Type 1: Black */
   --color-brand-black-2: #202020; /* Type 2: Black */
@@ -529,34 +529,34 @@ main .section.top-divider {
 }
 
 /* Base Design System Tokens */
-.dropin-design.dropin-design {
+.elsie-base-design.elsie-base-design {
   --background-none: none 0 0% no-repeat padding-box;
 }
 
 /* Global PDP columns overrides */ 
 @media (width >= 1024px) {
-  .dropin-design .pdp-product .pdp-product__gallery-column {
+  .elsie-base-design .pdp-product .pdp-product__gallery-column {
     grid-column: 1 / span 7;
   }
   
-  .dropin-design .pdp-product .pdp-product__content-column {
+  .elsie-base-design .pdp-product .pdp-product__content-column {
     grid-column: 8 / span 5;
   }
 
-  .dropin-design .pdp-product .pdp-product__breadcrumbs {
+  .elsie-base-design .pdp-product .pdp-product__breadcrumbs {
     grid-column: 1 / -1;
   }
 }
 
 /* Primary Buttons */
-.dropin-design .dropin-button--primary,
-.dropin-design .dropin-iconButton--primary,
-.dropin-design .dropin-button--primary:hover,
-.dropin-design .dropin-iconButton--primary:hover,
-.dropin-design .dropin-button--primary:hover:active,
-.dropin-design .dropin-iconButton--primary:focus,
-.dropin-design .dropin-button--primary:focus,
-.dropin-design .dropin-button--primary:focus:hover {
+.elsie-base-design .elsie-button--primary,
+.elsie-base-design .elsie-iconButton--primary,
+.elsie-base-design .elsie-button--primary:hover,
+.elsie-base-design .elsie-iconButton--primary:hover,
+.elsie-base-design .elsie-button--primary:hover:active,
+.elsie-base-design .elsie-iconButton--primary:focus,
+.elsie-base-design .elsie-button--primary:focus,
+.elsie-base-design .elsie-button--primary:focus:hover {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
@@ -566,14 +566,14 @@ main .section.top-divider {
 }
 
 /* Secondary Buttons */
-.dropin-design .dropin-button--secondary,
-.dropin-design .dropin-iconButton--secondary,
-.dropin-design .dropin-button--secondary:hover,
-.dropin-design .dropin-iconButton--secondary:hover,
-.dropin-design .dropin-button--secondary:hover:active,
-.dropin-design .dropin-iconButton--secondary:focus,
-.dropin-design .dropin-button--secondary:focus,
-.dropin-design .dropin-button--secondary:focus:hover {
+.elsie-base-design .elsie-button--secondary,
+.elsie-base-design .elsie-iconButton--secondary,
+.elsie-base-design .elsie-button--secondary:hover,
+.elsie-base-design .elsie-iconButton--secondary:hover,
+.elsie-base-design .elsie-button--secondary:hover:active,
+.elsie-base-design .elsie-iconButton--secondary:focus,
+.elsie-base-design .elsie-button--secondary:focus,
+.elsie-base-design .elsie-button--secondary:focus:hover {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
@@ -583,7 +583,7 @@ main .section.top-divider {
 }
 
 /* Disabled Buttons */
-.dropin-design .dropin-button:disabled {
+.elsie-base-design .elsie-button:disabled {
   background: var(--color-brand-theme-2);
   color: var(--color-neutral-50);
 }
