@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 // Drop-in Tools
-import { initializers } from '@dropins/tools/initializer.js';
+import { initializers } from '@dropins/elsie/initializer.js';
 
 // Drop-in APIs
 import * as product from '@dropins/storefront-pdp/api.js';
@@ -56,6 +56,22 @@ export default async function decorate(block) {
         label.className = 'quantity-label';
         label.textContent = placeholderObject['Quantity-Label'];
         ctx.prependChild(label);
+      },
+      Options: () => {
+        // const label = document.createElement('div');
+        // const element = ctx.getSlotElement('product-swatch--color'); //update
+        // label.className = 'options-label';
+        // label.textContent = 'Options label placeholder';
+        // element.appendChild(label);
+
+        // ctx.onChange((next) => {
+        //   const optionItems = next?.data?.options[1].items;
+        //   const findSelectedItem = optionItems.find((item) => item.selected);
+
+        //   if (findSelectedItem) {
+        //     label.textContent = `Options label placeholder - ${findSelectedItem.label}`; //update
+        //   }
+        // });
       },
       Actions: (ctx) => {
         // Add to Cart Button
