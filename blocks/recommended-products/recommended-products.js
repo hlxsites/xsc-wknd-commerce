@@ -2,7 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { jsx } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
-  const link = block.querySelector('a.button');
+  const link = block.querySelector('a');
   const response = await fetch(link.href);
 
   if (!response.ok) {
