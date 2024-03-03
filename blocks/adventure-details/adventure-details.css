@@ -1,5 +1,15 @@
 
 /* stylelint-disable */
+.adventure-pdp main {
+  max-width: var(--large-grid-layout);
+  margin: 105px auto 0;
+}
+
+@media (width < 768px) {
+  .adventure-pdp main {
+    margin-top: 40px;
+  } 
+}
 
 .elsie-base-design .pdp-product h1:not(.pdp-product__title)::after,
 .elsie-base-design .pdp-product h2:not(.pdp-product__title)::after,
