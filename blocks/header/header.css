@@ -88,7 +88,7 @@ header nav p {
 .breadcrumb-container,
 .breadcrumb-container a,
 .breadcrumb-container span {
-  font-size: var( --body-font-size-xs);
+  font-size: var( --body-font-size-xxs);
   text-transform: uppercase;
 }
 
@@ -108,13 +108,13 @@ header nav p {
 header nav a:any-link {
   color: currentcolor;
   text-transform: uppercase;
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-xxs);
   letter-spacing: 0.16em;
 }
 
 @media (width <= 900px) {
   header nav a:any-link {
-    font-size: var(--body-font-size-s);
+    font-size: var(--body-font-size-xs);
   }
   
 }
@@ -453,7 +453,7 @@ header .nav-search-panel input {
   padding: 10px;
   box-sizing: border-box;
   font: var(--type-headline-2-default-font);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   letter-spacing: var(--type-headline-2-default-letter-spacing);
   border: 1px solid currentcolor;
   appearance: none;
@@ -479,7 +479,7 @@ header .nav-search-panel input {
 }
 
 .cart-mini-cart .cart-mini-cart__footer__ctas a {
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-md);
   width: auto;
 }
 

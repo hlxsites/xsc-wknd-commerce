@@ -87,12 +87,12 @@
 .carousel .carousel-slide .carousel-slide-content p {
   margin: 1rem 0;
   color: var(--color-brand-300);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   line-height: 16px;
 }
 
 .carousel .carousel-slide .carousel-slide-content p:first-of-type {
-  font-size: 14px;
+  font-size: var(--body-font-size-s);
   line-height: 20px;
   margin-top: 3rem;
 }

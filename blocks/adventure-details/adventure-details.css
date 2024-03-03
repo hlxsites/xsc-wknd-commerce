@@ -83,7 +83,7 @@
 }
 
 .elsie-base-design .pdp-product__prices .elsie-price {
-  font-size: 14px;
+  font-size: var(--body-font-size-s);
 }
 
 .elsie-base-design .pdp-product__actions .pdp-swatches {
@@ -95,12 +95,12 @@
 }
 
 .elsie-base-design .pdp-product__quantity .quantity-label {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   font-weight: 600;
 }
 
 .elsie-base-design .pdp-product__options .options-label {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   font-weight: 400;
   color: var(--color-neutral-700);
 }

@@ -19,16 +19,17 @@
   --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
 
   /* body sizes */
-  --body-font-size-xs: 10px;
-  --body-font-size-s: 12px;
-  --body-font-size-m: 16px;
+  --body-font-size-xxs: 10px;
+  --body-font-size-xs: 12px;
+  --body-font-size-s: 14px;
+  --body-font-size-md: 16px;
   --body-font-size-lg: 20px;
   --body-font-size-xl: 24px;
 
   /* heading sizes */
   --heading-font-size-xs: 18px;
   --heading-font-size-s: 20px;
-  --heading-font-size-m: 24px;
+  --heading-font-size-md: 24px;
   --heading-font-size-l: 32px;
   --heading-font-size-xl: 36px;
   --heading-font-size-xxl: 40px;
@@ -170,7 +171,7 @@
 }
 
 html, body {
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-xxs);
   height: 100%;
 }
 
@@ -336,7 +337,7 @@ button.button-primary,
 a.button-primary {
   display: block;
   background-color: var(--color-brand-600);
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-md);
   font-weight: 600;
   color: var(--color-brand-500);
   padding: 8px 24px;
@@ -354,7 +355,7 @@ button.button-secondary,
 a.button-secondary {
   display: block;
   background-color: var(--color-brand-300);
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-md);
   font-weight: 600;
   color: var(--color-neutral-50);
   padding: 8px 24px;

@@ -5,11 +5,11 @@
 }
 
 .product-list-page .ds-widgets_actions_header > span:first-child {
-  font-size: var(--heading-font-size-m);
+  font-size: var(--heading-font-size-md);
 }
 
 .product-list-page .ds-widgets_actions_header > span:last-child {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   color: var(--color-brand-300);
 }
 
