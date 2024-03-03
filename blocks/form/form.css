@@ -158,7 +158,7 @@
 }
 
 .email-sub-form button:hover {
-  background-color: var(--color-brand-black-1);
+  background-color: var(--color-brand-300);
 }
 
 .form-block-wrapper button[type="submit"] {
@@ -178,7 +178,7 @@
 }
 
 .form-block-wrapper .form-info {
-  background: var(--color-brand-theme-2);
+  background: var(--color-brand-700);
   padding: 3rem 2.5rem;
   width: auto;
 }

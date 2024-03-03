@@ -60,7 +60,7 @@
 
 .adventures main .tabs-container .side-bar dd {
   font-size: 14px;
-  color: var(--color-brand-black-1);
+  color: var(--color-brand-300);
   margin-left: auto;
   padding: 3px 15px 15px;
   line-height: normal;
@@ -77,7 +77,7 @@
   line-height: 20px;
   letter-spacing: 0.04em;
   font-weight: 400;
-  color: var(--color-brand-black-2);
+  color: var(--color-brand-500);
 }
 
 .adventures main .tabs-container .adventure-details a {

@@ -3,7 +3,7 @@
 .elsie-base-design .checkout-header-title::after,
 .elsie-base-design .checkout-order-summary__title::after,
 .elsie-base-design .checkout-cart-summary__title::after {
-  border-bottom: 2px solid var(--color-brand-theme-1);
+  border-bottom: 2px solid var(--color-brand-600);
   content: "";
   display: block;
   padding-top: 8px;

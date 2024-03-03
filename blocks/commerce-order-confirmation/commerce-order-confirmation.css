@@ -5,7 +5,7 @@
 }
 
 .elsie-base-design .order-confirmation-order-summary {
-  background: var(--color-brand-theme-2);
+  background: var(--color-brand-700);
   border: none;
 }
 
@@ -15,7 +15,7 @@
 
 .elsie-base-design .order-confirmation-order-summary__title::after,
 .elsie-base-design .order-confirmation-details__title::after {
-  border-bottom: 2px solid var(--color-brand-theme-1);
+  border-bottom: 2px solid var(--color-brand-600);
   content: "";
   display: block;
   padding-top: 8px;

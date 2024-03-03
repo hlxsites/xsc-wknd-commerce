@@ -57,22 +57,6 @@ export default async function decorate(block) {
         label.textContent = placeholderObject['Quantity-Label'];
         ctx.prependChild(label);
       },
-      Options: () => {
-        // const label = document.createElement('div');
-        // const element = ctx.getSlotElement('product-swatch--color'); //update
-        // label.className = 'options-label';
-        // label.textContent = 'Options label placeholder';
-        // element.appendChild(label);
-
-        // ctx.onChange((next) => {
-        //   const optionItems = next?.data?.options[1].items;
-        //   const findSelectedItem = optionItems.find((item) => item.selected);
-
-        //   if (findSelectedItem) {
-        //     label.textContent = `Options label placeholder - ${findSelectedItem.label}`; //update
-        //   }
-        // });
-      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next) => ({
