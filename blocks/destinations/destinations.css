@@ -87,6 +87,10 @@
   text-decoration: none;
 }
 
+.destinations .card-info .custom-link:hover {
+  color: inherit;
+}
+
 .destinations .card-info .custom-link::after {
   content: ">";
   padding-left: 15px;

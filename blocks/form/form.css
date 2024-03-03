@@ -159,6 +159,7 @@
 
 .email-sub-form button:hover {
   background-color: var(--color-brand-300);
+  cursor: pointer;
 }
 
 .form-block-wrapper button[type="submit"] {
