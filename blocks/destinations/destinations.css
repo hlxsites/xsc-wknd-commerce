@@ -37,7 +37,7 @@
 
 .destinations .wide-card .card-info {
   width: 30%;
-  background-color: var(--color-brand-theme-2);
+  background-color: var(--color-brand-700);
   box-sizing: border-box;
   padding: 3.5rem 3rem;
   display: flex;
@@ -63,7 +63,7 @@
 .destinations .wide-card .card-info h5,
 .destinations .wide-card .card-info h6 {
   font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-m);
+  font-size: var(--heading-font-size-md);
   line-height: normal;
   margin: 0;
 }
@@ -74,7 +74,7 @@
 
 @media (width <= 1024px) {
   .destinations .wide-card .card-info p {
-    font-size: var(--body-font-size-s);
+    font-size: var(--body-font-size-xs);
   }
 }
 
@@ -87,10 +87,14 @@
   text-decoration: none;
 }
 
+.destinations .card-info .custom-link:hover {
+  color: inherit;
+}
+
 .destinations .card-info .custom-link::after {
   content: ">";
   padding-left: 15px;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   transition: padding-left 0.3s;
 }
 

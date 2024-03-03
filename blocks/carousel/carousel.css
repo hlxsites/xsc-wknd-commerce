@@ -58,7 +58,7 @@
   z-index: 1;
   padding: 2.5rem;
   color: white;
-  background-color: var(--color-brand-theme-2);
+  background-color: var(--color-brand-700);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -79,26 +79,26 @@
 .carousel .carousel-slide .carousel-slide-content h2 {
   font-size: var(--heading-font-size-s);
   font-family: var(--heading-font-family);
-  color: var(--color-brand-black-2);
+  color: var(--color-brand-500);
   line-height: normal;
   margin: 0;
 }
 
 .carousel .carousel-slide .carousel-slide-content p {
   margin: 1rem 0;
-  color: var(--color-brand-black-1);
-  font-size: var(--body-font-size-s);
+  color: var(--color-brand-300);
+  font-size: var(--body-font-size-xs);
   line-height: 16px;
 }
 
 .carousel .carousel-slide .carousel-slide-content p:first-of-type {
-  font-size: 14px;
+  font-size: var(--body-font-size-s);
   line-height: 20px;
   margin-top: 3rem;
 }
 
 .carousel .carousel-slide .carousel-slide-content h2::after {
-  border-bottom: 2px solid var(--color-brand-theme-1);
+  border-bottom: 2px solid var(--color-brand-600);
   content: "";
   display: block;
   padding-top: 8px;
@@ -166,7 +166,7 @@
   width: 40px;
   height: 40px;
   position: relative;
-  background-color: var(--color-brand-black-1);
+  background-color: var(--color-brand-300);
 }
 
 .carousel .carousel-navigation-buttons button:hover,

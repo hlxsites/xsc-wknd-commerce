@@ -43,7 +43,7 @@
   position: absolute;
   z-index: 1;
   color: var(--color-neutral-50);
-  background: var(--color-brand-black-1);
+  background: var(--color-brand-300);
   cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
 
 .recommended-products .slider-control.prev.disabled,
 .recommended-products .slider-control.next.disabled {
-  background-color: var(--color-brand-theme-2);
+  background-color: var(--color-brand-700);
 }
 
 .recommended-products .slider-item img {
@@ -89,7 +89,7 @@
 .recommended-products .slider-text {
   background-color: var(--color-neutral-50);
   border-radius: 5px;
-  color: var(--color-brand-black-2);
+  color: var(--color-brand-500);
   text-align: center;
   margin-top: 5px;
 }
@@ -152,7 +152,7 @@
 .recommended-products .slider-dot {
   width: 10px;
   height: 10px;
-  background-color: var(--color-brand-theme-2);
+  background-color: var(--color-brand-700);
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;

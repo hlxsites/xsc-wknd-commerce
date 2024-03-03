@@ -1,6 +1,6 @@
 footer {
   padding: 2rem;
-  background-color: var(--color-brand-black-1);
+  background-color: var(--color-brand-300);
   font: var(--type-body-2-default-font);
   letter-spacing: var(--type-body-2-default-letter-spacing);
   color: var(--color-neutral-50);
@@ -89,7 +89,7 @@ footer .wrapper .section.site-links .default-content-wrapper ul, .footer .wrappe
 
 footer .wrapper .section.site-links .default-content-wrapper ul li a {
   text-transform: uppercase;
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-xxs);
   letter-spacing: 0.16em;
   margin: 0 1.5em;
   padding: 1em 1.3em;

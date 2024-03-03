@@ -126,6 +126,14 @@ function setActiveTab() {
     if (linkTitle === path) {
       link.classList.add('active');
     }
+
+    if (linkTitle === 'shop' && path === 'products') {
+      link.classList.add('active');
+    }
+
+    if (linkTitle === 'shop' && path === 'equipment') {
+      link.classList.add('active');
+    }
   });
 
   /* temp - only for the demo since the adventures landing page is the "home page"

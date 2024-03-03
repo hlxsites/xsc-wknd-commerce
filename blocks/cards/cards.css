@@ -35,7 +35,7 @@
 }
 
 .cards .card-info p {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   line-height: normal;
   margin: 0;
   padding-bottom: 5px;
@@ -43,5 +43,5 @@
 }
 
 .cards .card-info span {
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-xxs);
 }

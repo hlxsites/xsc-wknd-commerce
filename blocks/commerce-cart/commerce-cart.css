@@ -8,7 +8,7 @@
 }
 .elsie-base-design .cart-cart__heading-text::after,
 .elsie-base-design .elsie-price-summary__heading::after {
-  border-bottom: 2px solid var(--color-brand-theme-1);
+  border-bottom: 2px solid var(--color-brand-600);
   content: "";
   display: block;
   padding-top: 8px;
@@ -36,4 +36,8 @@
 
 .elsie-base-design .elsie-incrementer__input {
   min-width: 24px;
+}
+
+.elsie-base-design .elsie-price-summary__entry {
+  color: var(--color-brand-300);
 }

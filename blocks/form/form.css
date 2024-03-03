@@ -27,14 +27,14 @@
 
 .form label {
   font-weight: 700;
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-xxs);
   margin-bottom: 0.25em;
 }
 
 .form input,
 .form select,
 .form textarea {
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   width: 100%;
   max-width: 50rem;
   display: block;
@@ -68,7 +68,7 @@
 
 .form .button {
   max-width: 225px;
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-md);
   padding: 0.2em 0.4em;
 }
 
@@ -158,7 +158,8 @@
 }
 
 .email-sub-form button:hover {
-  background-color: var(--color-brand-black-1);
+  background-color: var(--color-brand-300);
+  cursor: pointer;
 }
 
 .form-block-wrapper button[type="submit"] {
@@ -178,7 +179,7 @@
 }
 
 .form-block-wrapper .form-info {
-  background: var(--color-brand-theme-2);
+  background: var(--color-brand-700);
   padding: 3rem 2.5rem;
   width: auto;
 }
@@ -214,7 +215,7 @@
 
 .form-block-wrapper .form-info p {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--body-font-size-s);
   padding: 8px;
   line-height: normal;
 }
