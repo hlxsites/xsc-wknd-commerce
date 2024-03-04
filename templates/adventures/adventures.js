@@ -1,4 +1,4 @@
-import { getAEMHeadlessClient } from '../../scripts/scripts.js';
+import { getAEMHeadlessClient, buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
 import { getMetadata } from '../../scripts/aem.js';
 
 /* Hardcoded endpoint */
@@ -122,6 +122,10 @@ export default async function decorate(block) {
   if (defaultContentWrapper) {
     defaultContentWrapper.classList.replace('default-content-wrapper', 'redirect-btn-container');
     tabsBlock.append(defaultContentWrapper);
+  }
+
+  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+    buildAdventureBreadcrumbs();
   }
 
   block.style.display = 'block';

@@ -17,12 +17,14 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
-import { createAccordion, generateListHTML, getBlockPlaceholderInfo } from '../../scripts/scripts.js';
+import { createAccordion, generateListHTML, getBlockPlaceholderInfo, buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   const placeholderObject = getBlockPlaceholderInfo(block);
   const carouselControl = placeholderObject['Carousel-Controls'];
   block.innerHTML = '';
+
+  buildAdventureBreadcrumbs();
 
   // Initialize Drop-ins
   initializers.register(product.initialize, {});

@@ -460,6 +460,31 @@ export function getBlockPlaceholderInfo(block) {
   return placeholderObject;
 }
 
+export function buildAdventureBreadcrumbs() {
+  const path = window.location.pathname.split('/').slice(1).map((word) => word.charAt(0).toUpperCase() + word.slice(1).replace(/-/g, ' '));
+  const breadcrumbContainer = document.createElement('div');
+  breadcrumbContainer.className = 'breadcrumb-container';
+
+  const adventuresLink = document.createElement('a');
+  adventuresLink.href = '/adventures';
+  adventuresLink.textContent = 'Adventures';
+  breadcrumbContainer.appendChild(adventuresLink);
+
+  if (path.length > 2) {
+    breadcrumbContainer.appendChild(document.createTextNode(' • '));
+    const adventureName = document.createElement('span');
+    adventureName.textContent = path[path.length - 2];
+    breadcrumbContainer.appendChild(adventureName);
+  } else if (path.length === 2) {
+    breadcrumbContainer.appendChild(document.createTextNode(' • '));
+    const adventureName = document.createElement('span');
+    adventureName.textContent = path[1];
+    breadcrumbContainer.appendChild(adventureName);
+  }
+
+  document.querySelector('main').prepend(breadcrumbContainer);
+}
+
 async function loadPage() {
   await window.hlx.plugins.load('eager', pluginContext);
   await loadEager(document);
