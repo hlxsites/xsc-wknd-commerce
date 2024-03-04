@@ -58,8 +58,13 @@
   flex-basis: 100%;
 }
 
+.elsie-base-design .elsie-button {
+  padding: 1rem;
+}
+
 .elsie-base-design .elsie-button--primary,
-.elsie-base-design .elsie-button--secondary {
+.elsie-base-design .elsie-button--secondary,
+.elsie-base-design .elsie-button--tertiary {
   width: auto;
 }
 

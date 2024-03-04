@@ -99,6 +99,11 @@ header nav p {
   letter-spacing: 0.16em;
 }
 
+.breadcrumb-container a:hover {
+  color: var(--color-brand-600);
+  text-decoration: solid underline var(--color-brand-600);
+}
+
 @media (width <= 768px) {
   .breadcrumb-container {
     padding: 1rem;
