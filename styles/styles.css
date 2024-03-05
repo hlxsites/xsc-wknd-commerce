@@ -472,6 +472,23 @@ main .section.top-divider {
   border-top:  1px solid var(--color-neutral-300);
 }
 
+main .section.section-title .default-content-wrapper > p {
+  margin: 0;
+  width: fit-content;
+  font: var(--type-headline-2-strong-font);
+  letter-spacing: var(--type-headline-2-strong-letter-spacing);
+}
+
+main .section.section-title .default-content-wrapper > p::after {
+  border-bottom: 2px solid var(--color-brand-600);
+  content: "";
+  display: block;
+  padding-top: 8px;
+  min-width: 84px;
+  width: fit-content;
+}
+
+
 /* Accordion */
 .accordion details summary {
   position: relative;
