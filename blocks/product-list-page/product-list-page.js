@@ -43,7 +43,9 @@ export default async function decorate(block) {
   };
 
   if (type !== 'search') {
-    storeDetails.config.categoryName = urlpath;
+    const categoryName = urlpath[0].toUpperCase() + urlpath.slice(1);
+
+    storeDetails.config.categoryName = categoryName;
     storeDetails.config.currentCategoryUrlPath = urlpath;
 
     // Enable enrichment
