@@ -158,7 +158,6 @@
 }
 
 .email-sub-form button:hover {
-  background-color: var(--color-brand-300);
   cursor: pointer;
 }
 
@@ -179,7 +178,7 @@
 }
 
 .form-block-wrapper .form-info {
-  background: var(--color-brand-700);
+  background: var(--color-neutral-200);
   padding: 3rem 2.5rem;
   width: auto;
 }
