@@ -100,8 +100,8 @@ header nav p {
 }
 
 .breadcrumb-container a:hover {
-  color: var(--color-brand-600);
-  text-decoration: solid underline var(--color-brand-600);
+  color: var(--color-neutral-900);
+  text-decoration: solid underline var(--color-neutral-900);
 }
 
 @media (width <= 768px) {
