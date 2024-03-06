@@ -30,7 +30,7 @@
 }
 
 .popular-adventures .card-info {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
 }
 
@@ -44,4 +44,5 @@
 
 .popular-adventures .card-info span {
   font-size: var(--body-font-size-xxs);
+  text-transform: uppercase;
 }
