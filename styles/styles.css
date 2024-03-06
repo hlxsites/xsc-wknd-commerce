@@ -36,17 +36,14 @@
 
   /* Elsie base design */
   --color-brand-300: #F5E96D; 
-  --color-brand-500: #FFEA00; /* Main */
+  --color-brand-500: #FFEA00;
   --color-brand-600: #FFE600; 
   --color-brand-700: #F7D522; 
-
-
-  --color-black-100: #000; /* Type 1: Black */
-  --color-black-200: #202020; /* Type 2: Black */
-
+  --color-black-100: #000;
+  --color-black-200: #202020; 
   --color-neutral-50: #fff;
   --color-neutral-100: #fafafa;
-  --color-neutral-200: #f5f5f5; /* grey backround */
+  --color-neutral-200: #f5f5f5;
   --color-neutral-300: #e8e8e8;
   --color-neutral-400: #d6d6d6;
   --color-neutral-500: #b8b8b8;
@@ -608,6 +605,10 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   font-weight: 900;
   background: var(--color-brand-100);
   color: var(--color-neutral-50);
+}
+
+.dropin-design .dropin-iconButton--tertiary {
+  color: var(--color-black-100);
 }
 
 /* Disabled Buttons */

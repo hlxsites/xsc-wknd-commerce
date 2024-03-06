@@ -8,7 +8,7 @@
 }
 .dropin-design .cart-cart__heading-text::after,
 .dropin-design .dropin-price-summary__heading::after {
-  border-bottom: 2px solid var(--color-brand-600);
+  border-bottom: 2px solid var(--color-brand-500);
   content: "";
   display: block;
   padding-top: 8px;
@@ -38,6 +38,7 @@
   min-width: 24px;
 }
 
-.dropin-design .dropin-price-summary__entry {
-  color: var(--color-brand-300);
+.dropin-design .dropin-price-summary__entry,
+.dropin-design .dropin-cart-item__title a {
+  color: var(--color-black-100);
 }
