@@ -33,8 +33,6 @@ main .hero-container {
 .hero h4,
 .hero h5,
 .hero h6 {
-  margin: 0.75em 0 0;
-  font-family: var(--heading-font-family);
   letter-spacing: 0.04em;
   line-height: normal;
 }
@@ -49,11 +47,15 @@ main .hero-container {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  padding: 1.25em 2em;
+  padding: 40px;
   box-sizing: border-box;
   max-width: var(--med-grid-layout);
   width: 100%;
   border-bottom: 1px solid var(--color-neutral-300);
+}
+
+.hero .button-container a {
+  margin-bottom: 0;
 }
 
 @media (width <= 768px) {
