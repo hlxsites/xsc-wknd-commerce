@@ -65,7 +65,7 @@ export default async function decorate(block) {
       createdCard.innerHTML = `
         <div class="card-image">
           <picture>
-            <img loading="lazy" alt="${card.activity}" srcset="/images/${card.slug}.jpg" width="200" height="150">
+            <img loading="lazy" alt="${card.activity}" srcset="/images/adventures/${card.slug}.jpg" width="200" height="150">
           </picture>
         </div>
         <div class="card-info">
