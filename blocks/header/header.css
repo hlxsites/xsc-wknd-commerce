@@ -399,23 +399,23 @@ header nav .nav-tools .minicart-wrapper > button {
 }
 
 header nav .nav-tools button.nav-cart-button {
-  background-image: url('/icons/shopping-cart.svg');
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 27px;
-  height: 24px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url(/icons/shopping-cart.svg);
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  background-size: 20px;
+  padding: 5px 15px;
+  margin: 1rem;
+  width: auto;
+  height: 34px;
 }
 
 header nav .nav-tools button.nav-cart-button[data-count]::after {
   content: attr(data-count);
   position: absolute;
   top: 0;
-  right: 9px;
+  right: 0;
   background-color: var(--color-brand-300);
   color: var(--color-neutral-100);
   border-radius: 50%;
@@ -433,12 +433,13 @@ header nav .nav-tools button.nav-search-button {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
+  background-size: 20px;
   padding: 5px 15px;
-  height: 30px;
-  width: 30px;
+  margin: 1rem;
 }
 
-header nav .nav-tools button.nav-search-button:hover {
+header nav .nav-tools button.nav-search-button:hover,
+header nav .nav-tools button.nav-cart-button:hover {
   background-color: var(--color-neutral-200);
   cursor: pointer;
 }
