@@ -28,6 +28,7 @@
 @media (width < 768px) {
   .beat-the-buzzer-banner .banner-container .content {
     font-size: var(--body-font-size-xl);
+    line-height: normal;
   } 
 }
 
