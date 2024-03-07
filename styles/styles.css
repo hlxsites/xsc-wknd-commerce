@@ -587,7 +587,7 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   text-transform: uppercase;
   font-weight: 900;
   background: var(--color-brand-500);
-  color: var(--color-brand-100);
+  color: var(--color-black-100);
 }
 
 /* Secondary Buttons */
@@ -603,10 +603,12 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   border-radius: 0;
   text-transform: uppercase;
   font-weight: 900;
-  background: var(--color-brand-100);
+  background: var(--color-black-100);
   color: var(--color-neutral-50);
 }
 
+.dropin-design .dropin-button--tertiary,
+.dropin-design a.dropin-button--tertiary,
 .dropin-design .dropin-iconButton--tertiary {
   color: var(--color-black-100);
 }
