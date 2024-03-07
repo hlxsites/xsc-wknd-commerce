@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
 // Drop-in Providers
 import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 

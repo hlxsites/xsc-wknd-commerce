@@ -1,11 +1,11 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable */
 
 // Drop-in Tools
 import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
 import * as product from '@dropins/storefront-pdp/api.js';
+
 import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
