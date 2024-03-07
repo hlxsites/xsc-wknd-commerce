@@ -24,7 +24,7 @@
             "passConfig": true,
             "environments": ["preview","live","edit"],            
             "includePaths": [ "**.docx**" ]
-        }.
+        },
         {
             "id": "cif",
             "title": "Commerce",
