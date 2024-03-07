@@ -37,7 +37,7 @@
 
 .destinations .wide-card .card-info {
   width: 30%;
-  background-color: var(--color-brand-700);
+  background-color: var(--color-neutral-200);
   box-sizing: border-box;
   padding: 3.5rem 3rem;
   display: flex;
@@ -85,6 +85,7 @@
 
 .destinations .card-info .custom-link {
   text-decoration: none;
+  font-weight: 600;
 }
 
 .destinations .card-info .custom-link:hover {

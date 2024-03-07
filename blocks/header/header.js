@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies */
 // Drop-in Providers
 import { render as cartProvider } from '@dropins/storefront-cart/render.js';
 
@@ -123,15 +124,7 @@ function setActiveTab() {
     const link = tab.querySelector('a');
     const linkTitle = link.title.toLowerCase();
 
-    if (linkTitle === path) {
-      link.classList.add('active');
-    }
-
-    if (linkTitle === 'shop' && path === 'products') {
-      link.classList.add('active');
-    }
-
-    if (linkTitle === 'shop' && path === 'equipment') {
+    if (linkTitle === path || (linkTitle === 'shop' && ['products', 'equipment', 'search'].includes(path))) {
       link.classList.add('active');
     }
   });

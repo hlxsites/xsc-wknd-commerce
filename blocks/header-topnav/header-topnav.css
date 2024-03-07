@@ -1,7 +1,7 @@
 .header-topnav {
   height: 40px;
   width: 100%;
-  background: var(--color-brand-300);
+  background: var(--color-black-100);
   color: var(--color-neutral-50);
   z-index: 20;
   position: fixed;

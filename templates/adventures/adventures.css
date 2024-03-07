@@ -51,7 +51,7 @@
 }
 
 .adventures main .tabs-container .side-bar dt {
-  color: #666666;
+  color: var(--color-neutral-700);
   font-size: var(--body-font-size-xxs);
   text-transform: uppercase;
   line-height: normal;
@@ -60,7 +60,7 @@
 
 .adventures main .tabs-container .side-bar dd {
   font-size: var(--body-font-size-s);
-  color: var(--color-brand-300);
+  color: var(--color-black-100);
   margin-left: auto;
   padding: 3px 15px 15px;
   line-height: normal;
@@ -77,7 +77,7 @@
   line-height: 20px;
   letter-spacing: 0.04em;
   font-weight: 400;
-  color: var(--color-brand-500);
+  color: var(--color-black-200);
 }
 
 .adventures main .tabs-container .adventure-details a {
@@ -183,6 +183,7 @@
 
 .adventures .tabs-container ul.tabs-control h2 {
   margin: 0;
+  font-family: var(--type-base-font-family);
 }
 
 .adventures .tabs-container ul.tabs-control div {

@@ -10,9 +10,46 @@
 
 .product-list-page .ds-widgets_actions_header > span:last-child {
   font-size: var(--body-font-size-xs);
-  color: var(--color-brand-300);
+  color: var(--color-black-100);
 }
 
 .product-list-page .ds-sdk-product-item__image > div {
   background-color: inherit;
+}
+
+.product-list-page .ds-sdk-sort-dropdown {
+  outline-color: unset;
+  outline-style: unset;
+}
+
+.product-list-page .ds-sdk-filter-button-desktop button,
+.product-list-page .ds-sdk-sort-dropdown button {
+  border: 1px solid var(--color-neutral-400);
+  background-color: var(--color-neutral-200);
+  padding: 1rem 1.5rem;
+}
+
+.product-list-page .ds-sdk-filter-button-desktop button:active,
+.product-list-page .ds-sdk-sort-dropdown button:active {
+  border: 1px solid var(--color-neutral-500);
+}
+
+.product-list-page .ds-sdk-sort-dropdown button svg:last-of-type {
+  height: unset;
+}
+
+.product-list-page .ds-sdk-product-item {
+  padding: 0 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease;
+}
+
+.product-list-page .ds-sdk-product-item:hover {
+  border: 1px solid var(--color-neutral-300);
+  box-shadow: 0 0 10px rgba(0 0 0 / 10%);
+}
+
+.product-list-page .ds-sdk-product-item:hover img {
+  transform: scale(1.02);
 }

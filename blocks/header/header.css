@@ -100,8 +100,8 @@ header nav p {
 }
 
 .breadcrumb-container a:hover {
-  color: var(--color-brand-600);
-  text-decoration: solid underline var(--color-brand-600);
+  color: var(--color-neutral-900);
+  text-decoration: solid underline var(--color-neutral-900);
 }
 
 @media (width <= 768px) {
@@ -265,7 +265,7 @@ header nav .nav-sections ul > li > a {
 header nav .nav-sections ul > li > a.active,
 header nav .nav-sections ul > li > a:hover {
   text-decoration: none;
-  background-color: var( --color-brand-700);
+  background-color: var(--color-neutral-200);
 }
 
 @media (width >= 900px) {
@@ -399,24 +399,24 @@ header nav .nav-tools .minicart-wrapper > button {
 }
 
 header nav .nav-tools button.nav-cart-button {
-  background-image: url('/icons/shopping-cart.svg');
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 27px;
-  height: 24px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url(/icons/shopping-cart.svg);
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  background-size: 20px;
+  padding: 5px 15px;
+  margin: 1rem;
+  width: auto;
+  height: 34px;
 }
 
 header nav .nav-tools button.nav-cart-button[data-count]::after {
   content: attr(data-count);
   position: absolute;
   top: 0;
-  right: 9px;
-  background-color: var(--color-brand-300);
+  right: 0;
+  background-color: var(--color-black-100);
   color: var(--color-neutral-100);
   border-radius: 50%;
   width: 1.6em;
@@ -433,12 +433,14 @@ header nav .nav-tools button.nav-search-button {
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
+  background-size: 20px;
   padding: 5px 15px;
-  height: 30px;
-  width: 30px;
+  margin: 1rem;
+  height: 34px;
 }
 
-header nav .nav-tools button.nav-search-button:hover {
+header nav .nav-tools button.nav-search-button:hover,
+header nav .nav-tools button.nav-cart-button:hover {
   background-color: var(--color-neutral-200);
   cursor: pointer;
 }
@@ -488,8 +490,20 @@ header .nav-search-panel input {
   width: auto;
 }
 
+.cart-mini-cart .cart-mini-cart__footer__ctas a.dropin-button--primary:hover {
+  background-color: var(--color-brand-600);
+}
+
+.cart-mini-cart .cart-mini-cart__footer__ctas a.dropin-button--primary:active {
+  background-color: var(--color-brand-700);
+}
+
 .cart-mini-cart .cart-empty-cart__actions a {
   width: auto;
+}
+
+.cart-mini-cart .dropin-cart-item__remove {
+  color: var(--color-black-100);
 }
 
 header .nav-search-button:focus,

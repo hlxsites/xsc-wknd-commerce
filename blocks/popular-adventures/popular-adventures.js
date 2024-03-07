@@ -7,9 +7,9 @@ export default async function decorate(block) {
   let AEM_GRAPHQL_ENDPOINT = '';
   let query = '';
   let activity = '';
-  let slugs = [];
   let matchedItems = [];
   let cards = [];
+  const tableData = [];
   const cardsContainer = block.parentNode.parentNode;
 
   // Extract information from div elements
@@ -27,8 +27,19 @@ export default async function decorate(block) {
       activity = nextElement.textContent.trim();
     }
 
-    if (textContent === 'slugs' && nextElement) {
-      slugs = nextElement.textContent.replace(/\s+/g, '').split(',');
+    if (textContent === 'data' && nextElement) {
+      // Get all table rows except the first one (header)
+      const rows = nextElement.querySelectorAll('tr:not(:first-child)');
+      rows.forEach(function(row) {
+          const cells = row.querySelectorAll('td');
+          const slug = cells[0].textContent.trim();
+          const country = cells[1].textContent.trim();
+          const rowData = {
+              "slug": slug,
+              "country": country
+          };
+          tableData.push(rowData);
+      });
     }
   }
   block.innerHTML = '';
@@ -48,8 +59,11 @@ export default async function decorate(block) {
     const data = dataObj?.data?.adventureList?.items;
 
     // Filter data based on provided slugs or default to first 4 items
-    if (slugs.length > 0) {
-      matchedItems = data.filter((item) => slugs.includes(item.slug));
+    if (tableData.length > 0) {
+      matchedItems = tableData.map(item => {
+        const matchedItem = data.find(dataItem => dataItem.slug === item.slug);
+        return matchedItem ? matchedItem : null;
+      });
       cards = matchedItems;
     } else {
       cards = data.slice(0, 4);
@@ -60,6 +74,8 @@ export default async function decorate(block) {
 
     cards.forEach((card) => {
       const createdCard = document.createElement('a');
+      const { country } = tableData?.find(item => item.slug === card.slug) || {};
+
       createdCard.classList.add('article-card');
       createdCard.href = `/adventures/${card.slug}`;
       createdCard.innerHTML = `
@@ -70,7 +86,7 @@ export default async function decorate(block) {
         </div>
         <div class="card-info">
           <p>${card.title}</p>
-          <span>${card.tripLength}</span>
+          ${country ? `<span>${card.tripLength} • ${country}</span>` : `<span>${card.tripLength}</span>`}
         </div>
       `;
       fragment.appendChild(createdCard);
