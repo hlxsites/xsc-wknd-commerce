@@ -21,9 +21,9 @@
 }
 
 .beat-the-buzzer-banner .banner-container .content {
+  line-height: normal;
   color: var(--color-neutral-50);
   font-size: 45px;
-  line-height: normal;
 }
 
 @media (width < 768px) {
