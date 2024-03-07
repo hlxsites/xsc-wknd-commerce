@@ -10,7 +10,7 @@
         {
             "id": "asset-library",
             "title": "AEM Assets Library",
-            "environments": ["edit"],
+            "environments": ["preview","live","edit"],
             "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
             "isPalette": true,
             "includePaths": [ "**.docx**"],
