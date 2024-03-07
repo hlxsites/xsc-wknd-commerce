@@ -40,9 +40,6 @@
                 "preview",
                 "live",
                 "edit"
-            ],
-            "includePaths": [
-                "**.docx**", "**" 
             ]
         }
     ]
