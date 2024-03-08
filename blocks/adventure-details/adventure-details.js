@@ -61,25 +61,28 @@ export default async function decorate(block) {
       },
       Actions: (ctx) => {
         // Add to Cart Button
-        ctx.appendButton((next) => ({
-          text: placeholderObject['Add-To-Cart-Button'].text,
-          icon: placeholderObject['Add-To-Cart-Button'].icon,
-          variant: placeholderObject['Add-To-Cart-Button'].variant,
-          disabled: !next.data?.inStock || !next.valid,
-          onClick: async () => {
-            try {
-              if (!next.valid) {
-                // eslint-disable-next-line no-console
-                console.warn('Invalid product', next.values);
-                return;
-              }
+        ctx.appendButton((next, state) => {
+          const adding = state.get('adding');
 
-              await addProductsToCart([{ ...next.values }]);
-            } catch (error) {
-              console.warn('Error adding product to cart', error);
-            }
-          },
-        }));
+          return {
+            text: adding
+              ? placeholderObject['Add-To-Cart-Button'].loadingText
+              : placeholderObject['Add-To-Cart-Button'].text,
+            icon: placeholderObject['Add-To-Cart-Button'].icon,
+            variant: placeholderObject['Add-To-Cart-Button'].variant,
+            disabled: adding || !next.data?.inStock || !next.valid,
+            onClick: async () => {
+              state.set('adding', true);
+              try {
+                await addProductsToCart([{ ...next.values }]);
+              } catch (error) {
+                console.error('Error occurred while adding products to cart:', error);
+              } finally {
+                state.set('adding', false);
+              }
+            },
+          }
+        });
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
