@@ -615,6 +615,6 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 
 /* Disabled Buttons */
 .dropin-design .dropin-button:disabled {
-  background: var(--color-neutral-200);
+  background: var(--color-neutral-500);
   color: var(--color-neutral-50);
 }
