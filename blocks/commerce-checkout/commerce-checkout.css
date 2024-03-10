@@ -57,3 +57,7 @@
 .dropin-design .dropin-accordion-section {
   padding: var(--spacing-medium);
 }
+
+.dropin-design .checkout-login-form__link {
+  color: var(--color-black-100);
+}

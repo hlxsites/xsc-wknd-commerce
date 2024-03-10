@@ -69,7 +69,7 @@
 }
 
 .dropin-design .pdp-carousel__button--thumbnailsColumn {
-  background: var(--color-brand-300);
+  background: var(--color-black-100);
   border-radius: 0;
   padding: 0.25rem;
   position: relative;
