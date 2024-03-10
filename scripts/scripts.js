@@ -39,6 +39,7 @@ const LCP_BLOCKS = [
   'commerce-checkout',
   'commerce-account',
   'commerce-login',
+  'adventure-details',
 ]; // add your LCP blocks to the list
 
 
