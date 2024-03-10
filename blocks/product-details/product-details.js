@@ -17,9 +17,13 @@ import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js
 // Libs
 import { getConfigValue } from '../../scripts/configs.js';
 import { getSkuFromUrl } from '../../scripts/commerce.js';
-import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
+import { createAccordion, generateListHTML, getBlockPlaceholderInfo } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
+  const placeholderObject = getBlockPlaceholderInfo(block);
+  const carouselControl = placeholderObject['Carousel-Controls'];
+  block.innerHTML = '';
+
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
@@ -48,10 +52,10 @@ export default async function decorate(block) {
 
           return {
             text: adding
-              ? 'Adding to Cart'
-              : 'Add to Cart',
-            icon: 'Cart',
-            variant: 'primary',
+              ? placeholderObject['Add-To-Cart-Button'].loadingText
+              : placeholderObject['Add-To-Cart-Button'].text,
+            icon: placeholderObject['Add-To-Cart-Button'].icon,
+            variant: placeholderObject['Add-To-Cart-Button'].variant,
             disabled: adding || !next.data?.inStock || !next.valid,
             onClick: async () => {
               state.set('adding', true);
@@ -68,9 +72,9 @@ export default async function decorate(block) {
 
         // Add to Wishlist Button
         ctx.appendButton(() => ({
-          'aria-label': 'Add to Wishlist',
-          icon: 'Heart',
-          variant: 'secondary',
+          text: placeholderObject['Add-To-Wishlist-Button'].text,
+          icon: placeholderObject['Add-To-Wishlist-Button'].icon,
+          variant: placeholderObject['Add-To-Wishlist-Button'].variant,
           onClick: () => console.debug('Add to Wishlist', ctx.data),
         }));
       },
@@ -110,7 +114,8 @@ export default async function decorate(block) {
       },
     },
     carousel: {
-      controls: 'thumbnailsColumn', /* thumbnailsColumn, thumbnailsRow, dots (default) */
+      /* eslint-disable no-nested-ternary */
+      controls: carouselControl === 'column' ? 'thumbnailsColumn' : carouselControl === 'row' ? 'thumbnailsRow' : 'dots',
       mobile: true,
     },
   })(block);
