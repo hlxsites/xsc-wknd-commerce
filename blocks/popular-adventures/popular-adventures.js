@@ -95,8 +95,10 @@ export default async function decorate(block) {
         img.closest('picture').replaceWith(
           createOptimizedPicture(img.srcset, img.alt, true, [{ width: '300' }]),
         );
-        img.style.width = "200";
-        img.style.height = "150"; 
+      });
+      createdCard.querySelectorAll('img').forEach((img) => {
+        img.height = "150";
+        img.width = "200";
       });
       fragment.appendChild(createdCard);
     });
