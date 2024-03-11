@@ -93,8 +93,10 @@ export default async function decorate(block) {
 
       createdCard.querySelectorAll('img').forEach((img) => {
         img.closest('picture').replaceWith(
-          createOptimizedPicture(img.srcset, img.alt, false, [{ width: '300' }]),
+          createOptimizedPicture(img.srcset, img.alt, true, [{ width: '300' }]),
         );
+        img.style.width = "200";
+        img.style.height = "150"; 
       });
       fragment.appendChild(createdCard);
     });
