@@ -1,3 +1,5 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+
 export default function decorate(block) {
   const link = block.querySelector('a');
   const divElements = block.querySelectorAll('div');
@@ -22,7 +24,9 @@ export default function decorate(block) {
       createdCard.classList.add('wide-card');
       createdCard.innerHTML = `
         <div class="card-image">
-          <img loading="lazy" alt="" src="${item.image}" width="100" height="100">
+          <picture>
+            <img loading="lazy" alt="" src="${item.image}" width="100" height="100">
+          </picture>
         </div>
         <div class="card-info">
           <h2>${item.name}</h2>
@@ -30,6 +34,11 @@ export default function decorate(block) {
           <p class="button-container"><a href="${item.cta}" title="View trips" class="custom-link">View trips</a></p>
         </div>
       `;
+      createdCard.querySelectorAll('img').forEach((img) => {
+        img.closest('picture').replaceWith(
+          createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
+        );
+      });
       block.append(createdCard);
     });
   }

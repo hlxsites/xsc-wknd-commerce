@@ -33,14 +33,14 @@ const pluginContext = {
 };
 
 const LCP_BLOCKS = [
+  'hero',
+  'adventure-details',
   'product-list-page',
   'product-details',
   'commerce-cart',
   'commerce-checkout',
   'commerce-account',
   'commerce-login',
-  'adventure-details',
-  'hero'
 ]; // add your LCP blocks to the list
 
 

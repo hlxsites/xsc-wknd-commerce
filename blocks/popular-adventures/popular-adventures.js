@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { getAEMHeadlessClient } from '../../scripts/scripts.js';
 import { getConfigValue } from '../../scripts/configs.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   let AEM_HOST = '';
@@ -89,6 +90,12 @@ export default async function decorate(block) {
           ${country ? `<span>${card.tripLength} • ${country}</span>` : `<span>${card.tripLength}</span>`}
         </div>
       `;
+
+      createdCard.querySelectorAll('img').forEach((img) => {
+        img.closest('picture').replaceWith(
+          createOptimizedPicture(img.srcset, img.alt, false, [{ width: '300' }]),
+        );
+      });
       fragment.appendChild(createdCard);
     });
 
