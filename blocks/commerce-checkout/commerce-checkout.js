@@ -15,6 +15,10 @@ import { render as provider } from '@dropins/storefront-checkout/render.js';
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
 
 export default async function decorate(block) {
+  // If cartId is cached in session storage, use
+  // otherwise, checkout drop-in will look for one in the event-bus
+  const cartId = sessionStorage.getItem('DROPINS_CART_ID') || '';
+
   // Initialize Drop-ins
   initializers.register(checkout.initialize, {});
 
@@ -24,6 +28,9 @@ export default async function decorate(block) {
   });
 
   return provider.render(Checkout, {
+    cartId,
+    routeHome: () => '/',
+    routeCart: () => '/cart',
     slots: {
       PaymentMethods: async (context) => {
         context.addPaymentMethodHandler('checkmo', {
