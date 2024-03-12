@@ -1,9 +1,11 @@
-import { getAEMHeadlessClient, buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
+/* eslint-disable */
+import AdobeAemHeadlessClientJs from 'https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js';
+import { buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
 import { getMetadata } from '../../scripts/aem.js';
 
 /* Hardcoded endpoint */
 const AEM_HOST = 'https://publish-p24020-e1129912.adobeaemcloud.com';
-const client = await getAEMHeadlessClient(AEM_HOST);
+const AEM_HEADLESS_CLIENT = new AdobeAemHeadlessClientJs({ serviceURL: AEM_HOST });
 
 const ADVENTURE_DETAILS = {
   activity: 'Activity',
@@ -45,7 +47,7 @@ export default async function decorate(block) {
   if (!slug) return;
 
   const queryURL = `aem-demo-assets/adventure-by-slug-v2;slug=${slug}`;
-  const dataObj = await client.runPersistedQuery(queryURL);
+  const dataObj = await AEM_HEADLESS_CLIENT.runPersistedQuery(queryURL);
   const adventure = dataObj.data.adventureList.items[0];
 
   // Add data to tabs

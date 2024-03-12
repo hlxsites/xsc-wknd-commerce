@@ -1,10 +1,8 @@
 /* eslint-disable */
-import { getAEMHeadlessClient } from '../../scripts/scripts.js';
+import AdobeAemHeadlessClientJs from 'https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js';
 import { getConfigValue } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
-  let AEM_HOST = '';
-  let AEM_GRAPHQL_ENDPOINT = '';
   let query = '';
   let activity = '';
   let matchedItems = [];
@@ -45,16 +43,15 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   try {
-    AEM_HOST = await getConfigValue('aem-host');
-    AEM_GRAPHQL_ENDPOINT = await getConfigValue('aem-graphql-endpoint');
-    const client = await getAEMHeadlessClient(AEM_HOST);
-
+    const AEM_HOST = await getConfigValue('aem-host');
+    const AEM_GRAPHQL_ENDPOINT = await getConfigValue('aem-graphql-endpoint');
+    const AEM_HEADLESS_CLIENT = new AdobeAemHeadlessClientJs({ serviceURL: AEM_HOST });
     let dataObj = {};
 
     if (activity) {
-      dataObj = await client.runPersistedQuery(AEM_GRAPHQL_ENDPOINT + query, { activity: activity });
+      dataObj = await AEM_HEADLESS_CLIENT.runPersistedQuery(AEM_GRAPHQL_ENDPOINT + query, { activity: activity });
     } else {
-      dataObj = await client.runPersistedQuery(AEM_GRAPHQL_ENDPOINT + query);
+      dataObj = await AEM_HEADLESS_CLIENT.runPersistedQuery(AEM_GRAPHQL_ENDPOINT + query);
     }
     const data = dataObj?.data?.adventureList?.items;
 
