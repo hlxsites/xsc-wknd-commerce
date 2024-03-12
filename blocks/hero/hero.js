@@ -25,5 +25,9 @@ export default async function decorate(block) {
         createOptimizedPicture(img.src, img.alt, false, [{ width: '1600' }]),
       );
     });
+
+    child.querySelectorAll('img').forEach((img) => {
+      img.setAttribute('loading', 'lazy');
+    });
   });
 }
