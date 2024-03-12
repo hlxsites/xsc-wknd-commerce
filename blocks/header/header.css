@@ -77,39 +77,6 @@ header nav p {
   line-height: 1;
 }
 
-/* Breadcrumb */
-.breadcrumb-container {
-  max-width: var(--large-grid-layout);
-  margin: 0 auto;
-  padding: 4rem 0 1rem;
-  box-sizing: border-box;
-}
-
-.breadcrumb-container,
-.breadcrumb-container a,
-.breadcrumb-container span {
-  font-size: var( --body-font-size-xxs);
-  text-transform: uppercase;
-}
-
-.breadcrumb-container a,
-.breadcrumb-container span {
-  padding: 0.5rem;
-  line-height: 21px;
-  letter-spacing: 0.16em;
-}
-
-.breadcrumb-container a:hover {
-  color: var(--color-neutral-900);
-  text-decoration: solid underline var(--color-neutral-900);
-}
-
-@media (width <= 768px) {
-  .breadcrumb-container {
-    padding: 1rem;
-  }
-}
-
 header nav a:any-link {
   color: currentcolor;
   text-transform: uppercase;
