@@ -1,5 +1,4 @@
 /* eslint-disable */
-import AdobeAemHeadlessClientJs from 'https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -376,13 +375,6 @@ export function addElement(type, attributes, values = {}) {
   });
 
   return element;
-}
-
-export async function getAEMHeadlessClient(url) {
-  const aemHeadlessClient = new AdobeAemHeadlessClientJs({
-    serviceURL: url,
-  });
-  return aemHeadlessClient;
 }
 
 export function jsx(html, ...args) {
