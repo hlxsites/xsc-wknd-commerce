@@ -36,7 +36,7 @@ export default function decorate(block) {
       `;
       createdCard.querySelectorAll('img').forEach((img) => {
         img.closest('picture').replaceWith(
-          createOptimizedPicture(img.src, img.alt, true, [{ width: '750' }]),
+          createOptimizedPicture(img.src, img.alt, true, [{ width: '1000' }]),
         );
       });
       block.append(createdCard);

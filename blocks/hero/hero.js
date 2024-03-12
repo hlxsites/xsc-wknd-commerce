@@ -6,9 +6,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
-  const imageEl = block.querySelector('img');
-  imageEl.setAttribute('loading', 'eager');
-
   // Target the second child div
   const secondChildDiv = block.children[0];
   [...secondChildDiv.children].forEach((child) => {
@@ -25,7 +22,7 @@ export default async function decorate(block) {
 
     child.querySelectorAll('img').forEach((img) => {
       img.closest('picture').replaceWith(
-        createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
+        createOptimizedPicture(img.src, img.alt, false, [{ width: '1600' }]),
       );
     });
   });
