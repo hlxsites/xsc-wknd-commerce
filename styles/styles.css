@@ -15,7 +15,7 @@
  :root,
  .dropin-design.dropin-design {
   /* Font Family  */ 
-  --heading-font-family: 'Source Serif Pro', sans-serif;
+  --heading-font-family: 'Source Serif Pro', 'Source-Serif-Pro-Fallback', sans-serif;
   --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
 
   /* body sizes */
@@ -170,6 +170,15 @@
   --nav-height: 6.4rem;
   --med-grid-layout: 792px;
   --large-grid-layout: 1200px;
+}
+
+@font-face {
+  font-family: 'Source-Serif-Pro-Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: normal;
+  descent-override: 32%;
+  line-gap-override: normal;
 }
 
 html, body {
