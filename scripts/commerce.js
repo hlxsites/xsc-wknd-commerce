@@ -318,9 +318,18 @@ export function getSkuFromUrl() {
 // Adventures custom pdp specific
 export function getAdventureSkuFromUrl() {
   const path = window.location.pathname;
-  const result = path.match(/\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
-  return result?.[2];
+  let result;
+
+  if (path.startsWith('/experiments/')) {
+    const pathStr = path.match(/\/experiments\/([\w|-]+)\/([\w|-]+)\/([\w|-]+)$/);
+    result = pathStr?.[3];
+  } else if (path.startsWith('/adventures/')) {
+    const pathStr = path.match(/\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
+    result = pathStr?.[2];
+  }
+  return result;
 }
+
 
 const productsCache = {};
 export async function getProduct(sku) {
