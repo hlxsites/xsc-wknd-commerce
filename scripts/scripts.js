@@ -39,7 +39,6 @@ const LCP_BLOCKS = [
   'commerce-account',
   'commerce-login',
   'adventure-details',
-  'hero'
 ]; // add your LCP blocks to the list
 
 
