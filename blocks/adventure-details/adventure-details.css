@@ -50,7 +50,7 @@
 .dropin-design .pdp-product__buttons {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 1.5rem 0;
+  grid-gap: 1.5rem 1rem;
   justify-content: center;
 }
 

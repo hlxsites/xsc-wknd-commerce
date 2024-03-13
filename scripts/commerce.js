@@ -311,8 +311,16 @@ export function renderPrice(product, format, html = (strings, ...values) => stri
 
 export function getSkuFromUrl() {
   const path = window.location.pathname;
-  const result = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
-  return result?.[1];
+  let result;
+
+  if (path.startsWith('/experiments/')) {
+    const pathStr = path.match(/\/experiments\/([\w|-]+)\/([\w|-]+)\/([\w|-]+)$/);
+    result = pathStr?.[3];
+  } else if (path.startsWith('/products/')) {
+    const pathStr = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
+    result = pathStr?.[1];
+  }
+  return result;
 }
 
 // Adventures custom pdp specific
