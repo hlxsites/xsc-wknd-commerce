@@ -4,4 +4,5 @@ mountpoints:
 folders:
   /products/: /products/default
   /adventures/details/: /adventures/details/default
-  /experiments/experiment-001/: /experiments/experiment-001/adventure-pdp-v2
+  /experiments/experiment-adventures-pdp/: /experiments/experiment-adventures-pdp/adventure-pdp-v2
+  /experiments/experiment-pdp/: /experiments/experiment-pdp/pdp-v2
