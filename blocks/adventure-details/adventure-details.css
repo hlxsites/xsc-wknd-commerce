@@ -3,7 +3,6 @@
 .adventure-pdp main {
   max-width: var(--large-grid-layout);
   margin: 105px auto 0;
-  min-height: 900px;
 }
 
 @media (width < 768px) {
