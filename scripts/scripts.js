@@ -241,7 +241,7 @@ async function loadEager(doc) {
 
   const main = doc.querySelector('main');
   if (main) {
-    await decorateTemplates(main);
+    decorateTemplates(main);
     decorateMain(main);
     aggregateTabSectionsIntoComponents(main);
     document.body.classList.add('appear');
