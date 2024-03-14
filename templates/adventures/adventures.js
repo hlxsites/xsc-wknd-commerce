@@ -40,7 +40,7 @@ const createImg = () => {
 };
 
 export default async function decorate(block) {
-  block.style.display = 'none';
+//  block.style.display = 'none';
 
   const slug = getMetadata('slug');
   if (!slug) return;
@@ -129,5 +129,5 @@ export default async function decorate(block) {
     buildAdventureBreadcrumbs();
   }
 
-  block.style.display = 'block';
+//  block.style.display = 'block';
 }
