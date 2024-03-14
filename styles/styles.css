@@ -602,11 +602,11 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 /* Global PDP columns overrides */ 
 @media (width >= 1024px) {
   .dropin-design .pdp-product .pdp-product__gallery-column {
-    grid-column: 1 / span 7;
+    grid-column: 1 / span 6;
   }
   
   .dropin-design .pdp-product .pdp-product__content-column {
-    grid-column: 8 / span 5;
+    grid-column: 8 / span 6;
   }
 
   .dropin-design .pdp-product .pdp-product__breadcrumbs {

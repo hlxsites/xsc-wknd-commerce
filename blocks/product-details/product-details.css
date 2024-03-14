@@ -55,3 +55,8 @@
   order: 4;
   margin: 0;
 }
+
+.dropin-design .pdp-carousel__controls__container--thumbnailsRow {
+  justify-content: center;
+  align-items: center;
+}
