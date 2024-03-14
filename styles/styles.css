@@ -173,6 +173,15 @@
   --large-grid-layout: 1200px;
 }
 
+@font-face {
+  font-family: 'Source-Serif-Pro-Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: normal;
+  descent-override: 32%;
+  line-gap-override: normal;
+}
+
 html, body {
   font-size: var(--body-font-size-xxs);
   height: 100%;
@@ -644,6 +653,7 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 .dropin-design a.dropin-button--tertiary,
 .dropin-design .dropin-iconButton--tertiary {
   color: var(--color-black-100);
+  padding: 0;
 }
 
 /* Disabled Buttons */
