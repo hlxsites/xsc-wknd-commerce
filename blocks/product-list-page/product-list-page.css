@@ -10,7 +10,7 @@
 
 .product-list-page .ds-widgets_actions_header > span:last-child {
   font-size: var(--body-font-size-xs);
-  color: var(--color-black-100);
+  color: var(--color-neutral-600);
 }
 
 .product-list-page .ds-sdk-product-item__image > div {
@@ -52,4 +52,8 @@
 
 .product-list-page .ds-sdk-product-item:hover img {
   transform: scale(1.02);
+}
+
+.product-list-page .ds-widgets-_actions {
+  max-width: 225px;
 }
