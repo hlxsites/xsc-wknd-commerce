@@ -15,6 +15,7 @@
   flex-direction: row;
   margin: 2em auto;
   padding: 0 15px;
+  min-height: 565px;
 }
 
 .adventures main .tabs-container > div {
