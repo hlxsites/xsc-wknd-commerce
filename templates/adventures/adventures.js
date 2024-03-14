@@ -40,8 +40,6 @@ const createImg = () => {
 };
 
 export default async function decorate(block) {
-//  block.style.display = 'none';
-
   const slug = getMetadata('slug');
   if (!slug) return;
 
@@ -128,6 +126,4 @@ export default async function decorate(block) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     buildAdventureBreadcrumbs();
   }
-
-//  block.style.display = 'block';
 }
