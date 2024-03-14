@@ -213,6 +213,10 @@ async function loadEager(doc) {
   initializeDropins();
   decorateTemplateAndTheme();
 
+  if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
+    doc.body.classList.add('has-breadcrumb');
+  }
+
   await window.hlx.plugins.run('loadEager', pluginContext);
 
   window.adobeDataLayer = window.adobeDataLayer || [];
