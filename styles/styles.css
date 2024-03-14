@@ -197,6 +197,10 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+body.has-breadcrumb main:not(:has(.breadcrumb-container)) {
+  padding-top: 44px;
+}
+
 body.appear {
   display: block;
 }
