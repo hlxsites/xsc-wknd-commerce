@@ -11,6 +11,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+ 
 
  :root,
  .dropin-design.dropin-design {
@@ -170,15 +171,6 @@
   --nav-height: 6.4rem;
   --med-grid-layout: 792px;
   --large-grid-layout: 1200px;
-}
-
-@font-face {
-  font-family: 'Source-Serif-Pro-Fallback';
-  src: local('Arial');
-  size-adjust: 107%;
-  ascent-override: normal;
-  descent-override: 32%;
-  line-gap-override: normal;
 }
 
 html, body {
@@ -652,7 +644,6 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 .dropin-design a.dropin-button--tertiary,
 .dropin-design .dropin-iconButton--tertiary {
   color: var(--color-black-100);
-  padding: 0;
 }
 
 /* Disabled Buttons */

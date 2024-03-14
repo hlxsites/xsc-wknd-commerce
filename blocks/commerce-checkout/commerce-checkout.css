@@ -37,6 +37,7 @@
 
 .dropin-design .checkout-cart-summary__edit {
   align-self: flex-start;
+  color: var(--color-black-100);
 }
 
 .dropin-design .checkout-cart-summary__items {
