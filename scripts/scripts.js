@@ -139,11 +139,11 @@ async function autoBlockTabComponent(main, targetIndex, tabSections) {
   main.insertBefore(section, main.childNodes[targetIndex]);
   section.append(tabsBlock);
   decorateBlock(tabsBlock);
-  await loadBlock(tabsBlock);
+  //await loadBlock(tabsBlock);
   // unset display none manually.
   // somehow in some race conditions it won't be picked up by lib-franklin.
   // CLS is not affected
-  section.style.display = null;
+  //section.style.display = null;
 }
 
 function aggregateTabSectionsIntoComponents(main) {
