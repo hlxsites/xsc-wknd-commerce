@@ -1,7 +1,7 @@
 .beat-the-buzzer-banner .banner-container {
   padding: 5rem 10.5rem;
   min-height: 300px;
-  background: linear-gradient(260deg, rgba(0, 0, 0, 1) 93%, rgba(255, 230, 0, 1) 93%);
+  background: linear-gradient(260deg, rgba(0, 0, 0, 1) 94%, rgba(255, 230, 0, 1) 94%);
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -15,14 +15,27 @@
 }
 
 .beat-the-buzzer-banner .banner-container .content > * {
-  line-height: normal;
   color: var(--color-neutral-50);
+}
+
+.beat-the-buzzer-banner .banner-container .content > :first-child {
   font-size: 45px;
+  line-height: 58px;
+}
+
+.beat-the-buzzer-banner .banner-container .content > :not(:first-child) {
+  font-size: 36px;
+  line-height: 46px;
 }
 
 @media (width < 768px) {
-  .beat-the-buzzer-banner .banner-container .content > * {
-    font-size: var(--body-font-size-xl);
+  .beat-the-buzzer-banner .banner-container .content > :first-child {
+    font-size: 36px;
+    line-height: normal;
+  } 
+  .beat-the-buzzer-banner .banner-container .content > :not(:first-child) {
+    font-size: 24px;
+    line-height: normal;
   } 
 }
 
