@@ -1,10 +1,9 @@
 /* eslint-disable */
-import AdobeAemHeadlessClientJs from 'https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js';
-import { buildAdventureBreadcrumbs } from '../../scripts/scripts.js';import { getMetadata } from '../../scripts/aem.js';
+import { buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
+import { getMetadata } from '../../scripts/aem.js';
 
 /* Hardcoded endpoint */
 const AEM_HOST = 'https://publish-p24020-e1129912.adobeaemcloud.com';
-const AEM_HEADLESS_CLIENT = new AdobeAemHeadlessClientJs({ serviceURL: AEM_HOST });
 
 const ADVENTURE_DETAILS = {
   activity: 'Activity',
@@ -39,64 +38,69 @@ const createImg = () => {
   return img;
 };
 
-export default async function decorate(block) {
+export default function decorate(block) {
   const slug = getMetadata('slug');
   if (!slug) return;
 
   const queryURL = `aem-demo-assets/adventure-by-slug-v2;slug=${slug}`;
-  const dataObj = await AEM_HEADLESS_CLIENT.runPersistedQuery(queryURL);
-  const adventure = dataObj.data.adventureList.items[0];
 
-  // Add data to tabs
-  Object.keys(categories).forEach((category) => {
-    const body = document.createElement('div');
-    const tab = block.querySelector(`div[data-tab-title$="${categories[category]}"]>div`);
-    const picture = tab.querySelector('picture');
-
-    [...tab.children].forEach((item) => {
-      const regex = '{(.*?)}';
-
-      if (item.textContent.match(regex)) {
-        body.innerHTML = adventure[item.textContent.match(regex)[1]].html;
-      }
-      item.remove();
-    });
-    if (picture) body.append(picture);
-    tab.append(body);
-  });
-
-  // Create side bar
   const sideBar = document.createElement('div');
   sideBar.classList.add('side-bar');
 
-  Object.keys(ADVENTURE_DETAILS).forEach((detail) => {
-    const dt = document.createElement('dt');
-    const dd = document.createElement('dd');
-    const dl = document.createElement('dl');
+  import('https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js')
+    .then((m) => new m.default({ serviceURL: AEM_HOST }))
+    .then((client) => client.runPersistedQuery(queryURL))
+    .then((dataObj) => {
+      const adventure = dataObj.data.adventureList.items[0];
 
-    dt.textContent = ADVENTURE_DETAILS[detail];
+      // Add data to tabs
+      Object.keys(categories).forEach((category) => {
+        const body = document.createElement('div');
+        const tab = block.querySelector(`div[data-tab-title$="${categories[category]}"]>div`);
+        const picture = tab.querySelector('picture');
 
-    if (detail === 'price') {
-      const unformattedPrice = adventure[detail];
-      const formattedString = unformattedPrice.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
+        [...tab.children].forEach((item) => {
+          const regex = '{(.*?)}';
+
+          if (item.textContent.match(regex)) {
+            body.innerHTML = adventure[item.textContent.match(regex)[1]].html;
+          }
+          item.remove();
+        });
+        if (picture) body.append(picture);
+        tab.append(body);
       });
-      const roundedNumber = Math.round(parseFloat(formattedString.replace(/[$,]/g, '')));
-      const finalFormattedString = roundedNumber.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0,
+
+      // Fill side bar
+      Object.keys(ADVENTURE_DETAILS).forEach((detail) => {
+        const dt = document.createElement('dt');
+        const dd = document.createElement('dd');
+        const dl = document.createElement('dl');
+
+        dt.textContent = ADVENTURE_DETAILS[detail];
+
+        if (detail === 'price') {
+          const unformattedPrice = adventure[detail];
+          const formattedString = unformattedPrice.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          });
+          const roundedNumber = Math.round(parseFloat(formattedString.replace(/[$,]/g, '')));
+          const finalFormattedString = roundedNumber.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          });
+          dd.textContent = `${finalFormattedString} USD`;
+        } else {
+          dd.textContent = adventure[detail];
+        }
+        dl.append(dt);
+        dl.append(dd);
+        sideBar.append(dl);
       });
-      dd.textContent = `${finalFormattedString} USD`;
-    } else {
-      dd.textContent = adventure[detail];
-    }
-    dl.append(dt);
-    dl.append(dd);
-    sideBar.append(dl);
-  });
+    });
 
   // Append 'Share this adventure'
   const shareElDesktop = createElement('p', 'share-adventure desktop');
