@@ -102,6 +102,8 @@ export default async function decorate(block) {
       },
       Attributes: (ctx) => {
         const attributes = ctx?.data?.attributes;
+        if (!attributes) return;
+
         let list;
         list = generateListHTML(attributes);
         const [html, updateContent] = createAccordion('Product specs', list, false);
