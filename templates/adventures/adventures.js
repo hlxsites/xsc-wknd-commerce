@@ -98,7 +98,7 @@ export default function decorate(block) {
         }
         dl.append(dt);
         dl.append(dd);
-        sideBar.append(dl);
+        shareElDesktop.insertAdjacentElement('beforebegin', dl);
       });
     });
 
