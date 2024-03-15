@@ -1,6 +1,7 @@
 /* eslint-disable */
 import AdobeAemHeadlessClientJs from 'https://cdn.skypack.dev/pin/@adobe/aem-headless-client-js@v3.2.0-R5xKUKJyh8kNAfej66Zg/mode=imports,min/optimized/@adobe/aem-headless-client-js.js';
 import { getConfigValue } from '../../scripts/configs.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   let query = '';
@@ -72,20 +73,25 @@ export default async function decorate(block) {
     cards.forEach((card) => {
       const createdCard = document.createElement('a');
       const { country } = tableData?.find(item => item.slug === card.slug) || {};
+      const picture = createOptimizedPicture(
+        `/images/adventures/${card.slug}.jpg`,
+        card.activity,
+        false,
+        [{ width: 400 }]
+      );
+      picture.lastElementChild.width = '200';
+      picture.lastElementChild.height = '150';
 
       createdCard.classList.add('article-card');
       createdCard.href = `/adventures/${card.slug}`;
       createdCard.innerHTML = `
-        <div class="card-image">
-          <picture>
-            <img loading="lazy" alt="${card.activity}" srcset="/images/adventures/${card.slug}.jpg" width="200" height="150">
-          </picture>
-        </div>
+        <div class="card-image">${picture.outerHTML}</div>
         <div class="card-info">
           <p>${card.title}</p>
           ${country ? `<span>${card.tripLength} • ${country}</span>` : `<span>${card.tripLength}</span>`}
         </div>
       `;
+      
       fragment.appendChild(createdCard);
     });
 
