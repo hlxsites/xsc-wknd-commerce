@@ -20,9 +20,9 @@ export default function decorate(block) {
     block.innerHTML = '';
 
     data.forEach((item) => {
-      const picture = createOptimizedPicture(item.image, '', false, [{ width: 200 }]);
-      picture.lastElementChild.width = '100';
-      picture.lastElementChild.height = '100';
+      const picture = createOptimizedPicture(item.image, '', false, [{ width: 1000 }]);
+      picture.lastElementChild.width = '1000';
+      picture.lastElementChild.height = '1000';
       const createdCard = document.createElement('div');
       createdCard.classList.add('wide-card');
       createdCard.innerHTML = `
