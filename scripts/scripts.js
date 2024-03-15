@@ -245,9 +245,9 @@ async function loadEager(doc) {
 
   const main = doc.querySelector('main');
   if (main) {
-    decorateTemplates(main);
     decorateMain(main);
     aggregateTabSectionsIntoComponents(main);
+    await decorateTemplates(main);
     document.body.classList.add('appear');
     await waitForLCP(LCP_BLOCKS);
   }
@@ -460,7 +460,7 @@ export function getBlockPlaceholderInfo(block) {
 export function buildAdventureBreadcrumbs() {
   const path = window.location.pathname.split('/').slice(1).map((word) => word.charAt(0).toUpperCase() + word.slice(1).replace(/-/g, ' '));
   const breadcrumbContainer = document.createElement('div');
-  breadcrumbContainer.className = 'breadcrumb-container';
+  breadcrumbContainer.className = 'breadcrumb-wrapper';
 
   const adventuresLink = document.createElement('a');
   adventuresLink.href = '/adventures';
@@ -479,7 +479,9 @@ export function buildAdventureBreadcrumbs() {
     breadcrumbContainer.appendChild(adventureName);
   }
 
-  document.querySelector('main').prepend(breadcrumbContainer);
+  const firstSection = document.querySelector('main > .section');
+  firstSection.prepend(breadcrumbContainer);
+  firstSection.classList.add('breadcrumb-container');
 }
 
 async function loadPage() {
