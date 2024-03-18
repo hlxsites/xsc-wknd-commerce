@@ -18,10 +18,10 @@ export default async function decorate(block) {
   initializers.register(orderConfirmation.initialize, {});
 
   const params = new URLSearchParams(window.location.search);
-  const orderRef = params.get('orderRef');
+  const token = params.get('orderRef');
 
   return provider.render(OrderConfirmation, {
-    orderRef,
+    token,
     // eslint-disable-next-line no-console
     onContinueShopping: () => '/',
   })(block);
