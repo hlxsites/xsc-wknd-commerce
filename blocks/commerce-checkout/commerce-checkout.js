@@ -39,6 +39,14 @@ export default async function decorate(block) {
     routeCart: () => '/cart',
     slots: {
       PaymentMethods: async (context) => {
+        context.addPaymentMethodHandler('checkmo', {
+          render: (ctx, element) => {
+            if (element) {
+              // clear the element first
+              element.innerHTML = '';
+            }
+          },
+        });
         context.addPaymentMethodHandler('adyen_cc', {
           render: (ctx, element) => {
             if (element) {
