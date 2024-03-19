@@ -20,7 +20,7 @@ export default async function decorate(block) {
     cards.push(jsx`
       <div class="slider-item ${index === activeIndex ? 'active' : ''}">
         <div class="slider-image">
-          <div class="image-wrapper">${pic.outerHTML}</div>
+          <a href="${item.path}"><div class="image-wrapper">${pic.outerHTML}</div></a>
         </div>
         <div class="slider-text">
           <a href="${item.path}">${item.name}</a>
