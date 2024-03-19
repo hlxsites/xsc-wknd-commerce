@@ -42,3 +42,7 @@
 .dropin-design .dropin-cart-item__title a {
   color: var(--color-black-100);
 }
+
+.dropin-design .dropin-cart-item__sku {
+  display: none;
+}
