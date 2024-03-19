@@ -7,7 +7,7 @@ import getProductsInCategory from './queries/products.graphql.js';
 
 import './styles.css';
 
-const configFile = ' https://main--aem-boilerplate-commerce--hlxsites.hlx.live/configs.json';
+const configFile = ' https://main--xsc-wknd-commerce--hlxsites.hlx.live/configs.json';
 const defaultConfig = 'prod';
 
 /**
