@@ -101,7 +101,7 @@ export default async function decorate(block) {
       },
       Description: (ctx) => {
         const defaultContent = ctx?.data?.description;
-        if (!defaultContent) return;
+        if (!defaultContent || defaultContent == '') return;
 
         const [html, updateContent] = createAccordion('Overview', defaultContent, true);
         ctx.replaceWith(html);
@@ -111,8 +111,9 @@ export default async function decorate(block) {
         });
       },
       ShortDescription: (ctx) => {
-        const shortDescContent = ctx?.data?.shortDescription;
-        if (!shortDescContent) return;
+        const shortDescContent = ctx?.data?.shortDescription;        
+        const strippedString = shortDescContent.replace(/<[^>]+>/g, '').trim();
+        if (!shortDescContent || !strippedString) return;
 
         const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
         ctx.replaceWith(html);
@@ -123,6 +124,7 @@ export default async function decorate(block) {
       },
       Attributes: (ctx) => {
         const attributes = ctx?.data?.attributes;
+        console.log("attributes: ", attributes)
         if (!attributes) return;
         
         let list;
