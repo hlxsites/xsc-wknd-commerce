@@ -124,7 +124,6 @@ export default async function decorate(block) {
       },
       Attributes: (ctx) => {
         const attributes = ctx?.data?.attributes;
-        console.log("attributes: ", attributes)
         if (!attributes) return;
         
         let list;
