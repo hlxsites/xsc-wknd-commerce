@@ -111,8 +111,9 @@ export default async function decorate(block) {
         });
       },
       ShortDescription: (ctx) => {
-        const shortDescContent = ctx?.data?.shortDescription;
-        if (!shortDescContent) return;
+        const shortDescContent = ctx?.data?.shortDescription;        
+        const strippedString = shortDescContent.replace(/<[^>]+>/g, '').trim();
+        if (!shortDescContent || !strippedString) return;
 
         const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
         ctx.replaceWith(html);
