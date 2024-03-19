@@ -55,3 +55,7 @@
   order: 4;
   margin: 0;
 }
+
+.dropin-design .pdp-product__sku {
+  display: none;
+}
