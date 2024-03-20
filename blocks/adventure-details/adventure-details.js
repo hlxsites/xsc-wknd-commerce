@@ -115,7 +115,7 @@ export default async function decorate(block) {
         const strippedString = shortDescContent.replace(/<[^>]+>/g, '').trim();
         if (!shortDescContent || !strippedString) return;
 
-        const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
+        const [html, updateContent] = createAccordion('Short description', shortDescContent, false);
         ctx.replaceWith(html);
 
         ctx.onChange((next) => {

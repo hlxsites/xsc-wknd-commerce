@@ -657,6 +657,12 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   padding: 0;
 }
 
+.dropin-design .dropin-button--tertiary:hover,
+.dropin-design a.dropin-button--tertiary:hover, 
+.dropin-design .dropin-iconButton--tertiary:hover {
+  color: var(--color-neutral-700);
+}
+
 /* Disabled Buttons */
 .dropin-design .dropin-button:disabled {
   background: var(--color-neutral-500);

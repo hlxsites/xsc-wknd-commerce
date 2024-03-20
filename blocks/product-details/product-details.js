@@ -93,7 +93,7 @@ export default async function decorate(block) {
         const shortDescContent = ctx?.data?.shortDescription;
         if (!shortDescContent) return;
 
-        const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
+        const [html, updateContent] = createAccordion('Short description', shortDescContent, false);
         ctx.replaceWith(html);
 
         ctx.onChange((next) => {

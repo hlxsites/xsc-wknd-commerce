@@ -136,6 +136,7 @@
 
 .dropin-design .pdp-product__column-body .pdp-product__short_description {
   order: 5;
+  margin: 0;
 }
 
 .dropin-design .pdp-product__column-body .pdp-product__attributes {
