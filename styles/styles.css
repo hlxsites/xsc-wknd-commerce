@@ -668,3 +668,9 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   background: var(--color-neutral-500);
   color: var(--color-neutral-50);
 }
+
+
+/* Hide minicart SKU */
+.dropin-design .dropin-cart-item__sku {
+  display: none;
+}
