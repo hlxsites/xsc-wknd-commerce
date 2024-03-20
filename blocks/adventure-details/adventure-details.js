@@ -75,41 +75,20 @@ export default async function decorate(block) {
               try {
                 // TODO: remove hardcoding after demo
                 let selection = {
-                  ...next.values,
-                  sku: 10
+                  ...next.values
                 };
-
+                const optionsMap = {
+                  'Y29uZmlndXJhYmxlLzE5Mi8zNw==': 'Y29uZmlndXJhYmxlLzUzOC80Ng==', // dorm
+                  'Y29uZmlndXJhYmxlLzE5Mi8zOA==': 'Y29uZmlndXJhYmxlLzUzOC80OQ==', // single
+                  'Y29uZmlndXJhYmxlLzE5Mi8zOQ==': 'Y29uZmlndXJhYmxlLzUzOC81Mg==', // double
+                  'Y29uZmlndXJhYmxlLzE5My80MA==': 'Y29uZmlndXJhYmxlLzUzNS8zNw==', // may
+                  'Y29uZmlndXJhYmxlLzE5My80MQ==': 'Y29uZmlndXJhYmxlLzUzNS80MA==', // june
+                  'Y29uZmlndXJhYmxlLzE5My80Mg==': 'Y29uZmlndXJhYmxlLzUzNS80Mw==' // july
+                };
                 selection.optionsUIDs.forEach((option, idx) => {
-                  let newValue = ''
-
-                  // Dorm
-                  if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zNw==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80Ng=='
-                  }
-                  // single
-                  else if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zOA==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80OQ=='
-                  }
-                  // double
-                  else if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zOQ==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC81Mg=='
-                  }
-                  // may
-                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80MA==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzNS8zNw=='
-                  }
-                  // june
-                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80MQ==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzNS80MA=='
-                  }
-                  // july
-                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80Mg==') {
-                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80Ng=='
-                  }
-                  else {
-                    console.warn('unknown option - cannot hardcode', option)
-                  }
+                  selection.optionsUIDs[idx] = optionsMap[option];
                 });
+                selection.sku = 10;
                 await addProductsToCart([selection]);
               } catch (error) {
                 console.error('Error occurred while adding products to cart:', error);
