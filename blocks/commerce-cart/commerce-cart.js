@@ -13,7 +13,9 @@ export default async function decorate(block) {
   // Render Containers
   return provider.render(Cart, {
     routeEmptyCartCTA: () => '/',
-    routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
+    // TODO: this needs to be fixed - it already does not redirect to adventures properly.
+    // But this is an example of _starting_ to map new sku back to old sku...
+    routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku === '10' ? '11' : product.sku}`,
     routeCheckout: () => '/checkout',
   })(block);
 }
