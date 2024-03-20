@@ -73,7 +73,44 @@ export default async function decorate(block) {
             onClick: async () => {
               state.set('adding', true);
               try {
-                await addProductsToCart([{ ...next.values }]);
+                // TODO: remove hardcoding after demo
+                let selection = {
+                  ...next.values,
+                  sku: 10
+                };
+
+                selection.optionsUIDs.forEach((option, idx) => {
+                  let newValue = ''
+
+                  // Dorm
+                  if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zNw==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80Ng=='
+                  }
+                  // single
+                  else if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zOA==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80OQ=='
+                  }
+                  // double
+                  else if (option === 'Y29uZmlndXJhYmxlLzE5Mi8zOQ==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC81Mg=='
+                  }
+                  // may
+                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80MA==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzNS8zNw=='
+                  }
+                  // june
+                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80MQ==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzNS80MA=='
+                  }
+                  // july
+                  else if (option === 'Y29uZmlndXJhYmxlLzE5My80Mg==') {
+                    selection.optionsUIDs[idx] = 'Y29uZmlndXJhYmxlLzUzOC80Ng=='
+                  }
+                  else {
+                    console.warn('unknown option - cannot hardcode', option)
+                  }
+                });
+                await addProductsToCart([selection]);
               } catch (error) {
                 console.error('Error occurred while adding products to cart:', error);
               } finally {
@@ -111,7 +148,7 @@ export default async function decorate(block) {
         });
       },
       ShortDescription: (ctx) => {
-        const shortDescContent = ctx?.data?.shortDescription;        
+        const shortDescContent = ctx?.data?.shortDescription;
         const strippedString = shortDescContent.replace(/<[^>]+>/g, '').trim();
         if (!shortDescContent || !strippedString) return;
 
@@ -125,7 +162,7 @@ export default async function decorate(block) {
       Attributes: (ctx) => {
         const attributes = ctx?.data?.attributes;
         if (!attributes) return;
-        
+
         let list;
         list = generateListHTML(attributes);
         const [html, updateContent] = createAccordion('Product specs', list, false);
