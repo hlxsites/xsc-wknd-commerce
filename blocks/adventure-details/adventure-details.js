@@ -20,7 +20,7 @@ import { createAccordion, generateListHTML, getBlockPlaceholderInfo, buildAdvent
 
 export default async function decorate(block) {
   const placeholderObject = getBlockPlaceholderInfo(block);
-  const carouselControl = placeholderObject['Carousel-Controls'];
+  const carouselControl = placeholderObject['Carousel-Controls'].layout;
   block.innerHTML = '';
 
   buildAdventureBreadcrumbs();
@@ -49,13 +49,13 @@ export default async function decorate(block) {
       Title: (ctx) => {
         const headerTitle = document.createElement('div');
         headerTitle.className = 'custom-title';
-        headerTitle.textContent = placeholderObject['Header-Title'];
+        headerTitle.textContent = placeholderObject['Header-Title'].text;
         ctx.prependSibling(headerTitle);
       },
       Quantity: (ctx) => {
         const label = document.createElement('div');
         label.className = 'quantity-label';
-        label.textContent = placeholderObject['Quantity-Label'];
+        label.textContent = placeholderObject['Quantity-Label'].text;
         ctx.prependChild(label);
       },
       Actions: (ctx) => {
@@ -115,7 +115,7 @@ export default async function decorate(block) {
         const strippedString = shortDescContent.replace(/<[^>]+>/g, '').trim();
         if (!shortDescContent || !strippedString) return;
 
-        const [html, updateContent] = createAccordion('Overview', shortDescContent, true);
+        const [html, updateContent] = createAccordion('Short description', shortDescContent, false);
         ctx.replaceWith(html);
 
         ctx.onChange((next) => {

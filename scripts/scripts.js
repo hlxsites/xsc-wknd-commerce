@@ -428,33 +428,28 @@ export function generateListHTML(data) {
 }
 
 export function getBlockPlaceholderInfo(block) {
-  const placeholderObject = {};
+  const object = {};
+  let currentKey = null;
 
-  const childDivsArray = Array.from(block.children);
-  childDivsArray.forEach((childDiv) => {
-    const property = childDiv.querySelector('div:first-child').textContent.trim();
-    const valueNodes = childDiv.querySelector('div:last-child').querySelectorAll('table');
-
-    if (valueNodes.length > 0) {
-      const valueObject = {};
-      valueNodes.forEach((valueNode) => {
-        const tbody = valueNode.querySelector('tbody');
-        if (!tbody) return;
-        const trs = tbody.querySelectorAll('tr');
-        trs.forEach((tr) => {
-          const tdProperty = tr.querySelector('td:first-child').textContent.trim();
-          const tdValue = tr.querySelector('td:last-child').textContent.trim();
-          valueObject[tdProperty] = tdValue;
-        });
-      });
-      placeholderObject[property] = valueObject;
-    } else {
-      const value = childDiv.querySelector('div:last-child').textContent.trim();
-      placeholderObject[property] = value;
+  block.childNodes.forEach((child) => {
+    if (child.nodeType === Node.ELEMENT_NODE) {
+      const key = child.querySelector('strong');
+      if (key) {
+        currentKey = key.textContent.trim();
+        object[currentKey] = {};
+      } else if (currentKey) {
+        const divs = child.querySelectorAll('div');
+        if (divs.length === 2) {
+          const [keyDiv, valueDiv] = divs;
+          const keyValue = keyDiv.textContent.trim();
+          const value = valueDiv.textContent.trim();
+          object[currentKey][keyValue] = value;
+        }
+      }
     }
   });
 
-  return placeholderObject;
+  return object;
 }
 
 export function buildAdventureBreadcrumbs() {

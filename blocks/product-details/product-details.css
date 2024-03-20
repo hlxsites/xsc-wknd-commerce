@@ -49,11 +49,23 @@
 
 .dropin-design .pdp-product__column-body .pdp-product__short_description {
   order: 5;
+  margin: 0;
 }
 
 .dropin-design .pdp-product__column-body .pdp-product__attributes {
   order: 4;
   margin: 0;
+}
+
+.dropin-design div[data-slot-key="product-swatch--color"] .dropin-image-swatch__span {
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+.dropin-design .dropin-image-swatch__content {
+  transform: scale(1.2);
+  height: 100%;
 }
 
 .dropin-design .pdp-product__sku {
