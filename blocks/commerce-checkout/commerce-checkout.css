@@ -62,3 +62,17 @@
 .dropin-design .checkout-login-form__link {
   color: var(--color-black-100);
 }
+
+input:-webkit-autofill ~ label,
+input:-webkit-autofill:hover ~ label, 
+input:-webkit-autofill:focus ~ label,
+textarea:-webkit-autofill ~ label,
+textarea:-webkit-autofill:hover ~ label,
+textarea:-webkit-autofill:focus ~ label,
+select:-webkit-autofill ~ label,
+select:-webkit-autofill:hover ~ label,
+select:-webkit-autofill:focus ~ label {
+  font:var(--type-body-2-default-font);
+  letter-spacing:var(--type-body-2-default-letter-spacing)
+  border: 1px solid green;
+}
