@@ -392,6 +392,12 @@ a.button-secondary {
   text-transform: uppercase;
 }
 
+.button-tertiary {
+  color: var(--color-black-100);
+  padding: 0;
+  background: none;
+}
+
 a.button.disabled,
 button:not([class^='elsie-']):disabled,
 button:not([class^='elsie-']):disabled:hover {
@@ -409,6 +415,11 @@ button:not([class^='elsie-']).secondary {
 a.button.secondary:hover,
 button:not([class^='elsie-']).secondary:hover {
   color: var(--color-brand-600);
+}
+
+.button-tertiary:hover {
+  color: var(--color-neutral-700);
+  cursor: pointer;
 }
 
 main input:hover {
