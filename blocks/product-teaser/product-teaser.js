@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import { readBlockConfig } from '../../scripts/aem.js';
 import { performCatalogServiceQuery, renderPrice } from '../../scripts/commerce.js';
 
@@ -52,10 +53,13 @@ function renderPlaceholder(config, block) {
     </div>
     <div class="details">
       <h1></h1>
+      <div class="product-description">
+        ${config['description'] !== '' ? config['description'] : ''}
+      </div>
       <div class="price"></div>
       <div class="actions">
-        ${config['details-button'] ? '<a href="#" class="button primary disabled">Details</a>' : ''}
-        ${config['cart-button'] ? '<button class="secondary" disabled>Add to Cart</button>' : ''}
+        ${config['cart-button'] ? '<button class="button-tertiary" disabled>Add to Cart</button>' : ''}
+        ${config['details-button'] ? '<a href="#" class="button-primary disabled">View Details</a>' : ''}
       </div>
     </div>
   `));
@@ -108,10 +112,13 @@ function renderProduct(product, config, block) {
     </div>
     <div class="details">
       <h1>${name}</h1>
+      <div class="product-description">
+        ${config['description'] !== '' ? config['description'] : ''}
+      </div>
       <div class="price">${renderPrice(product, priceFormatter.format)}</div>
       <div class="actions">
-        ${config['details-button'] ? `<a href="/products/${urlKey}/${sku}" class="button primary">Details</a>` : ''}
-        ${config['cart-button'] && addToCartAllowed && __typename === 'SimpleProductView' ? '<button class="add-to-cart secondary">Add to Cart</button>' : ''}
+        ${config['cart-button'] && addToCartAllowed && (__typename === 'SimpleProductView' || __typename === 'ComplexProductView') ? '<button class="add-to-cart button-tertiary">Add to Cart</button>' : ''}
+        ${config['details-button'] ? `<a href="/products/${urlKey}/${sku}" class="button-primary">View Details</a>` : ''}
       </div>
     </div>
   `);
