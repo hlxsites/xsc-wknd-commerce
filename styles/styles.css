@@ -373,7 +373,6 @@ a.button-primary:active {
   background-color: var(--color-brand-700);
 }
 
-
 button.button-secondary,
 a.button-secondary {
   display: block;
@@ -393,8 +392,18 @@ a.button-secondary {
 }
 
 .button-tertiary {
+  font-size: var(--body-font-size-md);
+  font-weight: 600;
   color: var(--color-black-100);
-  padding: 0;
+  padding: 8px 24px;
+  width: fit-content;
+  height: auto;
+  letter-spacing: 0.08em;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  margin: 15px 0;
+  text-transform: uppercase;
   background: none;
 }
 
