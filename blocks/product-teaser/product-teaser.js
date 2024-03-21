@@ -7,6 +7,7 @@ const productTeaserQuery = `query productTeaser($sku: String!) {
     sku
     urlKey
     name
+    shortDescription
     addToCartAllowed
     __typename
     images(roles: ["small_image"]) {
@@ -113,7 +114,7 @@ function renderProduct(product, config, block) {
     <div class="details">
       <h1>${name}</h1>
       <div class="product-description">
-        ${config['description'] !== '' ? config['description'] : ''}
+        ${shortDescription}
       </div>
       <div class="price">${renderPrice(product, priceFormatter.format)}</div>
       <div class="actions">
