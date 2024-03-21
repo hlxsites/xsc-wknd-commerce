@@ -117,7 +117,7 @@ function renderProduct(product, config, block) {
       </div>
       <div class="price">${renderPrice(product, priceFormatter.format)}</div>
       <div class="actions">
-        ${config['cart-button'] && addToCartAllowed && (__typename === 'SimpleProductView' || __typename === 'ComplexProductView') ? '<button class="add-to-cart button-tertiary">Add to Cart</button>' : ''}
+        ${config['cart-button'] && addToCartAllowed && (__typename === 'SimpleProductView') ? '<button class="add-to-cart button-tertiary">Add to Cart</button>' : ''}
         ${config['details-button'] ? `<a href="/products/${urlKey}/${sku}" class="button-primary">View Details</a>` : ''}
       </div>
     </div>
