@@ -98,7 +98,7 @@ function renderImage(image, size = 250) {
 
 function renderProduct(product, config, block) {
   const {
-    name, urlKey, sku, price, priceRange, addToCartAllowed, __typename,
+    name, urlKey, sku, price, shortDescription, priceRange, addToCartAllowed, __typename,
   } = product;
 
   const currency = price?.final?.amount?.currency || priceRange?.minimum?.final?.amount?.currency;
