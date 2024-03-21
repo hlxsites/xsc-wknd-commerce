@@ -142,6 +142,7 @@
 .dropin-design .pdp-product__column-body .pdp-product__attributes {
   order: 4;
   margin: 0;
+  display: none;
 }
 
 
