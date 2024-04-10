@@ -1,5 +1,5 @@
 mountpoints:
-  /: https://drive.google.com/drive/folders/1gvl8Sg6u8ZKeBsxDtwBOgnuJkCyL4_I_
+  /: https://adobe-my.sharepoint.com/:f:/r/personal/timothyl_adobe_com/Documents/wknd-commerce?csf=1&web=1&e=Do9X7G
 
 folders:
   /products/: /products/default
