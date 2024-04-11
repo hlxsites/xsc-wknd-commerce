@@ -331,13 +331,18 @@ export function getAdventureSkuFromUrl() {
   if (path.startsWith('/experiments/')) {
     const pathStr = path.match(/\/experiments\/([\w|-]+)\/([\w|-]+)\/([\w|-]+)$/);
     result = pathStr?.[3];
-  } else if (path.startsWith('/adventures/')) {
+  }
+  if (path.startsWith('/adventures/')) {
     const pathStr = path.match(/\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
+    result = pathStr?.[2];
+  }
+  const searchString = '/draft/commerce-sc/';
+  if (path.indexOf(searchString) === 0) {
+    const pathStr = path.match(/\/draft\/commerce-sc\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
     result = pathStr?.[2];
   }
   return result;
 }
-
 
 const productsCache = {};
 export async function getProduct(sku) {

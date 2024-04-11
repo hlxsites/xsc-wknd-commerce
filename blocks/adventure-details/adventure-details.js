@@ -24,7 +24,7 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   buildAdventureBreadcrumbs();
-
+  
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
