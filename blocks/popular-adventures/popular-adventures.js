@@ -10,6 +10,7 @@ export default async function decorate(block) {
   let cards = [];
   const tableData = [];
   const cardsContainer = block.parentNode.parentNode;
+  const urlPathName = window.location.pathname;
 
   // Extract information from div elements
   const divElements = block.querySelectorAll('div');
@@ -83,7 +84,7 @@ export default async function decorate(block) {
       picture.lastElementChild.height = '150';
 
       createdCard.classList.add('article-card');
-      createdCard.href = `/adventures/${card.slug}`;
+      createdCard.href = `${urlPathName}adventures/${card.slug}`;
       createdCard.innerHTML = `
         <div class="card-image">${picture.outerHTML}</div>
         <div class="card-info">

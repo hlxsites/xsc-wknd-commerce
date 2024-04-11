@@ -19,6 +19,7 @@ import { getAdventureSkuFromUrl } from '../../scripts/commerce.js';
 import { createAccordion, generateListHTML, getBlockPlaceholderInfo, buildAdventureBreadcrumbs } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
+  console.log("adventure details: ", block)
   const placeholderObject = getBlockPlaceholderInfo(block);
   const carouselControl = placeholderObject['Carousel-Controls'].layout;
   block.innerHTML = '';
