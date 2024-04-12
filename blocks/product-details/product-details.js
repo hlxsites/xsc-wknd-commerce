@@ -24,9 +24,6 @@ export default async function decorate(block) {
   const carouselControl = placeholderObject['Carousel-Controls'].layout;
   block.innerHTML = '';
 
-  const test = getSkuFromUrl();
-  console.log("test: ", test);
-
   // Initialize Drop-ins
   initializers.register(product.initialize, {});
 
