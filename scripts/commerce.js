@@ -316,9 +316,15 @@ export function getSkuFromUrl() {
   if (path.startsWith('/experiments/')) {
     const pathStr = path.match(/\/experiments\/([\w|-]+)\/([\w|-]+)\/([\w|-]+)$/);
     result = pathStr?.[3];
-  } else if (path.startsWith('/products/')) {
+  }
+  if (path.startsWith('/products/')) {
     const pathStr = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
     result = pathStr?.[1];
+  }
+  const searchString = '/draft/commerce-sc/';
+  if (path.indexOf(searchString) === 0) {
+    const pathStr = path.match(/\/draft\/commerce-sc\/products\/([\w|-]+)\/([\w|-]+)$/);
+    result = pathStr?.[2];
   }
   return result;
 }
