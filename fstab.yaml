@@ -1,5 +1,5 @@
 mountpoints:
-  /: https://adobe.sharepoint.com/:f:/r/sites/AEMNAMExpertSCs/Shared%20Documents/General/Demo-2.0/Adobe-Demo-Hub-Assets-DO-NOT-DELETE/wknd-commerce
+  /: https://adobe.sharepoint.com/:f:/r/sites/AEMNAMExpertSCs/Shared%20Documents/General/Demo-2.0/Adobe-Demo-Hub-Assets-%5BDO-NOT-DELETE%5D/wknd-commerce
 
 folders:
   /products/: /products/default
