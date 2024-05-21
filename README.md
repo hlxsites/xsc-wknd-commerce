@@ -1,9 +1,9 @@
-# Edge Delivery Services + Adobe Commerce (Experimental)
+# CitiSignal Storefront
 
 ## Environments
 
-- Preview: https://main--xsc-wknd-commerce--hlxsites.hlx.page/
-- Live: https://main--xsc-wknd-commerce--hlxsites.hlx.live/
+- Preview: https://main--citisignal--adobedevxsc.hlx.page/
+- Live: https://main--citisignal--adobedevxsc.hlx.live/
 
 ## Pre-requisites
 
