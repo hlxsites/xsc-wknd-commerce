@@ -39,7 +39,7 @@ export default async function decorate(block) {
     context: {
       customerGroup: await getConfigValue('commerce-customer-group'),
     },
-    route: ({ sku, urlKey }) => `/products/${urlKey}/${sku}`,
+    route: ({ sku }) => `/products/${sku}`,
   };
 
   if (type !== 'search') {
