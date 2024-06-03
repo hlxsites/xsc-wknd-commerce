@@ -318,7 +318,7 @@ export function getSkuFromUrl() {
     result = pathStr?.[3];
   }
   if (path.startsWith('/products/')) {
-    const pathStr = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
+    const pathStr = path.match(/\/products\/(.+)$/);
     result = pathStr?.[1];
   }
   const searchString = '/draft/commerce-sc/';
