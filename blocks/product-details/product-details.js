@@ -42,7 +42,7 @@ export default async function decorate(block) {
     'x-api-key': await getConfigValue('commerce-x-api-key'),
   });
 
-  console.log(await getConfigValue('store'));
+  console.log('store config: ', await getConfigValue('store'));
   setCartDropinRequestHeader('store', await getConfigValue('store')); // citisignal_us
 
   // Render Containers

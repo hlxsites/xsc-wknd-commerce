@@ -178,9 +178,7 @@ export function decorateMain(main) {
 /**
  * to add/remove a template, just add/remove it in the list below
  */
-const TEMPLATE_LIST = [
-  'adventures',
-];
+const TEMPLATE_LIST = [];
 
 /**
  * Run template specific decoration code.
@@ -450,33 +448,6 @@ export function getBlockPlaceholderInfo(block) {
   });
 
   return object;
-}
-
-export function buildAdventureBreadcrumbs() {
-  const path = window.location.pathname.split('/').slice(1).map((word) => word.charAt(0).toUpperCase() + word.slice(1).replace(/-/g, ' '));
-  const breadcrumbContainer = document.createElement('div');
-  breadcrumbContainer.className = 'breadcrumb-wrapper';
-
-  const adventuresLink = document.createElement('a');
-  adventuresLink.href = '/adventures';
-  adventuresLink.textContent = 'Adventures';
-  breadcrumbContainer.appendChild(adventuresLink);
-
-  if (path.length > 2) {
-    breadcrumbContainer.appendChild(document.createTextNode(' • '));
-    const adventureName = document.createElement('span');
-    adventureName.textContent = path[path.length - 2];
-    breadcrumbContainer.appendChild(adventureName);
-  } else if (path.length === 2) {
-    breadcrumbContainer.appendChild(document.createTextNode(' • '));
-    const adventureName = document.createElement('span');
-    adventureName.textContent = path[1];
-    breadcrumbContainer.appendChild(adventureName);
-  }
-
-  const firstSection = document.querySelector('main > .section');
-  firstSection.prepend(breadcrumbContainer);
-  firstSection.classList.add('breadcrumb-container');
 }
 
 async function loadPage() {

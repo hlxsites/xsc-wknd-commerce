@@ -1,6 +1,6 @@
 import { readBlockConfig } from '../../scripts/aem.js';
 import { fetchIndex, loadFragment } from '../../scripts/scripts.js';
-import { getSkuFromUrl, getAdventureSkuFromUrl } from '../../scripts/commerce.js';
+import { getSkuFromUrl } from '../../scripts/commerce.js';
 
 export default async function decorate(block) {
   const { type, position } = readBlockConfig(block);
@@ -8,12 +8,6 @@ export default async function decorate(block) {
   const filters = {};
   if (type === 'product') {
     const productSku = getSkuFromUrl();
-    if (!productSku) return;
-    filters.products = productSku;
-  }
-
-  if (type === 'adventure') {
-    const productSku = getAdventureSkuFromUrl();
     if (!productSku) return;
     filters.products = productSku;
   }

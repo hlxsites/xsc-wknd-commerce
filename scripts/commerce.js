@@ -329,27 +329,6 @@ export function getSkuFromUrl() {
   return result;
 }
 
-// Adventures custom pdp specific
-export function getAdventureSkuFromUrl() {
-  const path = window.location.pathname;
-  let result;
-
-  if (path.startsWith('/experiments/')) {
-    const pathStr = path.match(/\/experiments\/([\w|-]+)\/([\w|-]+)\/([\w|-]+)$/);
-    result = pathStr?.[3];
-  }
-  if (path.startsWith('/adventures/')) {
-    const pathStr = path.match(/\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
-    result = pathStr?.[2];
-  }
-  const searchString = '/draft/commerce-sc/';
-  if (path.indexOf(searchString) === 0) {
-    const pathStr = path.match(/\/draft\/commerce-sc\/adventures\/details\/([\w|-]+)\/([\w|-]+)$/);
-    result = pathStr?.[2];
-  }
-  return result;
-}
-
 const productsCache = {};
 export async function getProduct(sku) {
   // eslint-disable-next-line no-param-reassign
