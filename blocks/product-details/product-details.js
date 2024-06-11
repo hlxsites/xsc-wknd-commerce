@@ -6,7 +6,8 @@ import { initializers } from '@dropins/tools/initializer.js';
 
 // Drop-in APIs
 import * as product from '@dropins/storefront-pdp/api.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+// import { addProductsToCart } from '@dropins/storefront-cart/api.js';
+import { addProductsToCart, setFetchGraphQlHeader as setCartDropinRequestHeader } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
@@ -40,6 +41,9 @@ export default async function decorate(block) {
     'Magento-Customer-Group': await getConfigValue('commerce-customer-group'),
     'x-api-key': await getConfigValue('commerce-x-api-key'),
   });
+
+  console.log(await getConfigValue('commerce-store-view-code'));
+  setCartDropinRequestHeader('Store', await getConfigValue('commerce-store-view-code')); // citisignal_us
 
   // Render Containers
   return productRenderer.render(ProductDetails, {
