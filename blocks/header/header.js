@@ -128,13 +128,6 @@ function setActiveTab() {
       link.classList.add('active');
     }
   });
-
-  /* temp - only for the demo since the adventures landing page is the "home page"
-  */
-  if (!path) {
-    const adventureTab = navTabLinks.querySelector('a[title="Adventures"],a[title="adventures"]');
-    adventureTab.classList.add('active');
-  }
 }
 
 /**
