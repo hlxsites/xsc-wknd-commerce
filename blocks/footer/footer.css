@@ -1,3 +1,4 @@
+/* Base Styles */
 footer {
   padding: 2rem;
   background-color: var(--color-black-100);
@@ -9,19 +10,18 @@ footer {
 footer .footer {
   max-width: var(--large-grid-layout);
   margin: auto;
-  height: 19vh;
+  height: auto;
   padding: 4rem 0;
 }
 
-@media (width <= 900px) {
-  footer .footer {
-    padding: 1rem 0;
-  }
-}
-
-
 footer .footer p {
   margin: 0;
+  font-size: var(--body-font-size-xxs);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  max-width: 525px;
 }
 
 footer a {
@@ -30,56 +30,30 @@ footer a {
 
 footer .wrapper {
   display: flex;
-  align-items: center;
-}
-
-@media (width <= 900px) {
-  footer .wrapper {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 100%;
-  }
-}
-
-footer .wrapper .section.brand-logo img {
-  width: 150px;
-  height: auto;
+  align-items: flex-start;
 }
 
 footer .wrapper .section.brand-logo {
-  flex: 2;
+  flex: 1;
 }
 
-@media (width <= 900px) {
-  footer .wrapper .section.brand-logo {
-    flex: unset;
-  }
+footer .wrapper .section.brand-logo img {
+  width: 42px;
+  height: auto;
 }
 
 footer .wrapper .section.site-links {
   display: flex;
-  flex: 8;
+  flex: 9;
   width: 100%;
 }
 
-@media (width <= 900px) {
-  footer .wrapper .section.site-links {
-    flex: unset;
-  }
-}
-
 footer .wrapper .section.site-links .default-content-wrapper {
-  margin: 0 0 0 auto;
+  margin: 0 0 auto;
 }
 
-@media (width <= 900px) {
-  footer .wrapper .section.site-links .default-content-wrapper {
-    margin: 0;
-  }
-}
-
-footer .wrapper .section.site-links .default-content-wrapper ul, .footer .wrapper .section.social-media .default-content-wrapper ul {
+footer .wrapper .section.site-links .default-content-wrapper ol,
+footer .wrapper .section.social-media .default-content-wrapper ol {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -87,31 +61,82 @@ footer .wrapper .section.site-links .default-content-wrapper ul, .footer .wrappe
   flex-wrap: wrap;
 }
 
-footer .wrapper .section.site-links .default-content-wrapper ul li a {
-  text-transform: uppercase;
-  font-size: var(--body-font-size-xxs);
-  letter-spacing: 0.16em;
-  margin: 0 1.5em;
+footer .wrapper .section.site-links .default-content-wrapper ol li a {
+  font-size: var(--body-font-size-s);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.96px;
   padding: 1em 1.3em;
 }
 
-.footer .wrapper .section.social-media {
+footer .wrapper .section.site-links .default-content-wrapper ol li:first-of-type a {
+  padding-left: 0;
+}
+
+footer .wrapper .section.social-media {
   margin-left: 2em;
+  flex: 2;
 }
 
-.footer .wrapper .section.social-media .default-content-wrapper ul {
-  background:var(--color-neutral-50);
+footer .wrapper .section.social-media .default-content-wrapper ol {
+  background: transparent;
+  gap: 1rem;
+  justify-content: flex-end;
 }
 
-.footer .wrapper .section.social-media img {
-  padding: 0.85em 1em 0.6em;
-  width: 24px;
-  height: 24px;
+footer .wrapper .section.social-media img {
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 20px;
   box-sizing: content-box;
 }
 
-@media (width <= 900px) {
-  .footer .wrapper .section.social-media img {
+/* Media Queries */
+@media (max-width: 900px) {
+  footer {
+    padding: 4rem 7rem;
+  }
+
+  footer .footer {
+    padding: 1rem 0;
+  }
+
+  footer .footer p {
+    max-width: 100%;
+  }
+
+  footer .wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  footer .wrapper .section.brand-logo {
+    flex: unset;
+  }
+
+  footer .wrapper .section.site-links {
+    flex: unset;
+  }
+
+  footer .wrapper .section.site-links .default-content-wrapper {
+    margin: 0;
+  }
+
+  footer .wrapper .section.site-links .default-content-wrapper ol {
+    display: none;
+  }
+
+  footer .wrapper .section.social-media {
+    flex: unset;
+    margin-left: auto;
+    margin-top: 2rem;
+  }
+
+  footer .wrapper .section.social-media img {
     padding: 0.5em 0.5em 0.2em;
   }
 }
