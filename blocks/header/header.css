@@ -70,6 +70,13 @@ header nav[aria-expanded='true'] {
 
 header .header-nav-wrapper .nav-brand {
   margin-right: 1.5em;
+  margin-top: 0.75rem;
+}
+
+@media (width < 900px) {
+  header .header-nav-wrapper .nav-brand {
+    margin-left: 2rem;
+  }
 }
 
 header nav p {
@@ -274,7 +281,7 @@ header nav .nav-sections ul > li > a:hover {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 2em;
+    gap: 1em;
     margin: 0;
   }
 
