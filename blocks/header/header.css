@@ -86,18 +86,12 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
-  text-transform: uppercase;
-  font-size: var(--body-font-size-xxs);
-  letter-spacing: 0.16em;
+  font-size: var(--body-font-size-s);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.56px;
 }
-
-@media (width <= 900px) {
-  header nav a:any-link {
-    font-size: var(--body-font-size-xs);
-  }
-  
-}
-
 
 /* hamburger */
 header nav .nav-hamburger {
