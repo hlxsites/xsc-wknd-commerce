@@ -16,8 +16,8 @@
  :root,
  .dropin-design.dropin-design {
   /* Font Family  */ 
-  --heading-font-family: 'Source Serif Pro', 'Source-Serif-Pro-Fallback', sans-serif;
-  --type-base-font-family: 'Source Sans Pro', roboto, roboto-fallback, sans-serif;
+  --heading-font-family: "open-sans", sans-serif;
+  --type-base-font-family: "open-sans", roboto, roboto-fallback, sans-serif;
 
   /* body sizes */
   --body-font-size-xxs: 10px;
@@ -36,10 +36,10 @@
   --heading-font-size-xxl: 40px;
 
   /* Elsie base design */
-  --color-brand-300: #F5E96D; 
+  --color-brand-300: #AB5CFE; 
   --color-brand-500: #8821F4;
-  --color-brand-600: #FFE600;
-  --color-brand-700: #F7D522; 
+  --color-brand-600: #7B1CDF;
+  --color-brand-700: #6D17C9; 
   --color-black-100: #000;
   --color-black-200: #202020; 
   --color-neutral-50: #fff;
@@ -174,7 +174,7 @@
 }
 
 @font-face {
-  font-family: 'Source-Serif-Pro-Fallback';
+  font-family: 'open-sans';
   src: local('Arial');
   size-adjust: 107%;
   ascent-override: normal;
@@ -651,7 +651,7 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
   text-transform: uppercase;
   font-weight: 900;
   background: var(--color-brand-500);
-  color: var(--color-black-100);
+  color: var(--color-neutral-50);
 }
 
 /* Secondary Buttons */
