@@ -37,8 +37,8 @@
 
   /* Elsie base design */
   --color-brand-300: #F5E96D; 
-  --color-brand-500: #FFEA00;
-  --color-brand-600: #FFE600; 
+  --color-brand-500: #8821F4;
+  --color-brand-600: #FFE600;
   --color-brand-700: #F7D522; 
   --color-black-100: #000;
   --color-black-200: #202020; 
@@ -170,7 +170,7 @@
   --background-color: var(--color-neutral-50);
   --nav-height: 6.4rem;
   --med-grid-layout: 792px;
-  --large-grid-layout: 1200px;
+  --large-grid-layout: 1400px;
 }
 
 @font-face {
@@ -351,8 +351,8 @@ a.button-primary {
   background-color: var(--color-brand-500);
   font-size: var(--body-font-size-md);
   font-weight: 600;
-  color: var(--color-black-100);
-  padding: 8px 24px;
+  color: var(--color-neutral-50);
+  padding: 8px 30px;
   width: fit-content;
   height: auto;
   letter-spacing: 0.08em;
@@ -361,6 +361,7 @@ a.button-primary {
   text-align: center;
   margin: 15px 0;
   text-transform: uppercase;
+  border-radius: 24px;
 }
 
 button.button-primary:hover,

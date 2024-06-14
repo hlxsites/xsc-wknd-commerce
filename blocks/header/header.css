@@ -29,7 +29,7 @@ header nav {
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   margin: auto;
-  max-width: 1400px;
+  max-width: var(--large-grid-layout);
   height: var(--nav-height);
   padding: 0 16px;
   font-family: var(--type-base-font-family);
@@ -182,9 +182,14 @@ header nav .nav-brand a {
   letter-spacing: var(--type-headline-1-letter-spacing);
 }
 
+header nav .nav-brand .icon {
+  width: auto;
+}
+
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+  margin-bottom: 7px;
 }
 
 /* sections */
