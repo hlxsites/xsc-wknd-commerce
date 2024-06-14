@@ -494,7 +494,7 @@
 @media (width >= 1280px) {
   :root {
     --carousel-control-height: 30px;
-    --pdp-max-width: 1400px;
+    --pdp-max-width: var(--large-grid-layout);
   }
 
   .product-details-custom-wrapper {

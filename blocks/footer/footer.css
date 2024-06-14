@@ -8,7 +8,7 @@ footer {
 }
 
 footer .footer {
-  max-width: var(--large-grid-layout);
+  max-width: 1300px;
   margin: auto;
   height: auto;
   padding: 4rem 0;

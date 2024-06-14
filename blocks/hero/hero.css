@@ -1,30 +1,46 @@
-main .hero-container > div {
-  max-width: 100%;
-}
-  
+/* Container Styles */
 main .hero-container {
-  padding: 0;
-  margin-bottom: 2rem;
+  padding: 2rem 0;
 }
 
+main .hero-container > div {
+  max-width: var(--large-grid-layout);
+}
+
+/* Hero Section Styles */
 .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
-}
-
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
+  display: flex;
+  padding: 5rem 10rem;
+  min-height: 725px;
+  background: linear-gradient(180deg, #8821F4 0%, #3C1268 80.5%);
+  border-radius: 18px;
   box-sizing: border-box;
+  color: #fff;
+  z-index: 0;
 }
 
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero > div:nth-child(2),
+.hero > div:nth-child(3) {
+  flex: 1 1 50%;
+  padding-top: 8%;
+}
+
+.hero div:nth-child(2) > div {
+  width: 50%;
+}
+
+.hero div:nth-child(3) > div {
+  width: 65%;
+  margin-left: auto;
+}
+
+/* Typography Styles */
+.hero h1 {
+  /* font-family: "Open Sans"; */
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 45px;
 }
 
 .hero h1,
@@ -37,50 +53,47 @@ main .hero-container {
   line-height: normal;
 }
 
+.hero div:nth-child(3) h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+/* Paragraph Styles */
 .hero p {
+  margin: 2rem 0;
+}
+
+.hero div:nth-child(3) p:first-of-type {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.56px;
+  padding-right: 30%;
+}
+
+/* Button Container Styles */
+.hero .button-container a {
   margin: 0;
 }
 
-.hero .hero-desc-wrapper {
-  background-color: var(--color-neutral-50);
+/* Picture Styles */
+.hero picture {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 40px;
+  z-index: -1;
+  inset: 0;
+  object-fit: cover;
   box-sizing: border-box;
-  max-width: var(--med-grid-layout);
+  top: 20%;
+}
+
+.hero img {
+  object-fit: contain;
   width: 100%;
-  border-bottom: 1px solid var(--color-neutral-300);
+  height: 100%;
 }
 
-.hero .button-container a {
-  margin-bottom: 0;
-}
-
-@media (width <= 768px) {
-  .hero .hero-desc-wrapper {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: unset;
-  }
-}
-
-.hero .hero-desc-wrapper p:first-of-type {
-  margin: 0.75em 0 1.5em;
-}
-
-@media (width <= 768px) {
-  .hero .hero-desc-wrapper p:first-of-type {
-    font-size: var(--body-font-size-xs);
-  }
-}
-
-.hero .hero-desc-wrapper .button-container {
-  display: inline-block;
-}
-
+/* Default Content Wrapper Styles */
 .hero-container .default-content-wrapper h1,
 .hero-container .default-content-wrapper h2,
 .hero-container .default-content-wrapper h3,
@@ -90,8 +103,47 @@ main .hero-container {
   margin: 1rem 0 3rem;
 }
 
+@media (max-width: 900px) {
+  /* Responsive Styles for Hero Sections */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem;
+    min-height: auto;
+  }
 
-@media (width <= 768px) {
+  .hero > div:nth-child(1) {
+    display: none;
+  }
+
+  .hero > div:nth-child(2),
+  .hero > div:nth-child(3) {
+    flex: unset;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .hero div:nth-child(2) > div {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .hero div:nth-child(3) > div {
+    width: 100%;
+    margin-left: unset;
+  }
+
+  .hero div:nth-child(3) p:first-of-type {
+    padding-right: 0;
+  }
+
+  .hero .button-container a {
+    margin: 0 auto;
+  }
+
+  /* Responsive Styles for Default Content Wrapper */
   .hero-container .default-content-wrapper h1,
   .hero-container .default-content-wrapper h2,
   .hero-container .default-content-wrapper h3,
@@ -100,5 +152,11 @@ main .hero-container {
   .hero-container .default-content-wrapper h6 {
     padding: 0 1rem;
     margin: 1rem 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main .hero-container {
+    padding: 1rem 0;
   }
 }
