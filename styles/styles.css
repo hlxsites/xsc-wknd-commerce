@@ -17,7 +17,7 @@
  .dropin-design.dropin-design {
   /* Font Family  */ 
   --heading-font-family: "open-sans", sans-serif;
-  --type-base-font-family: "open-sans", roboto, roboto-fallback, sans-serif;
+  --type-base-font-family: "open-sans", sans-serif;
 
   /* body sizes */
   --body-font-size-xxs: 10px;
@@ -533,7 +533,6 @@ main .section.section-title .default-content-wrapper:first-of-type p::after {
 }
 
 /* Breadcrumb */
-
 .breadcrumb-wrapper {
   max-width: var(--large-grid-layout);
   margin: 0 auto;
