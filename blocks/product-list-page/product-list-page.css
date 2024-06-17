@@ -57,3 +57,7 @@
 .product-list-page .ds-widgets-_actions {
   max-width: 225px;
 }
+
+.product-list-page .ds-widgets_results > div {
+  max-width: 100%;
+}
