@@ -1,6 +1,6 @@
 /* Container Styles */
 main .hero-container {
-  padding: 2rem 0;
+  padding: 2rem 2rem 0;
 }
 
 main .hero-container > div {
@@ -69,12 +69,15 @@ main .hero-container > div {
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0.56px;
-  padding-right: 30%;
+  padding-right: 25%;
 }
 
 /* Button Container Styles */
 .hero .button-container a {
   margin: 0;
+  font-size: 20px;
+  letter-spacing: 1.6px;
+  font-weight: 500;
 }
 
 /* Picture Styles */
@@ -157,6 +160,6 @@ main .hero-container > div {
 
 @media (max-width: 768px) {
   main .hero-container {
-    padding: 1rem 0;
+    padding: 1.5rem 15px 0;
   }
 }
