@@ -7,12 +7,16 @@ import { events } from '@dropins/tools/event-bus.js';
 
 // Drop-in APIs
 import * as checkout from '@dropins/storefront-checkout/api.js';
+import { setFetchGraphQlHeader as setCartDropinRequestHeader } from '@dropins/storefront-cart/api.js';
 
 // Drop-in Providers
 import { render as provider } from '@dropins/storefront-checkout/render.js';
 
 // Drop-in Containers
 import Checkout from '@dropins/storefront-checkout/containers/Checkout.js';
+
+// Libs
+import { getConfigValue } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
   // If cartId is cached in session storage, use
@@ -21,6 +25,7 @@ export default async function decorate(block) {
 
   // Initialize Drop-ins
   initializers.register(checkout.initialize, {});
+  setCartDropinRequestHeader('store', await getConfigValue('store'));
 
   // Listen for order confirmation and redirect to order confirmation page
   events.on('checkout/order', (data) => {
