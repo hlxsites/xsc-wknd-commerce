@@ -74,25 +74,6 @@ footer .wrapper .section.site-links .default-content-wrapper ol li:first-of-type
   padding-left: 0;
 }
 
-footer .wrapper .section.social-media {
-  margin-left: 2em;
-  flex: 2;
-}
-
-footer .wrapper .section.social-media .default-content-wrapper ol {
-  background: transparent;
-  gap: 1rem;
-  justify-content: flex-end;
-}
-
-footer .wrapper .section.social-media img {
-  padding: 0;
-  margin: 0;
-  width: 20px;
-  height: 20px;
-  box-sizing: content-box;
-}
-
 /* Media Queries */
 @media (max-width: 900px) {
   footer {
