@@ -63,7 +63,7 @@ export default async function decorate(block) {
 
   window.LiveSearchPLP({ storeDetails, root: block });
 
-  //custom code
+  // Add custom title
   const resultsHeaderTitle = block.querySelector('.ds-widgets_results > div:first-of-type > div > div:first-of-type');
   const formattedUrlPath = urlpath.replace('-', ' ');
   resultsHeaderTitle.classList.add('results-header-title');

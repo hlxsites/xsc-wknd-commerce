@@ -45,6 +45,10 @@
   transition: transform 0.25s ease;
 }
 
+.product-list-page .ds-sdk-product-item a {
+  padding: 0.5rem 0.75rem;
+}
+
 .product-list-page .ds-sdk-product-item:hover {
   border: 1px solid var(--color-neutral-300);
   box-shadow: 0 0 10px rgba(0 0 0 / 10%);
