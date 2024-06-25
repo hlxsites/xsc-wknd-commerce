@@ -519,7 +519,7 @@ function readBlockConfig(block) {
  */
 function decorateButtons(element) {
   element.querySelectorAll('a').forEach((a) => {
-    a.title = a.title || a.textContent;
+    a.title = a.title.trim() || a.textContent.trim();
     if (a.href !== a.textContent) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
