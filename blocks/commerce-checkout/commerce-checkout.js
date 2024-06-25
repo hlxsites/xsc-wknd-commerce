@@ -7,7 +7,7 @@ import { events } from '@dropins/tools/event-bus.js';
 
 // Drop-in APIs
 import * as checkout from '@dropins/storefront-checkout/api.js';
-import { setFetchGraphQlHeader as setCartDropinRequestHeader } from '@dropins/storefront-cart/api.js';
+import { setFetchGraphQlHeader as setCartDropinRequestHeader } from '@dropins/storefront-checkout/api.js';
 
 // Drop-in Providers
 import { render as provider } from '@dropins/storefront-checkout/render.js';
