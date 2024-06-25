@@ -1,6 +1,22 @@
 /* stylelint-disable */
+.dropin-design .pdp-product {
+  grid-column-gap: var(--spacing-big);
+}
+
 .dropin-design .pdp-product__prices {
-  margin-top: 2rem;
+  margin-top: 0;
+  margin-bottom: 2rem
+}
+
+@media (width >= 1024px) {
+  .dropin-design .pdp-product__prices {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+.dropin-design .pdp-price-range span {
+  font-weight: 900;
 }
 
 .dropin-design .pdp-product__quantity {
@@ -9,12 +25,34 @@
 
 .dropin-design .pdp-product__buttons {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
+.dropin-design .pdp-product__buttons button:nth-of-type(1) {
+  flex-basis: 100%;
 }
 
 .dropin-design .dropin-button--primary,
 .dropin-design .dropin-button--secondary {
-  width: 100%;
+  width: min-content;
+  flex: auto;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropin-design .dropin-button--primary:hover,
+.dropin-design .dropin-button--secondary:hover,
+.dropin-design .dropin-button--primary:focus,
+.dropin-design .dropin-button--secondary:focus {
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+}
+
+.dropin-design .dropin-button--primary:hover {
+  background-color: var(--color-brand-600);
 }
 
 .dropin-design .pdp-carousel__button--thumbnailsColumn {
@@ -70,4 +108,38 @@
 
 .dropin-design .pdp-product__sku {
   display: none;
+}
+
+.dropin-design .pdp-product__overlay__carousel img {
+  max-height: 550px;
+}
+
+.dropin-design .pdp-product__content-column {
+  padding-top: var(--spacing-xsmall);
+}
+
+.dropin-design .pdp-product__title::after {
+  border-bottom: 2px solid var(--color-brand-500);
+  content: "";
+  display: block;
+  padding-top: 8px;
+  min-width: 84px;
+  width: fit-content;
+}
+
+.dropin-design .pdp-product__actions {
+  margin-top: 4rem;
+  grid-row-gap: var(--spacing-big);
+}
+
+.dropin-design .pdp-product__quantity .quantity-label {
+  font: var(--type-details-caption-1-font);
+  letter-spacing: var(--type-details-caption-1-letter-spacing);
+  color: var(--color-neutral-800);
+  padding-bottom: 7px;
+}
+
+.dropin-design .pdp-swatches__field__label,
+.dropin-design .pdp-product__quantity .quantity-label {
+  font-weight: 900;
 }

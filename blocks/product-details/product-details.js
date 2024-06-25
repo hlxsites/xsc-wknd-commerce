@@ -48,6 +48,12 @@ export default async function decorate(block) {
   return productRenderer.render(ProductDetails, {
     sku: getSkuFromUrl(),
     slots: {
+      Quantity: (ctx) => {
+        const label = document.createElement('div');
+        label.className = 'quantity-label';
+        label.textContent = 'Quantity';
+        ctx.prependChild(label);
+      },
       Actions: (ctx) => {
         // Add to Cart Button
         ctx.appendButton((next, state) => {
@@ -73,12 +79,20 @@ export default async function decorate(block) {
           };
         });
 
-        // Add to Wishlist Button
+        // Add To Wishlist Button
         ctx.appendButton(() => ({
-          text: placeholderObject['Add-To-Wishlist-Button'].text,
-          icon: placeholderObject['Add-To-Wishlist-Button'].icon,
-          variant: placeholderObject['Add-To-Wishlist-Button'].variant,
+          text: placeholderObject['Add-To-List-Button'].text,
+          icon: placeholderObject['Add-To-List-Button'].icon,
+          variant: placeholderObject['Add-To-List-Button'].variant,
           onClick: () => console.debug('Add to Wishlist', ctx.data),
+        }));
+
+        // Share Button
+        ctx.appendButton(() => ({
+          text: placeholderObject['Share-Button'].text,
+          icon: placeholderObject['Share-Button'].icon,
+          variant: placeholderObject['Share-Button'].variant,
+          onClick: () => console.debug('Share Button', ctx.data),
         }));
       },
       Description: (ctx) => {

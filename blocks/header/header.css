@@ -198,6 +198,7 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
+  margin-left: 5%;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
